@@ -1,1 +1,1 @@
-# [terminal Life](https://github.com/typinghare/terminal-life)
+# [Terminal Life](https://github.com/typinghare/terminal-life)
