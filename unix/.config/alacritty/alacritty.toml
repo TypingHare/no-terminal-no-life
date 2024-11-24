@@ -1,0 +1,9 @@
+# Alacritty configuration
+# https://alacritty.org/config-alacritty.html
+
+general.import = [
+    "~/.config/alacritty/font.toml",
+    "~/.config/alacritty/window.toml",
+    "~/.config/alacritty/theme.toml"
+]
+

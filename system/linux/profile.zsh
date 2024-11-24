@@ -1,4 +1,6 @@
-# The following three commands are often used in listing files and directories.
+#! /bin/zsh
+
+# The following commands are often used in listing files and directories.
 # LSD is a substitute of the builtin "ls" command with powerful features. The
 # link to the GitHub repository of LSD is as follows:
 #
