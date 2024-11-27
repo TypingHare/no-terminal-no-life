@@ -1,0 +1,15 @@
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+
+[java]
+disabled = true
+
+[kotlin]
+format = "[${symbol} ]($style)"
+
+[gradle]
+disabled = true
+
+[nodejs]
+format = "[${symbol} ]($style)"
