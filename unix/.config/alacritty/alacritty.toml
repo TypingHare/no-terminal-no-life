@@ -2,8 +2,16 @@
 # https://alacritty.org/config-alacritty.html
 
 general.import = [
-    "~/.config/alacritty/font.toml",
-    "~/.config/alacritty/window.toml",
     "~/.config/alacritty/theme.toml"
 ]
 
+[window]
+opacity = 0.75
+blur = true
+decorations = "Full"
+dimensions = { columns = 120, lines = 36 }
+padding = { x = 4, y = 4 }
+
+[font]
+normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
+size = 13

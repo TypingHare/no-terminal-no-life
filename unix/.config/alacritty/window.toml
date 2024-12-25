@@ -1,6 +1,0 @@
-[window]
-opacity = 0.75
-blur = true
-decorations = "Full"
-dimensions = { columns = 120, lines = 36 }
-padding = { x = 4, y = 4 }

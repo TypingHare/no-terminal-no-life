@@ -2,6 +2,9 @@
 success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red)"
 
+[package]
+format = '[📦 $version](208 bold) '
+
 [java]
 disabled = true
 
@@ -12,4 +15,7 @@ format = "[${symbol} ]($style)"
 disabled = true
 
 [nodejs]
+format = "[${symbol} ]($style)"
+
+[rust]
 format = "[${symbol} ]($style)"
