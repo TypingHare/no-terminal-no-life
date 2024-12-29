@@ -12,3 +12,8 @@ Desktop & Dock > "Automatically hide and show the Dock" > On
 Hide the menu bar automatically:
 
 Control Center > "Automatically hide and show the menu bar" > Always
+
+```shell
+defaults write com.apple.dock minimize-to-application -bool true
+killall Dock
+```
