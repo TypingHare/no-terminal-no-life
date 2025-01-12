@@ -1,4 +1,8 @@
-finder() {
+# Apple cloud
+alias cloud="cd $HOME/Library/Mobile Documents/com~apple~CloudDocs/"
+
+# A help function
+function finder() {
   target="${1:-.}"
 
   if [ -d "$target" ]; then
