@@ -16,7 +16,7 @@ function finder() {
 }
 
 ### Copy file path and directory path ###
-cpn() {
+function cpn() {
     if [ -z "$1" ]; then
         # No argument passed, copy current working directory
         echo "$(pwd)" | pbcopy
@@ -25,3 +25,14 @@ cpn() {
         echo "$(pwd)/$1" | pbcopy
     fi
 }
+
+# The following aliases refer to two essential commands in Unix systems. The
+# rmtrash and rmdirtrash command moves files and directories to a specific 
+# directory instead of deleting them from the system. The GitHub link to the
+# associated package is as follows:
+#
+#     https://github.com/PhrozenByte/rmtrash
+#
+# In macOS, the files and directories are moved to ~/.Trash.
+alias rm='rmtrash'
+

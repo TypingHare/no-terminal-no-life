@@ -41,5 +41,3 @@ alias n="nvim"
 # List all commands sorted
 alias commands="compgen -c | sort | uniq"
 
-### Trash ###
-alias rm='trash'
