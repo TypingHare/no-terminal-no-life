@@ -15,3 +15,6 @@ vim.opt.softtabstop = 4
 
 -- Enable soft wrapping
 vim.opt.wrap = true
+
+--
+vim.opt.colorcolumn = "80"

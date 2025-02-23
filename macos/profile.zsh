@@ -34,5 +34,5 @@ function cpn() {
 #     https://github.com/PhrozenByte/rmtrash
 #
 # In macOS, the files and directories are moved to ~/.Trash.
-alias rm='rmtrash'
+# alias rm='rmtrash'
 
