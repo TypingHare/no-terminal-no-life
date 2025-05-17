@@ -8,10 +8,10 @@
 # By default, it groups directory first, so all directories are displayed
 # above files. It also sorts by time, so recently updated files or directories
 # are at the top.
-alias l="lsd --group-directories-first --timesort"
+alias l="lsd --group-directories-first"
 alias ll="l -l"
 alias la="l -lA"
-alias tree="lsd --tree --group-directories-first --timesort"
+alias tree="lsd --tree --group-directories-first"
 
 # Rewrite the builtin "cd" function, making it runs "ll" whenever it enters a
 # directory.
@@ -31,6 +31,8 @@ function help() {
 
   "$1" --help | less
 }
+
+alias lg="ll | grep"
 
 # The "clear" command is often used, so just shorten it
 alias cl="clear"

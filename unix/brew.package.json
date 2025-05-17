@@ -1,0 +1,11 @@
+[
+  "bat",
+  "lsd",
+  "node",
+  "gradle",
+  "htop",
+  "just",
+  "starship",
+  ["git", "git-quick-stats", "lazy-git"]
+  ["neovim", "fzf", "ripgrep"]
+]
