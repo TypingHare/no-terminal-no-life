@@ -1,7 +1,7 @@
-# Apple cloud
+# Apple Cloud directory path
 export ICLOUD_PATH="$HOME/Library/Mobile Documents/com~apple~CloudDocs/"
 
-# A help function
+# A help function to open Finder.app
 function finder() {
   target="${1:-.}"
 
@@ -15,7 +15,7 @@ function finder() {
   fi
 }
 
-### Copy file path and directory path ###
+# Copy file path and directory path
 function cpn() {
     if [ -z "$1" ]; then
         # No argument passed, copy current working directory
@@ -25,14 +25,3 @@ function cpn() {
         echo "$(pwd)/$1" | pbcopy
     fi
 }
-
-# The following aliases refer to two essential commands in Unix systems. The
-# rmtrash and rmdirtrash command moves files and directories to a specific 
-# directory instead of deleting them from the system. The GitHub link to the
-# associated package is as follows:
-#
-#     https://github.com/PhrozenByte/rmtrash
-#
-# In macOS, the files and directories are moved to ~/.Trash.
-# alias rm='rmtrash'
-

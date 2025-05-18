@@ -13,9 +13,11 @@ alias ll="l -l"
 alias la="l -lA"
 alias tree="lsd --tree --group-directories-first"
 
-# Rewrite the builtin "cd" function, making it runs "ll" whenever it enters a
-# directory.
-function cd() {
+# Find a specific file or directory in the current directory
+alias lg="ll | grep"
+
+# A shortcut for the combination of `cd` and `ll`
+function to() {
   builtin cd "$@" && ll
 }
 
@@ -32,13 +34,11 @@ function help() {
   "$1" --help | less
 }
 
-alias lg="ll | grep"
-
 # The "clear" command is often used, so just shorten it
 alias cl="clear"
 
-# My main terminal-based text editor is neovim
-alias n="nvim"
+# Use nvim instead of vim
+alias vim="nvim"
 
 # List all commands sorted
 alias commands="compgen -c | sort | uniq"
