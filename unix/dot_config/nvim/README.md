@@ -6,9 +6,6 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 ## Prerequisites
 
 ```shell
-# Install cspell
-$ npm install -g cspell
-
 # Install dependencies for TypeScript LSP
 $ npm install -g typescript typescript-language-server
 
@@ -22,11 +19,12 @@ $ cargo install typos-cli
 This is a sample of a mispelled word.
 
 - [ ] tree-sitter (highlight); lsp (semantics and so on); formatter
-- [ ] Save; Reformat; Go to definition; Show the detailed error information
-- [ ] Runner
+- [ ] Save; Reformat; Go to definition (gd); Show the detailed error information
+- [ ] Executor (run the program)
+- [ ] Built-in terminal
 - [ ] Debugger
-- [ ] Split Windows
-- [ ] Sidebar (Create/Delete files); Show hidden files (by default)
+- [ ] Split Windows (iTerm, neovim?)
+- [ ] Sidebar (Create (a) /Delete files); Show hidden files (by default)
 
 ## Websites
 
