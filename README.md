@@ -1,2 +1,2 @@
-# [Terminal Life](https://github.com/typinghare/terminal-life)
+# [No Terminal No Life](https://github.com/TypingHare/no-terminal-no-life)
 
