@@ -6,6 +6,9 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 ## Prerequisites
 
 ```shell
+# Install fzf and ripgrep
+$ brew install fzf ripgrep
+
 # Install dependencies for TypeScript LSP
 $ npm install -g typescript typescript-language-server
 
