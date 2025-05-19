@@ -15,8 +15,8 @@ function finder() {
   fi
 }
 
-# Copy file path and directory path
-function cpn() {
+# Copy file path (absolute path)
+function pick() {
     if [ -z "$1" ]; then
         # No argument passed, copy current working directory
         echo "$(pwd)" | pbcopy
@@ -25,3 +25,17 @@ function cpn() {
         echo "$(pwd)/$1" | pbcopy
     fi
 }
+
+# Move file from path in clipboard to current directory
+function put() {
+    src_path="$(pbpaste)"
+    if [ -f "$src_path" ]; then
+        mv "$src_path" .
+        echo "Moved: $src_path -> $(pwd)"
+    else
+        echo "No such file: $src_path"
+    fi
+}
+
+# Open ~/Downloads
+alias downloads="to ~/Downloads"

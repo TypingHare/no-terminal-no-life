@@ -13,7 +13,8 @@ alias ll="l -l"
 alias la="l -lA"
 alias tree="lsd --tree --group-directories-first"
 
-# Find a specific file or directory in the current directory
+# Find a specific file in the current directory
+# This can also be used to check if a file exists
 alias lg="ll | grep"
 
 # A shortcut for the combination of `cd` and `ll`
@@ -33,9 +34,6 @@ function help() {
 
   "$1" --help | less
 }
-
-# The "clear" command is often used, so just shorten it
-alias cl="clear"
 
 # Use nvim instead of vim
 alias vim="nvim"
