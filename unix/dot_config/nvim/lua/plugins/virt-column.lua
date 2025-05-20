@@ -10,7 +10,7 @@ return {
 
     require('virt-column').setup({
       char = '│',
-      virtcolumn = '80',
+      virtcolumn = '81',
     })
   end,
 }
