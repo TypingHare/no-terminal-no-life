@@ -12,15 +12,16 @@ $ brew install fzf ripgrep
 # Install dependencies for TypeScript LSP
 $ npm install -g typescript typescript-language-server
 
+# Install prettier
+$ npm install -g prettier
+
 # Install typos with cargo (install rust first)
 $ cargo install typos-cli
 ```
 
-
 ## TODO
 
-This is a sample of a mispelled word.
-
+- [ ] Bufferline: `:q` only close the selected file
 - [ ] tree-sitter (highlight); lsp (semantics and so on); formatter
 - [ ] Save; Reformat; Go to definition (gd); Show the detailed error information
 - [ ] Executor (run the program)

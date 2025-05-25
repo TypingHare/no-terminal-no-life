@@ -54,3 +54,26 @@ vim.api.nvim_create_autocmd('VimEnter', {
         end, { noremap = true, silent = true })
     end,
 })
+
+-- When using wq, save and remove the buffer
+vim.cmd([[command! Wq execute 'write' | execute 'lua Snacks.bufdelete()']])
+vim.cmd([[cabbrev wq Wq]])
+
+-- When using q, remove the buffer
+vim.cmd([[command! BufferQuit execute 'lua Snacks.bufdelete()']])
+vim.cmd([[cabbrev q BufferQuit]])
+
+vim.keymap.set(
+    'n',
+    '<leader>ca',
+    vim.lsp.buf.code_action,
+    { desc = 'LSP Code Action' }
+)
+
+-- Renaming
+vim.keymap.set(
+    'n',
+    '<leader>cr',
+    vim.lsp.buf.rename,
+    { desc = 'Rename Identifier' }
+)
