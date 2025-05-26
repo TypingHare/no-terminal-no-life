@@ -1,5 +1,7 @@
 #! /bin/zsh
 
+mkdir -p ~/.config
+
 SCRIPT_DIR="$(cd "$(dirname "${(%):-%N}")" && pwd)"
 DOT_CONFIG_DIR="$(realpath "$SCRIPT_DIR/../dot_config")"
 
