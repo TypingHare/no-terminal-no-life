@@ -50,5 +50,9 @@ RUN echo "source ~/git/ntnl/unix/profile.zsh" >> ~/.zshrc
 RUN git clone https://github.com/neovim/neovim.git ~/git/neovim
 RUN cd ~/git/neovim && git switch release-0.11 && make CMAKE_BUILD_TYPE=Release && sudo make install
 
+# Install Starship
+RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
+RUN echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+
 # Set default shell
 CMD ["/bin/zsh"]
