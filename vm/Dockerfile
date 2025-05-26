@@ -54,5 +54,9 @@ RUN cd ~/git/neovim && git switch release-0.11 && make CMAKE_BUILD_TYPE=Release 
 RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
 RUN echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
+# Set up SSH keys
+RUN mkdir -p ~/.ssh
+RUN cd ~/.ssh && ssh-keygen -t ed25519 -C "docker-debian"
+
 # Set default shell
 CMD ["/bin/zsh"]
