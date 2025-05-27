@@ -11,28 +11,34 @@ return {
             },
             window = {
                 width = 32,
+                ---@type table<string, string | { [1]: function, desc: string }>
                 mappings = {
-                    ["<space>"] = "toggle_node",
-                    ["<cr>"] = "open",
-                    ["S"] = "split_with_window_picker",
-                    ["s"] = "vsplit_with_window_picker",
-                    ["n"] = "add",
-                    ["e"] = function()
-                        vim.cmd("wincmd l")
-                    end,
-                    ["y"] = function(state)
-                        local node = state.tree:get_node()
-                        local path = node:get_id()
-                        local rel_path = vim.fn.fnamemodify(path, ":.")
-                        vim.fn.setreg("+", rel_path)
-
-                        print("Copied relative path: " .. rel_path)
-                    end,
+                    ["e"] = {
+                        function()
+                            vim.cmd("wincmd l")
+                        end,
+                        desc = "Focus editor",
+                    },
+                    ["y"] = {
+                        function(state)
+                            local path = state.tree:get_node():get_id()
+                            local relative_path = vim.fn.fnamemodify(path, ":.")
+                            vim.fn.setreg("+", relative_path)
+                            vim.print("Copied relative path: " .. relative_path)
+                        end,
+                        desc = "Copy relative path",
+                    },
                 },
             },
         })
     end,
     keys = {
-        { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo-tree" },
+        {
+            "<leader>e",
+            function()
+                vim.cmd("Neotree focus")
+            end,
+            desc = "Focus Neo-tree",
+        },
     },
 }
