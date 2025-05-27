@@ -10,14 +10,36 @@ return {
                 },
             },
             window = {
-                width = 32,
-                ---@type table<string, string | { [1]: function, desc: string }>
+                width = 48,
+                ---@type table<string, boolean | string | { [1]: function, desc: string }>
                 mappings = {
+                    ["#"] = false,
+                    ["<space>"] = false,
+                    ["."] = false,
+                    ["<"] = false,
+                    ["<2-Leftmouse>"] = false,
+                    ["<C-b>"] = false,
+                    ["<C-f>"] = false,
+                    ["<C-x>"] = false,
+                    ["<bs>"] = false,
+                    ["<cr>"] = false,
+                    ["<esc>"] = false,
+                    [">"] = false,
+                    ["[g"] = false,
+                    ["]g"] = false,
+                    ["C"] = false,
+                    ["D"] = false,
+                    ["S"] = false,
+                    ["s"] = false,
+                    ["t"] = false,
+                    ["w"] = false,
+                    ["h"] = "close_node",
+                    ["l"] = "open",
                     ["e"] = {
                         function()
                             vim.cmd("wincmd l")
                         end,
-                        desc = "Focus editor",
+                        desc = "Focus Editor",
                     },
                     ["y"] = {
                         function(state)
@@ -26,7 +48,7 @@ return {
                             vim.fn.setreg("+", relative_path)
                             vim.print("Copied relative path: " .. relative_path)
                         end,
-                        desc = "Copy relative path",
+                        desc = "Copy Relative Path",
                     },
                 },
             },
