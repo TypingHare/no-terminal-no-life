@@ -3,21 +3,35 @@ return {
     config = function()
         require("neo-tree").setup({
             filesystem = {
-                filtered_items = {
-                    visible = false,
-                    hide_dotfiles = true,
-                    hide_gitignored = true,
+                always_show = {
+                    ".gitignored",
+                    ".gitkeep",
+                },
+            },
+            default_component_configs = {
+                git_status = {
+                    symbols = {
+                        added = "A",
+                        deleted = "D",
+                        modified = "M",
+                        renamed = "R",
+                        untracked = "?",
+                        ignored = "I",
+                        unstaged = "U",
+                        staged = "S",
+                        conflict = "C",
+                    },
                 },
             },
             window = {
                 width = 48,
-                ---@type table<string, boolean | string | { [1]: function, desc: string }>
+                ---@type table<string, boolean | string | any>
                 mappings = {
                     ["#"] = false,
                     ["<space>"] = false,
                     ["."] = false,
                     ["<"] = false,
-                    ["<2-Leftmouse>"] = false,
+                    ["<2-LeftMouse>"] = false,
                     ["<C-b>"] = false,
                     ["<C-f>"] = false,
                     ["<C-x>"] = false,
@@ -33,8 +47,14 @@ return {
                     ["s"] = false,
                     ["t"] = false,
                     ["w"] = false,
-                    ["h"] = "close_node",
-                    ["l"] = "open",
+                    ["h"] = {
+                        "close_node",
+                        desc = "Close directory",
+                    },
+                    ["l"] = {
+                        "open",
+                        desc = "Open directory",
+                    },
                     ["e"] = {
                         function()
                             vim.cmd("wincmd l")
