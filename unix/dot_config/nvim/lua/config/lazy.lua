@@ -32,6 +32,8 @@ require("lazy").setup({
         { import = "plugins.ui" },
         { import = "plugins.editor" },
         { import = "plugins.coding" },
-        { import = "plugins.themes.catppuccin" },
+
+        -- TODO: Modulize this
+        { import = "plugins.ui.themes.catppuccin" },
     },
 })

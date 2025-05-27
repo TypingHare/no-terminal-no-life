@@ -11,7 +11,9 @@ return {
         vim.api.nvim_create_autocmd("FileType", {
             pattern = { "dashboard" },
             callback = function()
-                vim.b["virt_column_enabled"] = false
+                require("virt-column").setup({
+                    char = "",
+                })
             end,
         })
     end,
