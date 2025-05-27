@@ -6,6 +6,9 @@ return {
         vim.o.timeoutlen = 100
     end,
     config = function()
-        require("which-key").setup({})
+        require("which-key").setup({
+            preset = "helix",
+            delay = 0,
+        })
     end,
 }
