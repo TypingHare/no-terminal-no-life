@@ -30,6 +30,8 @@ require("lazy").setup({
     spec = {
         { import = "plugins" },
         { import = "plugins.ui" },
+        { import = "plugins.editor" },
         { import = "plugins.coding" },
-    }
+        { import = "plugins.themes.catppuccin" },
+    },
 })
