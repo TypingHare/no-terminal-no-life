@@ -1,15 +1,14 @@
 return {
     "lukas-reineke/virt-column.nvim",
     config = function()
-        -- Global setup
         require("virt-column").setup({
-            char = "│",
+            char = "▕",
             virtcolumn = "81",
         })
 
-        -- Disable virt-column on dashboard filetype
+        -- Disable virt-column on some filetypes
         vim.api.nvim_create_autocmd("FileType", {
-            pattern = { "dashboard" },
+            pattern = { "dashboard", "neo-tree" },
             callback = function()
                 require("virt-column").setup({
                     char = "",
