@@ -4,11 +4,12 @@ return {
         require("virt-column").setup({
             char = "▕",
             virtcolumn = "81",
+            priority = 1,
         })
 
         -- Disable virt-column on some filetypes
         vim.api.nvim_create_autocmd("FileType", {
-            pattern = { "dashboard", "neo-tree" },
+            pattern = { "dashboard" },
             callback = function()
                 require("virt-column").setup({
                     char = "",
