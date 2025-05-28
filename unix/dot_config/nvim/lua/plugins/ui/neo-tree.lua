@@ -1,5 +1,6 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
+    lazy = false,
     config = function()
         require("neo-tree").setup({
             filesystem = {
@@ -24,7 +25,7 @@ return {
                 },
             },
             window = {
-                width = 48,
+                width = math.max(32, math.floor(vim.o.columns * 0.2)),
                 ---@type table<string, boolean | string | any>
                 mappings = {
                     ["#"] = false,
