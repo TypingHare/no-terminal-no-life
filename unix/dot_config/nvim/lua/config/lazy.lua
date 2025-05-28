@@ -1,3 +1,8 @@
+-- Disable Neovim's built-in file explorer (netrw)
+-- Must be disabled before lazy.vim is loaded
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Clone lazy.nvim if it doesn't exist
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazy_path) then
