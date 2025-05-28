@@ -3,6 +3,12 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Show relative line numbers
+-- Append three spaces after the line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum}   "
+
 -- Clone lazy.nvim if it doesn't exist
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazy_path) then
@@ -27,7 +33,8 @@ if not vim.uv.fs_stat(lazy_path) then
 end
 
 -- Add the absolute path to the lazy.nvim to the runtime path
--- The runtime path is a list of directories that Neovim searches to find runtime files
+-- The runtime path is a list of directories that Neovim searches to find
+-- runtime files
 vim.opt.rtp:prepend(lazy_path)
 
 -- Set up lazy.vim
