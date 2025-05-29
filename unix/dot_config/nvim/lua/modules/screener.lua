@@ -56,8 +56,10 @@ M.get_elements_by_group = function(group, default)
       ('Unknown group name: %s'):format(group_name),
       vim.log.levels.ERROR
     )
-    return elements
+    return {}
   end
+
+  return elements
 end
 
 --- Registers an autocmd for a specific screening group.
@@ -73,7 +75,8 @@ end
 --- Changes the highlight group for a specific screening group.
 ---@param opts { group?: string, highlight: any }
 M.set_highlight_group = function(opts)
-  local elements = M.get_elements_by_group(opts.group, 'UNEDITABLE')
+  local elements =
+    M.get_elements_by_group(opts.group, 'BACKGROUND_HIGHLIGHT_GROUP')
   for _, element in ipairs(elements) do
     vim.api.nvim_set_hl(0, element, opts.highlight)
   end
