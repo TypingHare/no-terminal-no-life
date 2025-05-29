@@ -17,12 +17,27 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
   }
 end
 
--- Lua-specific settings
-lspconfig.lua_ls.setup {
-  settings = {
-    Lua = {
-      diagnostics = { globals = { 'vim' } },
-      workspace = { checkThirdParty = false },
+require('mason-tool-installer').setup {
+  ensure_installed = {
+    'stylua', -- formatter
+    'luacheck', -- linter
+  },
+  auto_update = false,
+  run_on_start = true,
+}
+
+local null_ls = require 'null-ls'
+
+null_ls.setup {
+  sources = {
+    -- Formatter
+    null_ls.builtins.formatting.stylua,
+
+    -- Linter
+    null_ls.builtins.diagnostics.luacheck.with {
+      extra_args = { '--globals', 'vim' }, -- To prevent false positives
     },
   },
 }
+
+require 'config.lang.lua'
