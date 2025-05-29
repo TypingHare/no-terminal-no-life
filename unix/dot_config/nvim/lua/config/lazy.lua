@@ -44,6 +44,7 @@ require('lazy').setup {
     { import = 'plugins.ui' },
     { import = 'plugins.editor' },
     { import = 'plugins.coding' },
+    { import = 'plugins.lang' },
     { import = 'plugins.ui.themes' },
   },
 }

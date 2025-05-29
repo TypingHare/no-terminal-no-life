@@ -1,14 +1,21 @@
-local lspconfig = require 'lspconfig'
-lspconfig.lua_ls.setup {
-  settings = {
-    Lua = {
-      diagnostics = { globals = { 'vim' } },
-      workspace = { checkThirdParty = false },
-    },
+require('mason-lspconfig').setup {
+  ensure_installed = { 'lua_ls' },
+  automatic_installation = true,
+  handlers = {
+    lua_ls = function()
+      require('lspconfig').lua_ls.setup {
+        settings = {
+          workspace = {
+            library = vim.api.nvim_get_runtime_file('', true),
+            checkThirdParty = false,
+          },
+        },
+      }
+    end,
   },
 }
 
--- automatically save
+-- automatically format when save
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.lua',
   callback = function()
@@ -16,18 +23,19 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- Formatter
-local null_ls = require 'null-ls'
-null_ls.setup {
-  sources = {
-    null_ls.builtins.formatting.stylua,
-  },
-}
-
+-- Install stylua automatically
 require('mason-tool-installer').setup {
   ensure_installed = {
     'stylua',
   },
   auto_update = false,
   run_on_start = true,
+}
+
+-- Formatter
+local null_ls = require 'null-ls'
+null_ls.setup {
+  sources = {
+    null_ls.builtins.formatting.stylua,
+  },
 }

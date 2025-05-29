@@ -1,3 +1,6 @@
--- Binds space to leader
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.keymap.set(
+  'n',
+  '<leader>L',
+  ':LspInfo<CR>',
+  { desc= 'Show LSP Info', silent = true }
+)
