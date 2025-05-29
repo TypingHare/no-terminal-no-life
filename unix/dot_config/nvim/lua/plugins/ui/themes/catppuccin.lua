@@ -10,6 +10,7 @@ return {
     }
 
     require('modules.screener').set_highlight_group {
+      group = 'BACKGROUND_HIGHLIGHT_GROUPS',
       highlight = { bg = 'None' },
     }
   end,

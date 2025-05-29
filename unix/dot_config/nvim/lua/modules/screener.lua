@@ -11,7 +11,7 @@ M.groups = {
     'notify',
     'help',
   },
-  BACKGROUND_HIGHLIGHT_GROUP = {
+  BACKGROUND_HIGHLIGHT_GROUPS = {
     'Normal',
     'NormalNC',
     'NormalFloat',
