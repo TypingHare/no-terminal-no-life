@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
@@ -31,13 +31,6 @@ RUN sudo cp lsd/usr/bin/lsd /usr/local/bin/
 RUN useradd -m -s /bin/zsh admin && echo "admin ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER admin
 WORKDIR /home/admin
-
-# Install Homebrew (Yet support Linux AMR64)
-# See: https://brew.sh
-# RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# RUN echo >> ~/.zshrc
-# RUN echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
-# RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Clone no-terminal-no-life and run the installers
 RUN mkdir -p ~/git
