@@ -4,32 +4,75 @@ local M = {}
 --- Predefined filetype groups
 ---@type table<string, string[]>
 M.groups = {
-    UNEDITABLE = {
-        'lazy',
-        'dashboard',
-        'neo-tree',
-        'notify',
-        'help',
-    },
+  UNEDITABLE = {
+    'lazy',
+    'dashboard',
+    'neo-tree',
+    'notify',
+    'help',
+  },
+  BACKGROUND_HIGHLIGHT_GROUP = {
+    'Normal',
+    'NormalNC',
+    'Comment',
+    'Constant',
+    'Special',
+    'Identifier',
+    'Statement',
+    'PreProc',
+    'Type',
+    'Underlined',
+    'Todo',
+    'String',
+    'Function',
+    'Conditional',
+    'Repeat',
+    'Operator',
+    'Structure',
+    'LineNr',
+    'NonText',
+    'SignColumn',
+    'CursorLine',
+    'CursorLineNr',
+    'StatusLine',
+    'StatusLineNC',
+    'EndOfBuffer',
+  },
 }
 
---- Register an autocmd for a specific filetype group
----@param opts { group?: string, callback: fun(): nil }
-M.set = function(opts)
-    local group_name = opts.group or 'UNEDITABLE'
-    local filetypes = M.groups[group_name]
-    if not filetypes then
-        vim.notify(
-            ('Unknown group name: %s'):format(group_name),
-            vim.log.levels.ERROR
-        )
-        return
-    end
+--- Gets the elements associated with a specific group name.
+---@param group string | nil
+---@param default string | nil
+---@return string[]
+M.get_elements_by_group = function(group, default)
+  local group_name = group or default
+  local elements = M.groups[group_name]
+  if not elements then
+    vim.notify(
+      ('Unknown group name: %s'):format(group_name),
+      vim.log.levels.ERROR
+    )
+    return elements
+  end
+end
 
-    vim.api.nvim_create_autocmd('FileType', {
-        pattern = filetypes,
-        callback = opts.callback,
-    })
+--- Registers an autocmd for a specific screening group.
+---@param opts { group?: string, callback: fun(): nil }
+M.set_file_type = function(opts)
+  local filetypes = M.get_elements_by_group(opts.group, 'UNEDITABLE')
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = filetypes,
+    callback = opts.callback,
+  })
+end
+
+--- Changes the highlight group for a specific screening group.
+---@param opts { group?: string, callback: fun(): nil }
+M.set_highlight_group = function(opts)
+  local elements = M.get_elements_by_group(opts.group, 'UNEDITABLE')
+  for _, element in ipairs(elements) do
+    vim.api.nvim_set_hl(0, element, { bg = '#333333' })
+  end
 end
 
 return M
