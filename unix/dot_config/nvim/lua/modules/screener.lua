@@ -37,6 +37,10 @@ M.groups = {
     'StatusLine',
     'StatusLineNC',
     'EndOfBuffer',
+    'NormalFloat',
+    'FloatBorder',
+    'StatusLineNC',
+    'StatusLine',
   },
 }
 
@@ -67,11 +71,11 @@ M.set_file_type = function(opts)
 end
 
 --- Changes the highlight group for a specific screening group.
----@param opts { group?: string, callback: fun(): nil }
+---@param opts { group?: string, highlight: any }
 M.set_highlight_group = function(opts)
   local elements = M.get_elements_by_group(opts.group, 'UNEDITABLE')
   for _, element in ipairs(elements) do
-    vim.api.nvim_set_hl(0, element, { bg = '#333333' })
+    vim.api.nvim_set_hl(0, element, opts.highlight)
   end
 end
 
