@@ -1,10 +1,11 @@
 return {
-	 "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  event = { "BufReadPost", "BufNewFile" },
+  'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate',
+  event = { 'BufReadPost', 'BufNewFile' },
   config = function()
-    require("nvim-treesitter.configs").setup {
-      ensure_installed = { "lua", "python", "javascript", "html", "css", "bash" }, -- add more
+    ---@diagnostic disable-next-line: missing-fields
+    require('nvim-treesitter.configs').setup {
+      ensure_installed = require('constants.lang').TS_LANGUAGES,
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
@@ -13,5 +14,5 @@ return {
         enable = true,
       },
     }
-  end
+  end,
 }
