@@ -7,6 +7,12 @@ return {
             priority = 1,
         })
 
+        vim.api.nvim_create_autocmd("ColorScheme", {
+            callback = function()
+                vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#313244" })
+            end,
+        })
+
         -- Disable virt-column on some filetypes
         vim.api.nvim_create_autocmd("FileType", {
             pattern = { "dashboard" },

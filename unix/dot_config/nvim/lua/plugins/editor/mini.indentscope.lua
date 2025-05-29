@@ -15,7 +15,7 @@ return {
                 "notify",
             },
             callback = function()
-                vim.b.miniindentscope_disable = true
+                vim.b.miniindentscope_disable = false
             end,
         })
 
