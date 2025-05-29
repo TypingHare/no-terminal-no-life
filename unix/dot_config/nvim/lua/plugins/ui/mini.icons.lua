@@ -1,4 +1,4 @@
 return {
-    "echasnovski/mini.icons",
-    style = "glyph",
+  'echasnovski/mini.icons',
+  style = 'glyph',
 }

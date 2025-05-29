@@ -4,7 +4,7 @@ local M = {}
 --- Predefined filetype groups
 ---@type table<string, string[]>
 M.groups = {
-  UNEDITABLE = {
+  UNEDITABLE_FILETYPES = {
     'lazy',
     'dashboard',
     'neo-tree',

@@ -11,10 +11,13 @@ return {
       end,
     }
 
+    -- Change the color of the vertical line
     vim.api.nvim_create_autocmd('ColorScheme', {
-      callback = function()
-        vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', { fg = '#56ab91' })
-      end,
+      vim.api.nvim_set_hl(
+        0,
+        'MiniIndentscopeSymbol',
+        require('constants.highlight').ACTIVATE_VERTICAL_BARE
+      ),
     })
   end,
 }

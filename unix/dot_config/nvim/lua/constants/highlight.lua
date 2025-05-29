@@ -5,6 +5,9 @@ return {
   -- Background color
   BACKGROUND = { bg = '#333333' },
 
-  -- Used in `indent-blankline.nvim` and `virt-column.nvim`
+  -- Used in `indent-blankline` and `virt-column`
   VERTICAL_BAR = { fg = '#313244' },
+
+  -- Used in `mini.indentscope`
+  ACTIVATE_VERTICAL_BARE = { fg = '#56ab91' },
 }
