@@ -1,3 +1,8 @@
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.shiftwidth = 4 -- Indent by 4 spaces
+vim.opt.tabstop = 4 -- A tab is displayed as 4 spaces
+vim.opt.softtabstop = 4 -- A tab feels like 4 spaces when editing
+
 local lspconfig = require 'lspconfig'
 local mason = require 'mason'
 local mason_lspconfig = require 'mason-lspconfig'
@@ -16,14 +21,5 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
     capabilities = capabilities,
   }
 end
-
-require('mason-tool-installer').setup {
-  ensure_installed = {
-    'stylua', -- formatter
-    'luacheck', -- linter
-  },
-  auto_update = false,
-  run_on_start = true,
-}
 
 require 'config.lang.lua'
