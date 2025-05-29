@@ -15,3 +15,16 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.lsp.buf.format { async = false }
   end,
 })
+
+local null_ls = require 'null-ls'
+null_ls.setup {
+  sources = {
+    -- Formatter
+    null_ls.builtins.formatting.stylua,
+
+    -- Linter
+    null_ls.builtins.diagnostics.luacheck.with {
+      extra_args = { '--globals', 'vim' },
+    },
+  },
+}
