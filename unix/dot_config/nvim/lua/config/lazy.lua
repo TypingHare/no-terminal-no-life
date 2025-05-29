@@ -7,25 +7,25 @@ vim.g.loaded_netrwPlugin = 1
 -- Append three spaces after the line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum}   "
+vim.opt.statuscolumn = '%s%=%{v:relnum?v:relnum:v:lnum}   '
 
 -- Clone lazy.nvim if it doesn't exist
-local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazy_path = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazy_path) then
-    local lazy_repository = "https://github.com/folke/lazy.nvim.git"
-    local stdout = vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "--branch=stable",
+    local lazy_repository = 'https://github.com/folke/lazy.nvim.git'
+    local stdout = vim.fn.system {
+        'git',
+        'clone',
+        '--filter=blob:none',
+        '--branch=stable',
         lazy_repository,
         lazy_path,
-    })
+    }
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
-            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { stdout, "WarningMsg" },
-            { "\nPress any key to exit..." },
+            { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+            { stdout, 'WarningMsg' },
+            { '\nPress any key to exit...' },
         }, true, {})
         vim.fn.getchar()
         os.exit(1)
@@ -38,14 +38,14 @@ end
 vim.opt.rtp:prepend(lazy_path)
 
 -- Set up lazy.vim
-require("lazy").setup({
+require('lazy').setup {
     spec = {
-        { import = "plugins" },
-        { import = "plugins.ui" },
-        { import = "plugins.editor" },
-        { import = "plugins.coding" },
+        { import = 'plugins' },
+        { import = 'plugins.ui' },
+        { import = 'plugins.editor' },
+        { import = 'plugins.coding' },
 
         -- TODO: Modulize this
-        { import = "plugins.ui.themes.catppuccin" },
+        { import = 'plugins.ui.themes.catppuccin' },
     },
-})
+}

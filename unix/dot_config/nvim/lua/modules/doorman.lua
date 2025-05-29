@@ -11,9 +11,9 @@ local M = {}
 
 --- @alias Mode '"FREE"' | '"FILE"' | '"DIRECTORY"'
 M.mode = {
-    FREE = "FREE",
-    FILE = "FILE",
-    DIRECTORY = "DIRECTORY",
+    FREE = 'FREE',
+    FILE = 'FILE',
+    DIRECTORY = 'DIRECTORY',
 }
 
 --- @class ModeCallbacks
@@ -58,10 +58,10 @@ M.detect_mode = function()
     end
 end
 
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd('VimEnter', {
     callback = function()
         local mode, file = M.detect_mode()
-        vim.print("Entering Neovim in the " .. mode:lower() .. " mode...")
+        vim.print('Entering Neovim in the ' .. mode:lower() .. ' mode...')
         M.launch(mode, file)
     end,
 })

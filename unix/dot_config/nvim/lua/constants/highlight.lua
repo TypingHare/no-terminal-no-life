@@ -3,5 +3,5 @@
 --- @type table<string, { fg?: string, bg?: string, bold?: boolean, italic?: boolean, underline?: boolean, undercurl?: boolean }>
 return {
     -- Used in `indent-blankline.nvim` and `virt-column.nvim`
-    VERTICAL_BAR = { fg = '313244' },
+    VERTICAL_BAR = { fg = '#313244' },
 }
