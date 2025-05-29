@@ -17,7 +17,7 @@ return {
     require('modules.screener').set_file_type {
       group = 'UNEDITABLE_FILETYPES',
       callback = function()
-        require('virt-column').setup { char = '' }
+        vim.b.virt_column_char = ''
       end,
     }
   end,
