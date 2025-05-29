@@ -10,7 +10,7 @@ return {
     }
 
     require('modules.screener').set_highlight_group {
-      highlight = { fg = '#ff0000', bg = 'None' },
+      highlight = { bg = 'None' },
     }
   end,
 }

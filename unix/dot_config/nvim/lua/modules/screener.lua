@@ -14,33 +14,10 @@ M.groups = {
   BACKGROUND_HIGHLIGHT_GROUP = {
     'Normal',
     'NormalNC',
-    'Comment',
-    'Constant',
-    'Special',
-    'Identifier',
-    'Statement',
-    'PreProc',
-    'Type',
-    'Underlined',
-    'Todo',
-    'String',
-    'Function',
-    'Conditional',
-    'Repeat',
-    'Operator',
-    'Structure',
-    'LineNr',
-    'NonText',
-    'SignColumn',
-    'CursorLine',
-    'CursorLineNr',
-    'StatusLine',
-    'StatusLineNC',
-    'EndOfBuffer',
     'NormalFloat',
+    'EndOfBuffer',
     'FloatBorder',
-    'StatusLineNC',
-    'StatusLine',
+    'SignColumn',
   },
 }
 
@@ -63,9 +40,9 @@ M.get_elements_by_group = function(group, default)
 end
 
 --- Registers an autocmd for a specific screening group.
----@param opts { group?: string, callback: fun(): nil }
+---@param opts { group: string, callback: fun(): nil }
 M.set_file_type = function(opts)
-  local filetypes = M.get_elements_by_group(opts.group, 'UNEDITABLE')
+  local filetypes = M.get_elements_by_group(opts.group)
   vim.api.nvim_create_autocmd('FileType', {
     pattern = filetypes,
     callback = opts.callback,
@@ -73,10 +50,9 @@ M.set_file_type = function(opts)
 end
 
 --- Changes the highlight group for a specific screening group.
----@param opts { group?: string, highlight: any }
+---@param opts { group: string, highlight: any }
 M.set_highlight_group = function(opts)
-  local elements =
-    M.get_elements_by_group(opts.group, 'BACKGROUND_HIGHLIGHT_GROUP')
+  local elements = M.get_elements_by_group(opts.group)
   for _, element in ipairs(elements) do
     vim.api.nvim_set_hl(0, element, opts.highlight)
   end
