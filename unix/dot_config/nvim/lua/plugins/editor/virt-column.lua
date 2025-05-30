@@ -6,19 +6,17 @@ return {
       virtcolumn = '81',
       priority = 1,
       highlight = 'VirtColumn',
+      exclude = {
+        filetypes = require('constants.groups').UNEDITABLE_FILETYPES,
+      },
     }
 
+    -- Make sure that the vertical column has the same style with the indent
+    -- blanklines for visual coordination
     vim.api.nvim_set_hl(
       0,
       'VirtColumn',
       require('constants.highlight').VERTICAL_BAR
     )
-
-    require('modules.screener').set_file_type {
-      group = 'UNEDITABLE_FILETYPES',
-      callback = function()
-        vim.b.virt_column_char = ''
-      end,
-    }
   end,
 }

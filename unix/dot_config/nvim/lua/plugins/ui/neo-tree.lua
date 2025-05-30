@@ -1,7 +1,24 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   lazy = false,
+  init = function()
+    vim.api.nvim_create_autocmd('WinEnter', {
+      pattern = '*',
+      callback = function()
+        local ft = vim.bo.filetype
+        if ft == 'neo-tree' then
+          vim.wo.statuscolumn = ''
+        end
+      end,
+    })
+  end,
   config = function()
+    local ui_constants = require 'constants.ui'
+    local min_width = ui_constants.NEO_TREE_MIN_WIDTH
+    local width_multiplier = ui_constants.NEO_TREE_WIDTH_MULTIPLIER
+    local neo_tree_width =
+      math.max(min_width, math.floor(vim.o.columns * width_multiplier))
+
     require('neo-tree').setup {
       filesystem = {
         always_show = {
@@ -25,7 +42,7 @@ return {
         },
       },
       window = {
-        width = math.max(32, math.floor(vim.o.columns * 0.2)),
+        width = neo_tree_width,
         ---@type table<string, boolean | string | any>
         mappings = {
           ['#'] = false,
@@ -48,14 +65,8 @@ return {
           ['s'] = false,
           ['t'] = false,
           ['w'] = false,
-          ['h'] = {
-            'close_node',
-            desc = 'Close directory',
-          },
-          ['l'] = {
-            'open',
-            desc = 'Open directory',
-          },
+          ['h'] = { 'close_node', desc = 'Close directory' },
+          ['l'] = { 'open', desc = 'Open directory' },
           ['e'] = {
             function()
               vim.cmd 'wincmd l'

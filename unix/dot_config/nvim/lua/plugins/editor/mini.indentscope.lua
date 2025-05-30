@@ -5,8 +5,9 @@ return {
     options = { try_as_border = true },
   },
   init = function()
-    require('modules.screener').set_file_type {
-      group = 'UNEDITABLE_FILETYPES',
+    require('modules.screener').listen {
+      group = 'ALL',
+      event = 'WinEnter',
       callback = function()
         vim.b.miniindentscope_disable = true
       end,

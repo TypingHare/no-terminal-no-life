@@ -18,6 +18,7 @@ return {
 
     which_key.add {
       { '<leader>b', group = 'Buffer Controls' },
+      { '<leader>f', group = 'Find' },
     }
   end,
 }

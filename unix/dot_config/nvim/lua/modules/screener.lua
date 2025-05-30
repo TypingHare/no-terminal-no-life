@@ -2,8 +2,9 @@
 local M = {}
 
 --- Predefined filetype groups
----@type table<string, string[]>
+---@type table<string, string[] | string>
 M.groups = {
+  ALL = '*',
   UNEDITABLE_FILETYPES = {
     'lazy',
     'dashboard',
@@ -24,7 +25,7 @@ M.groups = {
 --- Gets the elements associated with a specific group name.
 ---@param group string | nil
 ---@param default string | nil
----@return string[]
+---@return string[] | string
 M.get_elements_by_group = function(group, default)
   local group_name = group or default
   local elements = M.groups[group_name]
@@ -40,10 +41,10 @@ M.get_elements_by_group = function(group, default)
 end
 
 --- Registers an autocmd for a specific screening group.
----@param opts { group: string, callback: fun(): nil }
-M.set_file_type = function(opts)
+---@param opts { group: string, event: string, callback: fun(): nil }
+M.listen = function(opts)
   local filetypes = M.get_elements_by_group(opts.group)
-  vim.api.nvim_create_autocmd('FileType', {
+  vim.api.nvim_create_autocmd(opts.event, {
     pattern = filetypes,
     callback = opts.callback,
   })

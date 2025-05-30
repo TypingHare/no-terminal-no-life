@@ -1,13 +1,14 @@
--- Disable Neovim's built-in file explorer (netrw)
--- Must be disabled before lazy.vim is loaded
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+local function import_all_modules(dir)
+  local config_path = vim.fn.stdpath 'config'
+  local scan_dir = config_path .. '/lua/' .. dir
 
--- Show relative line numbers
--- Append three spaces after the line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.statuscolumn = '%s%=%{v:relnum?v:relnum:v:lnum}   '
+  for _, file in ipairs(vim.fn.readdir(scan_dir)) do
+    if file:match '%.lua$' and not file:match '^init%.lua$' then
+      local module = dir:gsub('/', '.') .. '.' .. file:gsub('%.lua$', '')
+      require(module)
+    end
+  end
+end
 
 -- Clone lazy.nvim if it doesn't exist
 local lazy_path = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -37,6 +38,8 @@ end
 -- runtime files
 vim.opt.rtp:prepend(lazy_path)
 
+import_all_modules 'utils'
+
 -- Set up lazy.vim
 require('lazy').setup {
   spec = {
@@ -49,4 +52,8 @@ require('lazy').setup {
   },
 }
 
+-- Color scheme
 vim.cmd.colorscheme 'catppuccin'
+
+-- Keymaps
+import_all_modules 'keymaps'

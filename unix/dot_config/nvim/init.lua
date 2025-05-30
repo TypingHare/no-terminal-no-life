@@ -1,9 +1,8 @@
--- Binds space to leader
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- This is the entry file of Neovim. For aesthetics, this file only imports
+-- configuration modules in order.
 
+require 'config.early'
 require 'config.lazy'
 require 'config.neo-tree'
 require 'config.bufferline'
 require 'config.lsp'
-require 'config.keymaps'
