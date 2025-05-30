@@ -22,6 +22,8 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
+local s = 1
+
 -- Run the function on events that affect buffer count
 vim.api.nvim_create_autocmd({ 'BufAdd', 'BufDelete', 'BufEnter' }, {
   callback = ui.toggle_bufferline,
@@ -32,3 +34,5 @@ vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', ui.c.HL_ACTIVATE_VERTICAL_BAR)
 
 vim.api.nvim_set_hl(0, 'LineNr', { fg = '#5c6370' })
 vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#e06c75', bold = true })
+
+-- added this

@@ -6,8 +6,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     if vim.bo.buflisted and vim.bo.filetype ~= 'neo-tree' then
       vim.opt_local.number = true
       vim.opt_local.relativenumber = true
-      -- vim.opt_local.statuscolumn =
-      --   [[%!v:lua.require'snacks.statuscolumn'.get()]]
+      vim.opt_local.statuscolumn = [[%s%=%{v:relnum?v:relnum:v:lnum}   ]]
       vim.opt_local.signcolumn = 'yes'
     end
   end,
