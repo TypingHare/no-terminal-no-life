@@ -22,3 +22,11 @@ km.n {
   desc = 'Show Lazy',
   silent = true,
 }
+
+-- Show Startup Time
+km.n {
+  key = '<leader>ms',
+  action = ':StartupTime<CR>',
+  desc = 'Show Startup Time',
+  silent = true,
+}

@@ -2,6 +2,7 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   lazy = false,
   init = function()
+    -- Remove the status column for Neo-tree
     vim.api.nvim_create_autocmd('WinEnter', {
       pattern = '*',
       callback = function()
@@ -12,7 +13,7 @@ return {
       end,
     })
 
-    -- This happens when Vim resizes
+    -- Changes the width of Neo-tree when resizing
     vim.api.nvim_create_autocmd('VimResized', {
       callback = function()
         local new_width = ui.get_neo_tree_size()

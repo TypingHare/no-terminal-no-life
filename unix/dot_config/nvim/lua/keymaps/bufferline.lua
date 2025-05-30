@@ -49,6 +49,6 @@ end
 -- Save the current buffer
 km.n {
   key = '<Enter>s',
-  action = ':w',
+  action = ':w<CR>',
   desc = 'Save Buffer',
 }

@@ -3,13 +3,6 @@
 
 require 'config.early'
 require 'config.lazy'
+require 'config.enter'
 require 'config.bufferline'
 require 'config.lsp'
-
-vim.opt.guicursor = {
-  'n-v-c:block-Cursor',
-  'i-ci:ver25-CursorInsert',
-  'r-cr:hor20',
-  'o:hor50',
-  'a:blinkwait700-blinkon400-blinkoff250',
-}

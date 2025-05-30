@@ -18,6 +18,13 @@ vim.o.signcolumn = 'yes'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Tab
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.shiftwidth = 4 -- Indent by 4 spaces
+vim.opt.tabstop = 4 -- A tab is displayed as 4 spaces
+vim.opt.softtabstop = 4 -- A tab feels like 4 spaces when editing
+
+-- Set cursor
 vim.opt.guicursor = {
   'n-v-c:block-Cursor',
   'i-ci:ver25-CursorInsert',
@@ -26,6 +33,7 @@ vim.opt.guicursor = {
   'a:blinkwait700-blinkon400-blinkoff250',
 }
 
+-- Highlight the cursor
 vim.api.nvim_set_hl(0, 'Cursor', require('constants.highlight').CURSOR)
 vim.api.nvim_set_hl(
   0,

@@ -7,63 +7,72 @@
 -- "free mode".
 
 --- Module to handle different modes when entering Neovim.
+---@alias Mode '"free"' | '"file"' | '"directory"'
+---@alias Event '"VimEnter"' | '"VimLeavePre"'
+---@alias DoormanCallback fun(file: string|nil): nil
 local M = {}
 
---- @alias Mode '"FREE"' | '"FILE"' | '"DIRECTORY"'
-M.mode = {
-    FREE = 'FREE',
-    FILE = 'FILE',
-    DIRECTORY = 'DIRECTORY',
-}
-
---- @class ModeCallbacks
---- @field FREE fun(file: string|nil)[]
---- @field FILE fun(file: string)[]
---- @field DIRECTORY fun(file: string)[]
+---@type table<string, table<Mode, DoormanCallback[]>>
 M.callbacks = {
-    FREE = {},
-    FILE = {},
-    DIRECTORY = {},
+  VimEnter = { free = {}, file = {}, directory = {} },
+  VimLeavePre = { free = {}, file = {}, directory = {} },
 }
 
---- Launch all callbacks for a given mode.
+--- Launches all callbacks for the given mode and event.
 --- @param mode Mode
+--- @param event Event
 --- @param file string|nil
-M.launch = function(mode, file)
-    for callback in pairs(M.callbacks[mode] or {}) do
-        callback(file)
-    end
+M.launch = function(mode, event, file)
+  if not M.callbacks[event] or not M.callbacks[event][mode] then
+    error(
+      ('Invalid event (%s) or mode (%s) passed to listen()'):format(event, mode)
+    )
+  end
+
+  print(#M.callbacks[event][mode])
+  for _, callback in ipairs(M.callbacks[event][mode] or {}) do
+    callback(file)
+  end
 end
 
---- Bind a callback to a mode.
---- @param mode Mode
---- @param callback fun(file: string|nil)
-M.bind = function(mode, callback)
-    table.insert(M.callbacks[mode], callback)
+--- Listens to a callback.
+--- @param opts { mode: Mode, event: Event, callback: DoormanCallback }
+M.listen = function(opts)
+  local mode = opts.mode
+  local event = opts.event
+  local callback = opts.callback
+  table.insert(M.callbacks[event][mode], callback)
 end
 
---- Detect the startup mode based on arguments passed to Neovim.
+--- Detects the startup mode based on arguments passed to Neovim.
 --- @return Mode mode
 --- @return string|nil file
 M.detect_mode = function()
-    if vim.fn.argc(-1) == 0 then
-        return M.mode.FREE, nil
-    end
+  if vim.fn.argc(-1) == 0 then
+    return 'free', nil
+  end
 
-    local file = vim.fn.argv()[1]
-    if vim.fn.isdirectory(file) == 1 then
-        return M.mode.DIRECTORY, file
-    else
-        return M.mode.FILE, file
-    end
+  local file = vim.fn.argv()[1]
+  if vim.fn.isdirectory(file) == 1 then
+    return 'directory', file
+  else
+    return 'file', file
+  end
 end
 
 vim.api.nvim_create_autocmd('VimEnter', {
-    callback = function()
-        local mode, file = M.detect_mode()
-        vim.print('Entering Neovim in the ' .. mode:lower() .. ' mode...')
-        M.launch(mode, file)
-    end,
+  callback = function()
+    local mode, file = M.detect_mode()
+    print(mode)
+    M.launch(mode, 'VimEnter', file)
+  end,
+})
+
+vim.api.nvim_create_autocmd('VimLeavePre', {
+  callback = function()
+    local mode, file = M.detect_mode()
+    M.launch(mode, 'VimLeavePre', file)
+  end,
 })
 
 return M

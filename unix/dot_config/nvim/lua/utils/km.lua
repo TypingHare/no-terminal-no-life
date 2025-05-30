@@ -2,14 +2,13 @@ local M = {}
 
 ---Set a keymap
 ---@param mode string
----@param opts { key: string, action: string | function, desc: string, silent: boolean }
+---@param opts { key: string, action: string | function, desc: string, silent?: boolean, noremap?: boolean }
 M.set = function(mode, opts)
-  local key = opts.key
-  local action = opts.action
-  local desc = opts.desc
-  local silent = opts.silent or true
-
-  vim.keymap.set(mode, key, action, { desc = desc, silent = silent })
+  vim.keymap.set(mode, opts.key, opts.action, {
+    desc = opts.desc,
+    silent = opts.silent or true,
+    noremap = opts.noremap or false,
+  })
 end
 
 ---Set a normal mode keymap
