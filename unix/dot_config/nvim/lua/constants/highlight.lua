@@ -2,6 +2,12 @@
 
 --- @type table<string, { fg?: string, bg?: string, bold?: boolean, italic?: boolean, underline?: boolean, undercurl?: boolean }>
 return {
+  -- Cursor color
+  CURSOR = { fg = 'NONE', bg = '#00aaff' },
+
+  -- CursorInsert color
+  CURSOR_INSERT = { fg = 'NONE', bg = '#00aaff' },
+
   -- Background color
   BACKGROUND = { bg = '#333333' },
 

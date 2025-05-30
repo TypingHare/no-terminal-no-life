@@ -18,4 +18,19 @@ vim.o.signcolumn = 'yes'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.guicursor = {
+  'n-v-c:block-Cursor',
+  'i-ci:ver25-CursorInsert',
+  'r-cr:hor20',
+  'o:hor50',
+  'a:blinkwait700-blinkon400-blinkoff250',
+}
+
+vim.api.nvim_set_hl(0, 'Cursor', require('constants.highlight').CURSOR)
+vim.api.nvim_set_hl(
+  0,
+  'CursorInsert',
+  require('constants.highlight').CURSOR_INSERT
+)
+
 require 'utils.km'

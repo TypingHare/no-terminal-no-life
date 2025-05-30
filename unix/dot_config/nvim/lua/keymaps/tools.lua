@@ -8,10 +8,17 @@ km.n {
 }
 
 -- Show LSP information
+km.n {
+  key = '<leader>ms',
+  action = ':LspInfo<CR>',
+  desc = 'Show LSP Info',
+  silent = true,
+}
 
-vim.keymap.set(
-  'n',
-  '<leader>il',
-  ':LspInfo<CR>',
-  { desc = 'Show LSP Info', silent = true }
-)
+-- Show the Lazy panel
+km.n {
+  key = '<leader>ml',
+  action = ':Lazy<CR>',
+  desc = 'Show Lazy',
+  silent = true,
+}

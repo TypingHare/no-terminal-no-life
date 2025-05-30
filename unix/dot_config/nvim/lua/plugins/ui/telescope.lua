@@ -20,6 +20,10 @@ return {
         find_files = {
           hidden = true,
         },
+        oldfiles = {
+          hidden = true,
+          sorter = require('telescope.sorters').get_substr_matcher(),
+        },
       },
       extensions = {
         file_browser = {

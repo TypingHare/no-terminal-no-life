@@ -17,8 +17,8 @@ return {
     }
 
     which_key.add {
-      { '<leader>b', group = 'Buffer Controls' },
       { '<leader>f', group = 'Find' },
+      { '<leader>m', group = 'Neovim Modules' },
     }
   end,
 }

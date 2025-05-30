@@ -16,9 +16,16 @@ km.n {
 km.n {
   key = '<Enter>q',
   action = function()
-    local bufnr = vim.api.nvim_get_current_buf()
+    local buf = vim.api.nvim_get_current_buf()
+    local is_modifiable = vim.bo.modifiable
+    local is_readonly = vim.bo.readonly
+
+    if is_modifiable and not is_readonly then
+      vim.cmd 'write'
+    end
+
     require('bufferline.commands').cycle(1)
-    vim.cmd('bdelete ' .. bufnr)
+    vim.cmd('bdelete ' .. buf)
   end,
   desc = 'Close Buffer',
 }
