@@ -7,7 +7,7 @@ M.set = function(mode, opts)
   vim.keymap.set(mode, opts.key, opts.action, {
     desc = opts.desc,
     silent = opts.silent or true,
-    noremap = opts.noremap or false,
+    noremap = opts.noremap or true,
   })
 end
 

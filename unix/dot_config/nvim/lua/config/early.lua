@@ -33,12 +33,9 @@ vim.opt.guicursor = {
   'a:blinkwait700-blinkon400-blinkoff250',
 }
 
--- Highlight the cursor
-vim.api.nvim_set_hl(0, 'Cursor', require('constants.highlight').CURSOR)
-vim.api.nvim_set_hl(
-  0,
-  'CursorInsert',
-  require('constants.highlight').CURSOR_INSERT
-)
+vim.diagnostic.config {
+  virtual_text = true,
+  update_in_insert = false,
+}
 
 require 'utils.km'

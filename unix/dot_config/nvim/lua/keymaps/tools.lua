@@ -7,6 +7,14 @@ km.n {
   desc = 'Focus Neo-tree',
 }
 
+-- Show the Lazy panel
+km.n {
+  key = '<leader>ml',
+  action = ':Lazy<CR>',
+  desc = 'Show Lazy',
+  silent = true,
+}
+
 -- Show LSP information
 km.n {
   key = '<leader>ms',
@@ -15,12 +23,11 @@ km.n {
   silent = true,
 }
 
--- Show the Lazy panel
+-- Open Mason
 km.n {
-  key = '<leader>ml',
-  action = ':Lazy<CR>',
-  desc = 'Show Lazy',
-  silent = true,
+  key = '<leader>M',
+  action = ':Mason<CR>',
+  desc = 'Open Mason',
 }
 
 -- Show Startup Time

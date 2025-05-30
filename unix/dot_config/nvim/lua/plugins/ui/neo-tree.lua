@@ -3,7 +3,7 @@ return {
   lazy = false,
   init = function()
     -- Remove the status column for Neo-tree
-    vim.api.nvim_create_autocmd('WinEnter', {
+    vim.api.nvim_create_autocmd({ 'BufWinEnter', 'WinEnter' }, {
       pattern = '*',
       callback = function()
         local ft = vim.bo.filetype

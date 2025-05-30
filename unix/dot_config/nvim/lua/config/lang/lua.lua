@@ -9,52 +9,26 @@ require('lspconfig').lua_ls.setup {
       runtime = {
         version = 'LuaJIT',
       },
-      diagnostics = {
-        globals = { 'vim' },
-      },
       workspace = {
         library = vim.api.nvim_get_runtime_file('', true),
         checkThirdParty = false,
-      },
-      telemetry = {
-        enable = false,
       },
     },
   },
 }
 
--- require('mason-lspconfig').setup {
---   ensure_installed = { 'lua_ls' },
---   automatic_installation = true,
---   handlers = {
---     function(server_name)
---       require('lspconfig')[server_name].setup {}
---     end,
---
---     lua_ls = function()
---       require('lspconfig').lua_ls.setup {
---         settings = {
---           Lua = {
---             runtime = {
---               version = 'LuaJIT',
---               path = vim.split(package.path, ';'),
---             },
---             diagnostics = {
---               globals = { 'vim' },
---             },
---             workspace = {
---               library = vim.api.nvim_get_runtime_file('', true),
---               checkThirdParty = false,
---             },
---             telemetry = {
---               enable = false,
---             },
---           },
---         },
---       }
---     end,
---   },
--- }
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function()
+    vim.defer_fn(function()
+      if vim.bo.filetype ~= 'lua' then
+        return
+      end
+      print 'Stopping the first LSP client...'
+      vim.lsp.stop_client(1, true)
+    end, 50)
+  end,
+})
 
 -- automatically format when save
 vim.api.nvim_create_autocmd('BufWritePre', {

@@ -2,14 +2,15 @@ return {
   'lukas-reineke/indent-blankline.nvim',
   main = 'ibl',
   config = function()
+    local ui = require 'constants.ui'
     require('ibl').setup {
       indent = {
-        char = '▏',
-        tab_char = '▏',
+        char = ui.VERTICAL_BAR,
+        tab_char = ui.VERTICAL_BAR,
       },
       scope = { enabled = false },
       exclude = {
-        filetypes = require('modules.screener').get_elements_by_group 'UNEDITABLE_FILETYPES',
+        filetypes = require('constants.groups').UNEDITABLE_FILETYPES,
         buftypes = { 'terminal', 'nofile' },
       },
     }

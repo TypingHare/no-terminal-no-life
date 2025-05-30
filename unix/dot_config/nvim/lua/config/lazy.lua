@@ -56,3 +56,11 @@ require('lazy').setup {
 
 -- Select a color scheme
 vim.cmd.colorscheme 'catppuccin'
+
+-- Make sure that the vertical column has the same style with the indent
+-- blanklines for visual coordination
+vim.api.nvim_set_hl(0, 'VirtColumn', ui.c.HL_VERTICAL_BAR)
+
+-- Highlight the cursor
+vim.api.nvim_set_hl(0, 'Cursor', ui.c.HL_CURSOR)
+vim.api.nvim_set_hl(0, 'CursorInsert', ui.c.HL_CURSOR_INSERT)
