@@ -14,7 +14,7 @@ km.n {
 
 -- Close the current buffer and focus on the cycle next buffer
 km.n {
-  key = '<Enter>c',
+  key = '<Enter>q',
   action = function()
     local bufnr = vim.api.nvim_get_current_buf()
     require('bufferline.commands').cycle(1)
@@ -27,7 +27,7 @@ km.n {
 km.n {
   key = '<Enter>o',
   action = '<Cmd>BufferLineCloseOthers<CR>',
-  desc = 'Previous Buffer',
+  desc = 'Close Other Buffers',
 }
 
 -- Numbers 1 - 9 can select corresponding buffers
@@ -38,3 +38,10 @@ for i = 1, 9 do
     desc = string.format('Go to buffer #%d', i),
   }
 end
+
+-- Save the current buffer
+km.n {
+  key = '<Enter>s',
+  action = ':w',
+  desc = 'Save Buffer',
+}

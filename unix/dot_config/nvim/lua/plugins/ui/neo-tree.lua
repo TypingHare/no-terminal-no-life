@@ -11,14 +11,20 @@ return {
         end
       end,
     })
+
+    -- This happens when Vim resizes
+    vim.api.nvim_create_autocmd('VimResized', {
+      callback = function()
+        local new_width = ui.get_neo_tree_size()
+        local winid =
+          require('neo-tree.sources.manager').get_state('filesystem').winid
+        if winid then
+          vim.api.nvim_win_set_width(winid, new_width)
+        end
+      end,
+    })
   end,
   config = function()
-    local ui_constants = require 'constants.ui'
-    local min_width = ui_constants.NEO_TREE_MIN_WIDTH
-    local width_multiplier = ui_constants.NEO_TREE_WIDTH_MULTIPLIER
-    local neo_tree_width =
-      math.max(min_width, math.floor(vim.o.columns * width_multiplier))
-
     require('neo-tree').setup {
       filesystem = {
         always_show = {
@@ -42,7 +48,7 @@ return {
         },
       },
       window = {
-        width = neo_tree_width,
+        width = ui.get_neo_tree_size(),
         ---@type table<string, boolean | string | any>
         mappings = {
           ['#'] = false,
@@ -86,13 +92,4 @@ return {
       },
     }
   end,
-  keys = {
-    {
-      '<leader>e',
-      function()
-        vim.cmd 'Neotree focus'
-      end,
-      desc = 'Focus Neo-tree',
-    },
-  },
 }

@@ -3,6 +3,5 @@
 
 require 'config.early'
 require 'config.lazy'
-require 'config.neo-tree'
 require 'config.bufferline'
 require 'config.lsp'

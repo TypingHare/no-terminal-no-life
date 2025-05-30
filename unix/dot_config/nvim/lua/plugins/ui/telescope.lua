@@ -10,9 +10,10 @@ return {
       defaults = {
         layout_strategy = 'horizontal',
         layout_config = {
+          prompt_position = 'top',
           preview_width = 0.6,
         },
-        sorting_strategy = 'descending',
+        sorting_strategy = 'ascending',
         scroll_strategy = 'cycle',
       },
       pickers = {

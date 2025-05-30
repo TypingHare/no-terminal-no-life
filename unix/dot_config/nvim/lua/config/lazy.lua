@@ -39,6 +39,7 @@ end
 vim.opt.rtp:prepend(lazy_path)
 
 import_all_modules 'utils'
+import_all_modules 'keymaps'
 
 -- Set up lazy.vim
 require('lazy').setup {
@@ -50,10 +51,8 @@ require('lazy').setup {
     { import = 'plugins.lang' },
     { import = 'plugins.ui.themes' },
   },
+  default = { version = '*' },
 }
 
--- Color scheme
+-- Select a color scheme
 vim.cmd.colorscheme 'catppuccin'
-
--- Keymaps
-import_all_modules 'keymaps'

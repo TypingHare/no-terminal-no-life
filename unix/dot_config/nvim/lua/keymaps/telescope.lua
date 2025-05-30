@@ -1,25 +1,23 @@
-local telescope_builtin = require 'telescope.builtin'
-
 km.n {
   key = '<leader>ff',
-  action = telescope_builtin.find_files,
+  action = ':Telescope find_files<CR>',
   desc = 'Find Files',
 }
 
 km.n {
   key = '<leader>fg',
-  action = telescope_builtin.live_grep,
+  action = ':Telescope live_grep<CR>',
   desc = 'Live Grep',
 }
 
 km.n {
   key = '<leader>fb',
-  action = telescope_builtin.buffers,
+  action = ':Telescope buffers<CR>',
   desc = 'Find Buffers',
 }
 
 km.n {
   key = '<leader>fh',
-  action = telescope_builtin.help_tags,
+  action = ':Telescope help_tags<CR>',
   desc = 'Help Tags',
 }
