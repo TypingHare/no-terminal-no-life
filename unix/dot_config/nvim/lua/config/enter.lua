@@ -1,4 +1,20 @@
-local doorman = require 'modules.doorman'
+-- Show relative line numbers
+--Append three spaces after the line numbers
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = '*',
+  callback = function()
+    if vim.bo.buflisted and vim.bo.filetype ~= 'neo-tree' then
+      vim.opt_local.number = true
+      vim.opt_local.relativenumber = true
+      -- vim.opt_local.statuscolumn =
+      --   [[%!v:lua.require'snacks.statuscolumn'.get()]]
+      vim.opt_local.signcolumn = 'yes'
+    end
+  end,
+})
+
+-- Remove the tilde in the status column
+vim.opt.fillchars:append { eob = ' ' }
 
 -- -- When entering Neovim in the directory mode, open Neo-tree automatically and
 -- -- clear the directory buffer

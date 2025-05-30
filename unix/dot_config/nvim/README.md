@@ -3,4 +3,4 @@
 ## TODO
 
 - [ ] Change the status column color
-- [ ] Change
+- [ ] Address the issue where if the bufferline is closed, opening a file using telescope is bad

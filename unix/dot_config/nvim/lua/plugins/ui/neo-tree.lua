@@ -2,17 +2,6 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   lazy = false,
   init = function()
-    -- Remove the status column for Neo-tree
-    vim.api.nvim_create_autocmd({ 'BufWinEnter', 'WinEnter' }, {
-      pattern = '*',
-      callback = function()
-        local ft = vim.bo.filetype
-        if ft == 'neo-tree' then
-          vim.wo.statuscolumn = ''
-        end
-      end,
-    })
-
     -- Changes the width of Neo-tree when resizing
     vim.api.nvim_create_autocmd('VimResized', {
       callback = function()
@@ -27,6 +16,15 @@ return {
   end,
   config = function()
     require('neo-tree').setup {
+      handlers = {
+        {
+          event = 'neo_tree_buffer_enter',
+          handler = function()
+            vim.opt_local.statuscolumn = ''
+            vim.opt_local.signcolumn = 'no'
+          end,
+        },
+      },
       filesystem = {
         always_show = {
           '.gitignored',
@@ -73,7 +71,7 @@ return {
           ['t'] = false,
           ['w'] = false,
           ['h'] = { 'close_node', desc = 'Close directory' },
-          ['l'] = { 'open', desc = 'Open directory' },
+          ['l'] = { 'open', desc = 'Open File/Directory' },
           ['e'] = {
             function()
               vim.cmd 'wincmd l'

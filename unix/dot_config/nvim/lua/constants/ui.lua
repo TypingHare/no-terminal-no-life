@@ -2,10 +2,10 @@
 
 return {
   -- Cursor highlight
-  HL_CURSOR = { fg = 'NONE', bg = '#00aaff' },
+  HL_CURSOR = { fg = 'NONE', bg = '#2c7da0' },
 
   -- CursorInsert highlight
-  HL_CURSOR_INSERT = { fg = 'NONE', bg = '#00aaff' },
+  HL_CURSOR_INSERT = { fg = 'NONE', bg = '#2c7da0' },
 
   -- Background highlight
   HL_BACKGROUND = { bg = '#333333' },

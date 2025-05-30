@@ -1,3 +1,12 @@
+-- Numbers 1 - 9 can select corresponding buffers
+for i = 1, 9 do
+  km.n {
+    key = '<Enter>' .. i,
+    action = '<Cmd>BufferLineGoToBuffer ' .. i .. '<CR>',
+    desc = string.format('Go to buffer #%d', i),
+  }
+end
+
 -- Move to the cycle next buffer
 km.n {
   key = '<Tab>',
@@ -38,18 +47,16 @@ km.n {
   desc = 'Close Other Buffers',
 }
 
--- Numbers 1 - 9 can select corresponding buffers
-for i = 1, 9 do
-  km.n {
-    key = '<Enter>' .. i,
-    action = '<Cmd>BufferLineGoToBuffer ' .. i .. '<CR>',
-    desc = string.format('Go to buffer #%d', i),
-  }
-end
-
 -- Save the current buffer
 km.n {
   key = '<Enter>s',
   action = ':w<CR>',
   desc = 'Save Buffer',
+}
+
+-- Hide the bufferline window (buffers are not gone)
+km.n {
+  key = '<Enter>h',
+  action = ':bdelete<CR>',
+  desc = 'Hide Bufferline Window',
 }

@@ -24,6 +24,19 @@ M.focus_editor_window = function()
   return false
 end
 
+--- Toggles bufferline.
+---
+--- This function close the bufferline if the number of buffers is less than 2;
+--- otherwise, open the bufferline.
+M.toggle_bufferline = function()
+  local buffers = vim.fn.getbufinfo { buflisted = 1 }
+  if #buffers < 2 then
+    vim.o.showtabline = 0
+  else
+    vim.o.showtabline = 2
+  end
+end
+
 _G.ui = M
 
 return M

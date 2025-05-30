@@ -1,3 +1,7 @@
+-- This module aims at making setting keybindings easier and more intuitive.
+-- It emits a global variable `km`, which can be used in any keymaps modules,
+-- because this module is always loaded earlier than keymaps modules.
+
 local M = {}
 
 ---Set a keymap

@@ -5,26 +5,17 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Show relative line numbers
--- Append three spaces after the line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.statuscolumn = '%s%=%{v:relnum?v:relnum:v:lnum}   '
-
--- Set signcolumn
-vim.o.signcolumn = 'yes'
-
 -- Binds space to leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Tab
+-- Set tab style
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.shiftwidth = 4 -- Indent by 4 spaces
 vim.opt.tabstop = 4 -- A tab is displayed as 4 spaces
 vim.opt.softtabstop = 4 -- A tab feels like 4 spaces when editing
 
--- Set cursor
+-- Set cursor style
 vim.opt.guicursor = {
   'n-v-c:block-Cursor',
   'i-ci:ver25-CursorInsert',
@@ -32,6 +23,9 @@ vim.opt.guicursor = {
   'o:hor50',
   'a:blinkwait700-blinkon400-blinkoff250',
 }
+
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#5c6370' })
+vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#e06c75', bold = true })
 
 vim.diagnostic.config {
   virtual_text = true,
