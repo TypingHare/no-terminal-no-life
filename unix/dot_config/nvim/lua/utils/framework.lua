@@ -1,6 +1,6 @@
 local M = {}
 
---- Import all lua modules in a specifc directory.
+--- Import all lua modules in a specific directory.
 ---
 --- @param dir string
 M.import_all_modules = function(dir)

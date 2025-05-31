@@ -42,6 +42,7 @@ vim.opt.cursorline = true
 vim.opt.fillchars:append { eob = ' ' }
 
 -- Set the style of the cursor.
+---@diagnostic disable-next-line: missing-fields
 vim.opt.guicursor = {
   'n-v-c:block-Cursor',
   'i-ci:ver25-CursorInsert',

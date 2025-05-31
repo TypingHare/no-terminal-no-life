@@ -1,7 +1,12 @@
 [init]
 	defaultBranch = main
+
 [user]
 	name = James Chen
 	email = jameschan312.cn@gmail.com
+
 [include]
 	path = /Users/james/.config/git/.gitalias
+
+[pager]
+	branch = false

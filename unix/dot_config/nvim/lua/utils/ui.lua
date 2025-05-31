@@ -1,7 +1,8 @@
--- This module stores
+-- This module provides some useful helper functions for UI operation.
 
 local M = {}
 
+--- UI constants
 M.c = require 'constants.ui'
 
 --- Get the size of Neo-tree
