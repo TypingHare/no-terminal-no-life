@@ -55,3 +55,6 @@ vim.diagnostic.config {
   virtual_text = true,
   update_in_insert = false,
 }
+
+-- Set the terminal shell interpreter.
+vim.o.shell = '/bin/zsh'

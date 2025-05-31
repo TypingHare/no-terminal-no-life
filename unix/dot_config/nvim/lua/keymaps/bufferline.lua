@@ -31,11 +31,11 @@ km.n {
     local is_readonly = vim.bo.readonly
 
     if is_modifiable and not is_readonly and name ~= '' then
-      vim.cmd 'write'
+      vim.cmd 'write!'
     end
 
     require('bufferline.commands').cycle(1)
-    vim.cmd('bdelete ' .. buf)
+    vim.cmd('bdelete! ' .. buf)
   end,
   desc = 'Close Buffer',
 }
