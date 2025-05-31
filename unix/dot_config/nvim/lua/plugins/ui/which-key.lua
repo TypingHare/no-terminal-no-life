@@ -19,6 +19,7 @@ return {
     which_key.add {
       { '<leader>f', group = 'Find' },
       { '<leader>m', group = 'Neovim Modules' },
+      { '<leader>g', group = 'Git' },
     }
   end,
 }

@@ -37,3 +37,12 @@ km.t {
   key = '<Esc>',
   action = [[<C-\><C-n>]],
 }
+
+-- Jump to the cycle previous window
+km.n {
+  key = '<BS>',
+  action = function()
+    require('modules.window-cycle').jump_to_prev_window()
+  end,
+  desc = 'Previous Window',
+}

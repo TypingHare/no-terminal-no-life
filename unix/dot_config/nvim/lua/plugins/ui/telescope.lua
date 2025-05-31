@@ -22,7 +22,6 @@ return {
         },
         oldfiles = {
           hidden = true,
-          initial_mode = 'normal',
           sorter = require('telescope.sorters').get_substr_matcher(),
         },
       },

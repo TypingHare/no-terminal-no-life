@@ -29,4 +29,10 @@ return {
   -- The ratio between the width of Neo-tree and the entire screen
   -- Used by `utils.ui`
   NEO_TREE_WIDTH_MULTIPLIER = 0.25,
+
+  -- Line number highlight
+  HL_LINE_NUMBER = { fg = '#6c757d' },
+
+  -- Cursor line number highlight
+  HL_CURSOR_LINE_NUMBER = { fg = '#52b788', bold = true },
 }

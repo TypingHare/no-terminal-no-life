@@ -17,7 +17,7 @@ km.n {
 
 -- Show LSP information
 km.n {
-  key = '<leader>ms',
+  key = '<leader>mL',
   action = ':LspInfo<CR>',
   desc = 'Show LSP Info',
   silent = true,
@@ -25,14 +25,14 @@ km.n {
 
 -- Open Mason
 km.n {
-  key = '<leader>M',
+  key = '<leader>mm',
   action = ':Mason<CR>',
   desc = 'Open Mason',
 }
 
 -- Show Startup Time
 km.n {
-  key = '<leader>ms',
+  key = '<leader>mS',
   action = ':StartupTime<CR>',
   desc = 'Show Startup Time',
   silent = true,

@@ -1,5 +1,4 @@
--- Show relative line numbers
---Append three spaces after the line numbers
+-- Show relative line numbers.
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
   callback = function()
@@ -12,26 +11,33 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end,
 })
 
--- Remove the tilde in the status column
-vim.opt.fillchars:append { eob = ' ' }
-
--- -- When entering Neovim in the directory mode, open Neo-tree automatically and
--- -- clear the directory buffer
--- doorman.bind(doorman.mode.DIRECTORY, function(dir)
---   require('neo-tree.command').execute {
---     toggle = true,
---     dir = vim.uv.cwd(),
---   }
---
---   -- Close the buffer opened for the directory
---   vim.schedule(function()
---     local bufnr = vim.fn.bufnr(dir)
---     if bufnr ~= -1 then
---       vim.api.nvim_buf_delete(bufnr, { force = true })
+-- Delete `[No Name]` buffers.
+-- TODO: Find all edge cases that can corrupt the buffers.
+-- vim.api.nvim_create_autocmd('BufEnter', {
+--   callback = function()
+--     local bufs = vim.api.nvim_list_bufs()
+--     for _, buf in ipairs(bufs) do
+--       if
+--         vim.api.nvim_buf_get_name(buf) == '' and vim.bo[buf].buflisted
+--         and vim.bo[buf].modifiable == 'modifiable'
+--       then
+--         vim.api.nvim_buf_delete(buf, {})
+--       end
 --     end
---     vim.cmd 'Neotree show'
---   end)
--- end)
+--   end,
+-- })
+
+-- Run the function on events that affect buffer count
+vim.api.nvim_create_autocmd({ 'BufAdd', 'BufDelete', 'BufEnter' }, {
+  callback = ui.toggle_bufferline,
+})
+
+-- Change the color of the vertical line
+vim.api.nvim_set_hl(0, 'MiniIndentscopeSymbol', ui.c.HL_ACTIVATE_VERTICAL_BAR)
+
+-- Set line number highlight
+vim.api.nvim_set_hl(0, 'LineNr', ui.c.HL_LINE_NUMBER)
+vim.api.nvim_set_hl(0, 'CursorLineNr', ui.c.HL_CURSOR_LINE_NUMBER)
 
 -- doorman.listen {
 --   mode = 'directory',

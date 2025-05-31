@@ -1,45 +1,11 @@
-local function import_all_modules(dir)
-  local config_path = vim.fn.stdpath 'config'
-  local scan_dir = config_path .. '/lua/' .. dir
+local framework = require 'utils.framework'
 
-  for _, file in ipairs(vim.fn.readdir(scan_dir)) do
-    if file:match '%.lua$' and not file:match '^init%.lua$' then
-      local module = dir:gsub('/', '.') .. '.' .. file:gsub('%.lua$', '')
-      require(module)
-    end
-  end
-end
-
--- Clone lazy.nvim if it doesn't exist
-local lazy_path = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.uv.fs_stat(lazy_path) then
-  local lazy_repository = 'https://github.com/folke/lazy.nvim.git'
-  local stdout = vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    '--branch=stable',
-    lazy_repository,
-    lazy_path,
-  }
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { stdout, 'WarningMsg' },
-      { '\nPress any key to exit...' },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-
--- Add the absolute path to the lazy.nvim to the runtime path
+-- Add the absolute path to the lazy.nvim to the runtime path.
 -- The runtime path is a list of directories that Neovim searches to find
--- runtime files
-vim.opt.rtp:prepend(lazy_path)
+-- runtime files.
+vim.opt.rtp:prepend(framework.get_lazy_path())
 
-import_all_modules 'utils'
-import_all_modules 'keymaps'
+framework.import_all_modules 'utils'
 
 -- Set up lazy.vim
 require('lazy').setup {
@@ -54,13 +20,24 @@ require('lazy').setup {
   default = { version = '*' },
 }
 
--- Select a color scheme
+-- Select a color scheme.
+-- TODO: Use GUI to change colorschemes.
 vim.cmd.colorscheme 'catppuccin'
 
 -- Make sure that the vertical column has the same style with the indent
--- blanklines for visual coordination
+-- blanklines for visual coordination.
 vim.api.nvim_set_hl(0, 'NonText', ui.c.HL_VERTICAL_BAR)
 
--- Highlight the cursor
+-- Change the highlight of the cursor.
 vim.api.nvim_set_hl(0, 'Cursor', ui.c.HL_CURSOR)
+
+-- Change the highlight of the cursor in the insert mode.
 vim.api.nvim_set_hl(0, 'CursorInsert', ui.c.HL_CURSOR_INSERT)
+
+-- Change the highlight of the line numbers.
+vim.api.nvim_set_hl(0, 'LineNr', ui.c.HL_LINE_NUMBER)
+
+-- Change the highlight of the cursor line number.
+vim.api.nvim_set_hl(0, 'CursorLineNr', ui.c.HL_CURSOR_LINE_NUMBER)
+
+framework.import_all_modules 'keymaps'
