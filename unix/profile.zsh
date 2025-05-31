@@ -13,9 +13,11 @@ alias ll="l -l"
 alias la="l -lA"
 alias tree="lsd --tree --group-directories-first"
 
-# Find a specific file in the current directory
-# This can also be used to check if a file exists
+# Grep a specific file in the current directory
 alias lg="ll | grep"
+
+# Grep commands in the history list
+alias hg="history | grep"
 
 # A shortcut for the combination of `cd` and `ll`
 function to() {
