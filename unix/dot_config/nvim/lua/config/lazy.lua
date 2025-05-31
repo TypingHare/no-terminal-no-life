@@ -20,6 +20,10 @@ require('lazy').setup {
   default = { version = '*' },
 }
 
+require('modules.window-cycle').setup {
+  filetypes = { 'neo-tree' },
+}
+
 -- Select a color scheme.
 -- TODO: Use GUI to change colorschemes.
 vim.cmd.colorscheme 'catppuccin'

@@ -2,7 +2,7 @@ local M = {}
 
 --- @alias Filter fun(window_object: WindowObject): boolean
 --- @alias WindowObject { buffer_id: integer, filetype: string, buftype: string, buflisted: boolean }
---- @alias Config { filtered_filetypes: string[], filtered_buftypes: string[], filter: Filter }
+--- @alias Config { filetypes: string[], buftypes: string[], filter: Filter }
 
 --- Checks if a window_object is acceptable.
 ---
@@ -14,22 +14,22 @@ M.default_filter = function(window_object)
   end
 
   local filetype = window_object.filetype
-  if vim.tbl_contains(M.config.filtered_filetypes, filetype) then
-    return false
+  if vim.tbl_contains(M.config.filetypes, filetype) then
+    return true
   end
 
   local buftype = window_object.buftype
-  if vim.tbl_contains(M.config.filtered_buftypes, buftype) then
-    return false
+  if vim.tbl_contains(M.config.buftypes, buftype) then
+    return true
   end
 
-  return true
+  return false
 end
 
 --- @type Config
 M.config = {
-  filtered_filetypes = {},
-  filtered_buftypes = {},
+  filetypes = { 'neo-tree' },
+  buftypes = {},
   filter = M.default_filter,
 }
 
@@ -39,15 +39,6 @@ M.config = {
 M.setup = function(opts)
   opts = opts or {}
   M.config = vim.tbl_deep_extend('force', M.config, opts)
-end
-
---- Returns a list of sorted window ids
----
---- @return integer[]
-M.get_sorted_window_ids = function()
-  local win_ids = vim.api.nvim_list_wins()
-  table.sort(win_ids)
-  return win_ids
 end
 
 --- Gets the info object of a window.
@@ -86,15 +77,19 @@ end
 ---
 --- @return integer[]
 M.get_candidate_window_ids = function()
-  return M.get_filtered_window_ids(M.config.filter, M.get_sorted_window_ids())
+  return M.get_filtered_window_ids(M.config.filter, vim.api.nvim_list_wins())
 end
 
+--- Jumps to the window that has a smaller window ID thant the current window
+--- ID. If the current window ID is the least, jumps to the window that has the
+--- largest window ID.
 M.jump_to_prev_window = function()
-  local candidate_window_ids = M.get_candidate_window_ids()
   local current_window_id = vim.api.nvim_get_current_win()
+  local candidate_window_ids = M.get_candidate_window_ids()
+  table.sort(candidate_window_ids)
 
   local target_window_id = nil
-  for i = #candidate_window_ids, 1, -1 do
+  for i = #candidate_window_ids, 0, -1 do
     if candidate_window_ids[i] < current_window_id then
       target_window_id = candidate_window_ids[i]
       break
