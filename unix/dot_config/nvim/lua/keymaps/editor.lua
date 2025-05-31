@@ -1,3 +1,10 @@
+-- Show and focus Neo-tree
+km.n {
+  key = '<leader>n',
+  action = [[ :Neotree focus <CR> ]],
+  desc = 'Focus Neo-tree',
+}
+
 -- Create a newline down below
 km.i {
   key = '<S-Enter>',

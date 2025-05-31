@@ -39,15 +39,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- Install stylua automatically
-require('mason-tool-installer').setup {
-  ensure_installed = {
-    'stylua',
-  },
-  auto_update = false,
-  run_on_start = true,
-}
-
 -- Formatter
 local null_ls = require 'null-ls'
 null_ls.setup {

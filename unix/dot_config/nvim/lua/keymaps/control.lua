@@ -25,19 +25,6 @@ km.n {
   desc = 'Window Controls',
 }
 
--- Open terminal
-km.n {
-  key = '<leader>t',
-  action = ':terminal<CR>',
-  desc = 'Open Terminal',
-}
-
--- In terminal, `<Esc>` can
-km.t {
-  key = '<Esc>',
-  action = [[<C-\><C-n>]],
-}
-
 -- Jump to the cycle previous window
 km.n {
   key = '<BS>',

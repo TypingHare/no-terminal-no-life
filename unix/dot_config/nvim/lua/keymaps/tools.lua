@@ -1,10 +1,7 @@
--- Show and focus Neo-tree
 km.n {
-  key = '<leader>n',
-  action = function()
-    vim.cmd 'Neotree focus'
-  end,
-  desc = 'Focus Neo-tree',
+  key = '<leader>mh',
+  action = [[ :checkhealth <CR> ]],
+  desc = 'Check health',
 }
 
 -- Show the Lazy panel
