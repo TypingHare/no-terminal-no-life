@@ -5,7 +5,7 @@ local M = {}
 --- UI constants
 M.c = require 'constants.ui'
 
---- Get the size of Neo-tree
+--- Gets the width of Neo-tree.
 M.get_neo_tree_size = function()
   return math.max(
     M.c.NEO_TREE_MIN_WIDTH,
@@ -13,18 +13,33 @@ M.get_neo_tree_size = function()
   )
 end
 
---- Resize neo-tree
+--- Resizes Neo-tree.
 ---
 --- @param width integer
 M.resize_neo_tree = function(width)
+  -- Resize the Neo-tree window to the specified width immediately
   local winid =
     require('neo-tree.sources.manager').get_state('filesystem').winid
   if winid then
     vim.api.nvim_win_set_width(winid, width)
   end
+
+  -- TODO: Update the Neo-tree configuration to reflect the new width
+  -- require('neo-tree.sources.filesystem.commands')
+  --     .set_width(
+  --       require('neo-tree.sources.manager').get_state('filesystem'),
+  --       width
+  --     )
 end
 
---- Focus editor window
+--- Refreshes Neo-tree.
+M.refresh_neo_tree = function()
+  require('neo-tree.sources.filesystem.commands').refresh(
+    require('neo-tree.sources.manager').get_state 'filesystem'
+  )
+end
+
+--- Focuses editor window
 M.focus_editor_window = function()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     local buf = vim.api.nvim_win_get_buf(win)
@@ -62,7 +77,7 @@ M.close_buffer = function(buf)
   end
 
   -- TODO: Go back to the previous buffer instead
-  require('bufferline.commands').cycle(1)
+  require('bufferline.commands').cycle(-1)
   vim.cmd('bdelete! ' .. buf)
 end
 

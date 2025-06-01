@@ -80,7 +80,7 @@ M.get_candidate_window_ids = function()
   return M.get_filtered_window_ids(M.config.filter, vim.api.nvim_list_wins())
 end
 
---- Jumps to the window that has a smaller window ID thant the current window
+--- Jumps to the window that has a smaller window ID than the current window
 --- ID. If the current window ID is the least, jumps to the window that has the
 --- largest window ID.
 M.jump_to_prev_window = function()

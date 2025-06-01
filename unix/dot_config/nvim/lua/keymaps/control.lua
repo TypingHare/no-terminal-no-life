@@ -33,7 +33,3 @@ km.n {
   end,
   desc = 'Previous Window',
 }
-
-vim.keymap.set('n', '<leader>h', function()
-  require('noice').cmd 'history'
-end)

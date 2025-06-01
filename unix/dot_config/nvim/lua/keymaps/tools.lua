@@ -9,7 +9,6 @@ km.n {
   key = '<leader>ml',
   action = ':Lazy<CR>',
   desc = 'Show Lazy',
-  silent = true,
 }
 
 -- Show LSP information
@@ -17,7 +16,6 @@ km.n {
   key = '<leader>mL',
   action = ':LspInfo<CR>',
   desc = 'Show LSP Info',
-  silent = true,
 }
 
 -- Open Mason
@@ -32,5 +30,23 @@ km.n {
   key = '<leader>mS',
   action = ':StartupTime<CR>',
   desc = 'Show Startup Time',
-  silent = true,
+}
+
+-- Show the notification history
+vim.keymap.set('n', '<leader>h', function()
+  require('noice').cmd 'history'
+end)
+
+-- Enable copilot.
+km.n {
+  key = '<leader>mce',
+  action = ':Copilot enable<CR>',
+  desc = 'Enable Copilot',
+}
+
+-- Disable copilot.
+km.n {
+  key = '<leader>mcd',
+  action = ':Copilot disable<CR>',
+  desc = 'Disable Copilot',
 }

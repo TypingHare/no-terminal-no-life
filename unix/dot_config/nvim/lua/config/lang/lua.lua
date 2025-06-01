@@ -26,7 +26,7 @@ polyglot.add_lang {
   lsp = { tool = 'lua_language_server' },
   formatter = {
     tool = 'stylua',
-    source = require('null-ls').builtins.formatting.stylue,
+    source = require('null-ls').builtins.formatting.stylua,
   },
   auto_format = true,
 }
