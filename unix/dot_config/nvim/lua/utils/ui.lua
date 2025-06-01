@@ -6,7 +6,7 @@ local M = {}
 M.c = require 'constants.ui'
 
 --- Gets the width of Neo-tree.
-M.get_neo_tree_size = function()
+M.get_neo_tree_width = function()
   return math.max(
     M.c.NEO_TREE_MIN_WIDTH,
     math.floor(vim.o.columns * M.c.NEO_TREE_WIDTH_MULTIPLIER)

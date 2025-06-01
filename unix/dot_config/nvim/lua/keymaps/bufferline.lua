@@ -26,14 +26,14 @@ end
 -- Move to the cycle next buffer
 km.n {
   key = '<Tab>',
-  action = '<Cmd>BufferLineCycleNext<CR>',
+  action = km.run 'BufferLineCycleNext',
   desc = 'Next Buffer',
 }
 
 -- Move to the cycle previous buffer
 km.n {
   key = '<S-Tab>',
-  action = '<Cmd>BufferLineCyclePrev<CR>',
+  action = km.run 'BufferLineCyclePrev',
   desc = 'Previous Buffer',
 }
 
@@ -46,18 +46,28 @@ km.n {
   desc = 'Close Buffer',
 }
 
--- Close all other buffers
+-- Save all files and close all other buffers
 km.n {
   key = '<Enter>o',
-  action = '<Cmd>BufferLineCloseOthers<CR>',
+  action = function()
+    vim.cmd 'wa'
+    vim.cmd 'BufferLineCloseOthers'
+  end,
   desc = 'Close Other Buffers',
 }
 
 -- Save the current buffer
 km.n {
   key = '<Enter>s',
-  action = ':w<CR>',
+  action = km.run 'w',
   desc = 'Save Buffer',
+}
+
+-- Save all files
+km.n {
+  key = '<Enter>W',
+  action = km.run 'wa',
+  desc = 'Save All Buffers',
 }
 
 -- Hide the bufferline window (buffers are not gone)

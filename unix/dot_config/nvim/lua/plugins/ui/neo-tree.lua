@@ -5,7 +5,7 @@ return {
     -- Changes the width of Neo-tree when resizing
     vim.api.nvim_create_autocmd('VimResized', {
       callback = function()
-        ui.resize_neo_tree(ui.get_neo_tree_size())
+        ui.resize_neo_tree(ui.get_neo_tree_width())
       end,
     })
   end,
@@ -45,7 +45,7 @@ return {
         },
       },
       window = {
-        width = require('utils.ui').get_neo_tree_size(),
+        width = require('utils.ui').get_neo_tree_width(),
         ---@type table<string, boolean | string | any>
         mappings = {
           ['#'] = false,

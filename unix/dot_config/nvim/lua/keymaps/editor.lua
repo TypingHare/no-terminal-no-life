@@ -5,18 +5,6 @@ km.n {
   desc = 'Focus Neo-tree',
 }
 
--- Create a newline down below
-km.i {
-  key = '<S-Enter>',
-  action = '<ESC>o',
-}
-
--- Create a newline down below
-km.n {
-  key = '<S-Enter>',
-  action = 'o<ESC>',
-}
-
 -- Go to definition of the hovered identifier
 km.n {
   key = 'gd',
