@@ -43,5 +43,5 @@ alias vim="nvim"
 # List all commands sorted
 alias commands="compgen -c | sort | uniq"
 
-#
+# A fancy alias for exiting the session without pain
 alias ':q'="exit"

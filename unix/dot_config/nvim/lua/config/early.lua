@@ -51,7 +51,7 @@ vim.opt.guicursor = {
   'i-ci:ver25-CursorInsert',
   'r-cr:hor20',
   'o:hor50',
-  'a:blinkwait700-blinkon400-blinkoff250',
+  'a:blinkwait500-blinkon600-blinkoff400',
 }
 
 -- Set the diagnostic settings.

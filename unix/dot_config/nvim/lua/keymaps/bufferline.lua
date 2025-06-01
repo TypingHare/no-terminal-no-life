@@ -17,7 +17,7 @@
 for i = 1, 9 do
   km.n {
     key = '<Enter>' .. i,
-    action = string.format '<Cmd>BufferLineGoToBuffer %d<CR>',
+    action = string.format('<Cmd>BufferLineGoToBuffer %d<CR>', i),
     desc = string.format('Go to buffer #%d', i),
     noremap = false,
   }

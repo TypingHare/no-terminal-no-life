@@ -4,8 +4,8 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     require('notify').setup {
       stages = 'slide',
-      timeout = 3000,
+      timeout = 2000,
     }
-    vim.notify = require 'notify'
+    -- vim.notify = require 'notify'
   end,
 }

@@ -15,5 +15,6 @@ return {
     'FloatBorder',
     'SignColumn',
     'BufferLineFill',
+    'BufferLineBackground',
   },
 }

@@ -1,20 +1,20 @@
 -- Show and focus Neo-tree
 km.n {
   key = '<leader>n',
-  action = [[ :Neotree <CR> ]],
+  action = ':Neotree<CR>',
   desc = 'Focus Neo-tree',
 }
 
 -- Create a newline down below
 km.i {
   key = '<S-Enter>',
-  action = ':<ESC>o',
+  action = '<ESC>o^',
 }
 
 -- Create a newline down below
 km.n {
   key = '<S-Enter>',
-  action = ':o<ESC>',
+  action = 'o<ESC>',
 }
 
 -- Go to definition of the hovered identifier

@@ -44,6 +44,9 @@ return {
             staged = 'S',
             conflict = 'C',
           },
+          indent = {
+            indent_marker = require('constants.ui').VERTICAL_BAR,
+          },
         },
       },
       window = {

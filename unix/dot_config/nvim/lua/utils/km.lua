@@ -39,6 +39,16 @@ M.t = function(opts)
   M.set('t', opts)
 end
 
+---@param command string The command to run.
+---@return string
+M.run = function(command)
+  return ':' .. command '<CR>'
+end
+
+M.lua = function(script)
+  return M.run('lua ' .. script)
+end
+
 _G.km = M
 
 return M

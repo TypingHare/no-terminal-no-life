@@ -46,4 +46,7 @@ function put() {
 }
 
 # Open ~/Downloads
-alias downloads="to ~/Downloads"
+alias downloads="pushd ~/Downloads && ll"
+
+# Neovide
+alias neo="neovide --grid=128x40"

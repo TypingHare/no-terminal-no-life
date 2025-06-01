@@ -1,4 +1,4 @@
--- This module stores all the UI settings constants except for highlight groups
+-- This module stores all the UI settings constants.
 
 return {
   -- Cursor highlight
@@ -8,7 +8,7 @@ return {
   HL_CURSOR_INSERT = { fg = 'NONE', bg = '#6f9ceb' },
 
   -- Background highlight
-  HL_BACKGROUND = { bg = '#333333' },
+  HL_BACKGROUND = { bg = 'NONE' },
 
   -- The veritical bar character
   -- Used in `indent-blankline` and `virt-column`

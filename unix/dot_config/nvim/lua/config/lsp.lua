@@ -14,3 +14,8 @@ require('mason-tool-installer').setup {
   run_on_start = true,
   debounce_hours = 24,
 }
+
+require('lspconfig').typos_lsp.setup {
+  cmd = { 'typos-lsp' },
+  filetypes = { '*' },
+}
