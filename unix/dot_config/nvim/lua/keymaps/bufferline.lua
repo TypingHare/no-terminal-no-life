@@ -1,9 +1,25 @@
+-- km.n {
+--   key = '<CR>',
+--   action = function()
+--     if vim.bo.filetype == 'qf' then
+--       -- fallback to default <CR> behavior
+--       vim.api.nvim_feedkeys(
+--         vim.api.nvim_replace_termcodes('<CR>', true, false, true),
+--         'n',
+--         true
+--       )
+--     end
+--   end,
+--   desc = 'Handle Enter key in qf',
+-- }
+
 -- Numbers 1 - 9 can select corresponding buffers
 for i = 1, 9 do
   km.n {
     key = '<Enter>' .. i,
-    action = '<Cmd>BufferLineGoToBuffer ' .. i .. '<CR>',
+    action = string.format '<Cmd>BufferLineGoToBuffer %d<CR>',
     desc = string.format('Go to buffer #%d', i),
+    noremap = false,
   }
 end
 
@@ -26,6 +42,7 @@ km.n {
   key = '<Enter>q',
   action = function()
     local buf = vim.api.nvim_get_current_buf()
+    ui.close_buffer(buf)
   end,
   desc = 'Close Buffer',
 }

@@ -2,10 +2,10 @@
 
 return {
   -- Cursor highlight
-  HL_CURSOR = { fg = 'NONE', bg = '#2c7da0' },
+  HL_CURSOR = { fg = 'NONE', bg = '#6f9ceb' },
 
   -- CursorInsert highlight
-  HL_CURSOR_INSERT = { fg = 'NONE', bg = '#2c7da0' },
+  HL_CURSOR_INSERT = { fg = 'NONE', bg = '#6f9ceb' },
 
   -- Background highlight
   HL_BACKGROUND = { bg = '#333333' },
@@ -34,5 +34,5 @@ return {
   HL_LINE_NUMBER = { fg = '#6c757d' },
 
   -- Cursor line number highlight
-  HL_CURSOR_LINE_NUMBER = { fg = '#52b788', bold = true },
+  HL_CURSOR_LINE_NUMBER = { fg = '#6f9ceb', bold = true },
 }

@@ -1,7 +1,7 @@
 -- Show and focus Neo-tree
 km.n {
   key = '<leader>n',
-  action = [[ :Neotree focus <CR> ]],
+  action = [[ :Neotree <CR> ]],
   desc = 'Focus Neo-tree',
 }
 
