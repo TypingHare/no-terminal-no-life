@@ -34,8 +34,8 @@ vim.g.neovide_cursor_vfx_mode = ''
 -- The duraction of scroll animatoin
 vim.g.neovide_scroll_animation_length = 0.3
 
--- Disable full screen on startup.
-vim.g.neovide_fullscreen = false
+-- Enable full screen on startup.
+vim.g.neovide_fullscreen = true
 
 -- Whether to use the previous window size on startup.
 vim.g.neovide_remember_window_size = false

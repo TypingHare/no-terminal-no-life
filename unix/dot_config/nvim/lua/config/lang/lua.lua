@@ -20,10 +20,13 @@ require('lspconfig').lua_ls.setup {
   },
 }
 
--- -- Set up the formatter
--- local null_ls = require 'null-ls'
--- null_ls.setup {
---   sources = {
---     null_ls.builtins.formatting.stylua,
---   },
--- }
+polyglot.add_lang {
+  name = 'lua',
+  patterns = { '*.lua' },
+  lsp = { tool = 'lua_language_server' },
+  formatter = {
+    tool = 'stylua',
+    source = require('null-ls').builtins.formatting.stylue,
+  },
+  auto_format = true,
+}

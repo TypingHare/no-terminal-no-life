@@ -1,15 +1,15 @@
--- Save all buffers and quit
+-- Save and quit the current window
 km.n {
   key = '<leader>q',
-  action = ':wqa<CR>',
-  desc = 'Save All and Quit',
+  action = ':wq<CR>',
+  desc = 'Save and Quit',
 }
 
--- Forcibly quit
+-- Save all and quit
 km.n {
   key = '<leader>Q',
-  action = ':qa!<CR>',
-  desc = 'Force Quit',
+  action = ':wqa!<CR>',
+  desc = 'Save all and Quit',
 }
 
 -- Unset q: (show command history)

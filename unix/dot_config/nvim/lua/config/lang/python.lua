@@ -1,2 +1,6 @@
-require('lspconfig').pyright.setup {}
-require('lspconfig').ruff.setup {}
+polyglot.add_lang {
+  name = 'python',
+  patterns = { '*.py' },
+  lsp = { tool = 'pyright' },
+  linter = { tool = 'ruff' }
+}

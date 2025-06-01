@@ -41,8 +41,7 @@ km.n {
 km.n {
   key = '<Enter>q',
   action = function()
-    local buf = vim.api.nvim_get_current_buf()
-    ui.close_buffer(buf)
+    ui.close_buffer(vim.api.nvim_get_current_buf())
   end,
   desc = 'Close Buffer',
 }

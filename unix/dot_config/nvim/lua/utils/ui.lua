@@ -14,7 +14,7 @@ M.get_neo_tree_size = function()
 end
 
 --- Resize neo-tree
---- 
+---
 --- @param width integer
 M.resize_neo_tree = function(width)
   local winid =
@@ -38,18 +38,18 @@ end
 
 --- Toggles bufferline.
 ---
---- This function close the bufferline if the number of buffers is less than 2;
+--- This function closes the bufferline if the number of buffers is 0;
 --- otherwise, open the bufferline.
 M.toggle_bufferline = function()
   local buffers = vim.fn.getbufinfo { buflisted = 1 }
-  if #buffers < 2 then
+  if #buffers == 0 then
     vim.o.showtabline = 0
   else
     vim.o.showtabline = 2
   end
 end
 
---- Closes a buffer.
+--- Closes a buffer; saves it if it is modifiable.
 ---
 --- @param buf integer The ID of the buffer to close.
 M.close_buffer = function(buf)
@@ -61,6 +61,7 @@ M.close_buffer = function(buf)
     vim.cmd 'write!'
   end
 
+  -- TODO: Go back to the previous buffer instead
   require('bufferline.commands').cycle(1)
   vim.cmd('bdelete! ' .. buf)
 end
