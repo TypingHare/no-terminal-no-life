@@ -5,7 +5,7 @@
 local M = {}
 
 ---Set a keymap
----@param mode string
+---@param mode string | string[]
 ---@param opts { key: string, action: string | function, desc: string, silent?: boolean, noremap?: boolean }
 M.set = function(mode, opts)
   vim.keymap.set(mode, opts.key, opts.action, {
@@ -42,7 +42,7 @@ end
 ---@param command string The command to run.
 ---@return string
 M.run = function(command)
-  return ':' .. command '<CR>'
+  return ':' .. command .. '<CR>'
 end
 
 M.lua = function(script)

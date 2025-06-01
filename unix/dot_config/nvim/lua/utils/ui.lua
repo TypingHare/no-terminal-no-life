@@ -13,6 +13,17 @@ M.get_neo_tree_size = function()
   )
 end
 
+--- Resize neo-tree
+--- 
+--- @param width integer
+M.resize_neo_tree = function(width)
+  local winid =
+    require('neo-tree.sources.manager').get_state('filesystem').winid
+  if winid then
+    vim.api.nvim_win_set_width(winid, width)
+  end
+end
+
 --- Focus editor window
 M.focus_editor_window = function()
   for _, win in ipairs(vim.api.nvim_list_wins()) do

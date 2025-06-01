@@ -1,14 +1,14 @@
 -- Show and focus Neo-tree
 km.n {
   key = '<leader>n',
-  action = ':Neotree<CR>',
+  action = km.run 'Neotree',
   desc = 'Focus Neo-tree',
 }
 
 -- Create a newline down below
 km.i {
   key = '<S-Enter>',
-  action = '<ESC>o^',
+  action = '<ESC>o',
 }
 
 -- Create a newline down below

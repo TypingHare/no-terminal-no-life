@@ -12,10 +12,16 @@ vim.opt.termguicolors = true
 vim.o.guifont = 'JetBrainsMonoNL Nerd Font:h13'
 
 -- Set up the transparency.
-vim.g.neovide_opacity = 0.7
+vim.g.neovide_opacity = 0.8
 
 -- When transparent is enabled
 vim.g.neovide_window_blurred = true
+
+-- Background color
+local alpha = function()
+  return string.format('%x', math.floor(255 * (vim.g.transparency or 0.8)))
+end
+vim.g.neovide_background_color = '#333333' .. alpha()
 
 -- Set up floating blurry
 vim.g.neovide_floating_blur_amount_x = 2.0

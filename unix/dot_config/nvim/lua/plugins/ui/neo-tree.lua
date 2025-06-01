@@ -5,12 +5,7 @@ return {
     -- Changes the width of Neo-tree when resizing
     vim.api.nvim_create_autocmd('VimResized', {
       callback = function()
-        local new_width = ui.get_neo_tree_size()
-        local winid =
-          require('neo-tree.sources.manager').get_state('filesystem').winid
-        if winid then
-          vim.api.nvim_win_set_width(winid, new_width)
-        end
+        ui.resize_neo_tree(ui.get_neo_tree_size())
       end,
     })
   end,

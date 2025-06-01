@@ -19,6 +19,14 @@ alias lg="ll | grep"
 # Grep commands in the history list
 alias hg="history | grep"
 
+# List all files recursively
+function files() {
+  find "${1:-.}" -type f
+}
+
+# Grep files recursively in the current directory
+alias fig="files . | grep"
+
 # A shortcut for the combination of `cd` and `ll`
 function to() {
   builtin cd "$@" && ll

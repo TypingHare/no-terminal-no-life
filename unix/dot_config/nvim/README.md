@@ -17,3 +17,9 @@
 - [ ] Figure out how noice and nvim-notify work
 - [ ] Save all buffers (<Enter>S)
 - [ ] (Neovide) Transparent title bar (if possible)
+- [ ] (Neovide) Change the background color
+
+
+### Foundamental
+
+- [ ] Get the window config `nvim_win_get_config(win)`

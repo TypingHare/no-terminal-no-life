@@ -22,3 +22,6 @@ require('lazy').setup {
 require('modules.window-cycle').setup {
   filetypes = { 'neo-tree' },
 }
+
+--- Set up polyglot
+require 'modules.polyglot'

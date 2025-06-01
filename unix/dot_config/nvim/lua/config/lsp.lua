@@ -1,7 +1,3 @@
-require 'config.lang.lua'
-require 'config.lang.python'
-require 'config.lang.markdown'
-
 require('mason-tool-installer').setup {
   ensure_installed = {
     'lua-language-server',
@@ -15,7 +11,12 @@ require('mason-tool-installer').setup {
   debounce_hours = 24,
 }
 
+-- Use typos
 require('lspconfig').typos_lsp.setup {
-  cmd = { 'typos-lsp' },
+  cmd = { 'typos-lsp', '--config', 'typos.toml' },
   filetypes = { '*' },
 }
+
+framework.import_all_modules 'config/lang'
+polyglot.apply { 'lua' }
+polyglot.setup_langs()

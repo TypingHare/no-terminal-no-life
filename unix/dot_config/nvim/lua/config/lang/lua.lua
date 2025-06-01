@@ -20,18 +20,10 @@ require('lspconfig').lua_ls.setup {
   },
 }
 
--- Automatically format when save
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.lua',
-  callback = function()
-    vim.lsp.buf.format { async = false }
-  end,
-})
-
--- Set up the formatter
-local null_ls = require 'null-ls'
-null_ls.setup {
-  sources = {
-    null_ls.builtins.formatting.stylua,
-  },
-}
+-- -- Set up the formatter
+-- local null_ls = require 'null-ls'
+-- null_ls.setup {
+--   sources = {
+--     null_ls.builtins.formatting.stylua,
+--   },
+-- }
