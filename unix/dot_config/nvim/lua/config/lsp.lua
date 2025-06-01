@@ -1,5 +1,6 @@
 require 'config.lang.lua'
 require 'config.lang.python'
+require 'config.lang.markdown'
 
 require('mason-tool-installer').setup {
   ensure_installed = {

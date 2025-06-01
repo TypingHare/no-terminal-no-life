@@ -38,6 +38,22 @@ M.toggle_bufferline = function()
   end
 end
 
+--- Closes a buffer.
+---
+--- @param buf integer The ID of the buffer to close.
+M.close_buffer = function(buf)
+  local name = vim.api.nvim_buf_get_name(buf)
+  local is_modifiable = vim.bo.modifiable
+  local is_readonly = vim.bo.readonly
+
+  if is_modifiable and not is_readonly and name ~= '' then
+    vim.cmd 'write!'
+  end
+
+  require('bufferline.commands').cycle(1)
+  vim.cmd('bdelete! ' .. buf)
+end
+
 _G.ui = M
 
 return M

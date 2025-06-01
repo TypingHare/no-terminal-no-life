@@ -14,5 +14,6 @@ return {
     'EndOfBuffer',
     'FloatBorder',
     'SignColumn',
+    'BufferLineFill',
   },
 }

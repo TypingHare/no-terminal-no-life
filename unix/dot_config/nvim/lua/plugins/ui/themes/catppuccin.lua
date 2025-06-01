@@ -9,9 +9,10 @@ return {
       integrations = { bufferline = true },
     }
 
-    require('modules.screener').set_highlight_group {
-      group = 'BACKGROUND_HIGHLIGHT_GROUPS',
-      highlight = { bg = 'None' },
-    }
+    -- for _, d in ipairs(require('constants.groups').)
+    -- require('modules.screener').set_highlight_group {
+    --   group = 'BACKGROUND_HIGHLIGHT_GROUPS',
+    --   highlight = { bg = 'None' },
+    -- }
   end,
 }

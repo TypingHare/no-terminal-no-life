@@ -1,8 +1,7 @@
-require('mason-lspconfig').setup {
-  ensure_installed = { 'lua_ls' },
-  automatic_installation = true,
-  automatic_enable = false,
-}
+local runtime_paths = vim.api.nvim_get_runtime_file('', true)
+local filtered_runtime_paths = vim.tbl_filter(function(path)
+  return not path:find(vim.fn.stdpath 'config', 1, true)
+end, runtime_paths)
 
 require('lspconfig').lua_ls.setup {
   settings = {
@@ -10,28 +9,18 @@ require('lspconfig').lua_ls.setup {
       runtime = {
         version = 'LuaJIT',
       },
+      diagnostics = {
+        globals = { 'vim' },
+      },
       workspace = {
-        library = vim.api.nvim_get_runtime_file('', true),
+        library = filtered_runtime_paths,
         checkThirdParty = false,
       },
     },
   },
 }
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lua',
-  callback = function()
-    vim.defer_fn(function()
-      if vim.bo.filetype ~= 'lua' then
-        return
-      end
-      print 'Stopping the first LSP client...'
-      vim.lsp.stop_client(1, true)
-    end, 50)
-  end,
-})
-
--- automatically format when save
+-- Automatically format when save
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.lua',
   callback = function()
@@ -39,7 +28,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- Formatter
+-- Set up the formatter
 local null_ls = require 'null-ls'
 null_ls.setup {
   sources = {

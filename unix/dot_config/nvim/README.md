@@ -4,8 +4,9 @@
 
 ### To Fix
 
-- [ ] When the bufferline is closed, opening a file using telescope doesn't load the thing
-- [ ] 
+- [ ] When the bufferline is closed, opening a file using telescope doesn't load the thing.
+- [ ] Neotree disappears when hovering Neo-tree
+- [ ] Bufferline disappears sometimes
 
 ### To Implement
 

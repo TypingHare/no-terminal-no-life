@@ -47,7 +47,7 @@ return {
         },
       },
       window = {
-        width = ui.get_neo_tree_size(),
+        width = require('utils.ui').get_neo_tree_size(),
         ---@type table<string, boolean | string | any>
         mappings = {
           ['#'] = false,

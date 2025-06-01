@@ -3,5 +3,6 @@
 
 require 'config.early'
 require 'config.lazy'
+require 'config.late'
 require 'config.enter'
 require 'config.lsp'

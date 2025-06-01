@@ -41,6 +41,9 @@ vim.opt.cursorline = true
 -- Replace the tilde with space in the status column.
 vim.opt.fillchars:append { eob = ' ' }
 
+-- Copy yanked contents to the system clipboard (if supported).
+vim.opt.clipboard = 'unnamedplus'
+
 -- Set the style of the cursor.
 ---@diagnostic disable-next-line: missing-fields
 vim.opt.guicursor = {
@@ -59,3 +62,6 @@ vim.diagnostic.config {
 
 -- Set the terminal shell interpreter.
 vim.o.shell = '/bin/zsh'
+
+-- Speed up startup time by caching Lua modules. (Since Neovim 0.9)
+vim.loader.enable()
