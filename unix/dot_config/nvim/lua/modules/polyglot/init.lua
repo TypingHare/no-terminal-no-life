@@ -95,7 +95,9 @@ end
 --- @param langs Polyglot.LangConfig[]
 M.setup_mason_tool_install = function(langs)
   local tools = M.collect_tools(langs)
-  vim.notify(vim.inspect(tools), vim.log.levels.INFO)
+  vim.schedule(function()
+    vim.notify(vim.inspect(tools), vim.log.levels.INFO)
+  end)
 
   require('mason-tool-installer').setup {
     ensure_installed = M.collect_tools(langs),
@@ -133,15 +135,20 @@ M.setup_lsp = function(langs)
   end
 end
 
---- Sets up formatter.
+--- Sets up formatter and linters.
 ---
 --- @param langs Polyglot.LangConfig[]
-M.setup_formatters = function(langs)
+M.setup_formatters_and_linters = function(langs)
   local sources = {}
   for _, lang in ipairs(langs) do
     local formatter = lang.formatter
     if formatter ~= nil then
-      table.insert(sources, lang.formatter.source)
+      table.insert(sources, formatter.source)
+    end
+
+    local linter = lang.linter
+    if linter ~= nil then
+      table.insert(sources, linter.source)
     end
   end
 
@@ -174,7 +181,7 @@ M.setup_langs = function()
   local applied_langs = M.get_applied_langs()
   M.setup_mason_tool_install(applied_langs)
   M.setup_lsp(applied_langs)
-  M.setup_formatters(applied_langs)
+  M.setup_formatters_and_linters(applied_langs)
   M.setup_auto_save(applied_langs)
 
   local lang_names = {}

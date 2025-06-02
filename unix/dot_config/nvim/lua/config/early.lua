@@ -57,7 +57,7 @@ vim.opt.guicursor = {
 -- Set the diagnostic settings.
 vim.diagnostic.config {
   virtual_text = true,
-  update_in_insert = false,
+  update_in_insert = true,
 }
 
 -- Set the terminal shell interpreter.
