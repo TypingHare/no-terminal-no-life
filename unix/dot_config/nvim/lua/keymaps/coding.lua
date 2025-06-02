@@ -16,3 +16,9 @@ km.n {
   action = km.lua 'vim.lsp.buf.rename()',
   desc = 'Rename Identifier',
 }
+
+km.n {
+  key = '<leader>cf',
+  action = km.lua 'vim.lsp.buf.format()',
+  desc = 'Format File',
+}

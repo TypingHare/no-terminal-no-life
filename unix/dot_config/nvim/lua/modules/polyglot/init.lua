@@ -165,7 +165,7 @@ M.setup_auto_save = function(langs)
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = lang.patterns,
       callback = function()
-        vim.lsp.buf.format { async = true }
+        vim.lsp.buf.format { async = false }
       end,
     })
   end
