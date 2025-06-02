@@ -4,3 +4,16 @@ require('virt-column').update {
     filetypes = { 'markdown' },
   },
 }
+
+require('polyglot').add_lang {
+  name = 'markdown',
+  patterns = { '*.md', '*.markdown' },
+  lsp = { tool = 'marksman' },
+  formatter = {
+    tool = 'prettier',
+    source = require('null-ls').builtins.formatting.prettier.with {
+      filetypes = { 'markdown', 'mdx' },
+    },
+  },
+  linter = { tool = 'markdownlint' },
+}

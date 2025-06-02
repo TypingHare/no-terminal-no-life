@@ -1,12 +1,12 @@
 local M = {}
 
---- @alias Filter fun(window_object: WindowObject): boolean
---- @alias WindowObject { buffer_id: integer, filetype: string, buftype: string, buflisted: boolean }
---- @alias Config { filetypes: string[], buftypes: string[], filter: Filter }
+--- @alias WindowCycle.Filter fun(window_object: WindowObject): boolean
+--- @alias WindowCycle.WindowObject { buffer_id: integer, filetype: string, buftype: string, buflisted: boolean }
+--- @alias WindowCycle.Config { filetypes: string[], buftypes: string[], filter: Filter }
 
 --- Checks if a window_object is acceptable.
 ---
---- @param window_object WindowObject The window object to check.
+--- @param window_object WindowCycle.WindowObject The window object to check.
 --- @return boolean
 M.default_filter = function(window_object)
   if window_object.buflisted then
@@ -26,7 +26,7 @@ M.default_filter = function(window_object)
   return false
 end
 
---- @type Config
+--- @type WindowCycle.Config
 M.config = {
   filetypes = { 'neo-tree' },
   buftypes = {},
@@ -35,7 +35,7 @@ M.config = {
 
 --- Set up this module.
 ---
---- @param opts Config
+--- @param opts WindowCycle.Config
 M.setup = function(opts)
   opts = opts or {}
   M.config = vim.tbl_deep_extend('force', M.config, opts)
@@ -44,7 +44,7 @@ end
 --- Gets the info object of a window.
 ---
 --- @param window_id integer The ID of the window.
---- @return WindowObject
+--- @return WindowCycle.Config
 M.get_window_object_by_id = function(window_id)
   local buffer_id = vim.api.nvim_win_get_buf(window_id)
 
@@ -58,7 +58,7 @@ end
 
 --- Returns a filtered window id list.
 ---
---- @param filter Filter The filter function.
+--- @param filter WindowCycle.Filter The filter function.
 --- @param window_ids integer[] The window ID list to filter.
 --- @return integer[]
 M.get_filtered_window_ids = function(filter, window_ids)

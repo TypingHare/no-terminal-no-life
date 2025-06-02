@@ -18,10 +18,20 @@ require('lazy').setup {
   default = { version = '*' },
 }
 
---- Set up window-cycle
-require('modules.window-cycle').setup {
+--- Add local modules
+local modules_path = (vim.fn.stdpath 'config') .. '/lua/modules'
+vim.opt.rtp:prepend(modules_path)
+package.path = package.path
+  .. ';'
+  .. modules_path
+  .. '/?.lua;'
+  .. modules_path
+  .. '/?/init.lua'
+
+-- Set up window-cycle
+require('window-cycle').setup {
   filetypes = { 'neo-tree' },
 }
 
 --- Set up polyglot
-require 'modules.polyglot'
+require 'polyglot'

@@ -2,6 +2,11 @@ local framework = require 'utils.framework'
 
 framework.import_all_modules 'utils'
 framework.import_all_modules 'keymaps'
+framework.import_all_modules 'config/lang'
+
+-- Set up polyglot
+require('polyglot').auto_apply()
+require('polyglot').setup_langs()
 
 -- Select a color scheme.
 -- TODO: Use GUI to change colorschemes.

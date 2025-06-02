@@ -8,6 +8,11 @@
 - [ ] Neotree disappears when hovering Neo-tree
 - [ ] Bufferline Enter problem
 - [ ] <Space>w doesn't show on which-key
+- [ ] Line numbers don't work sometimes
+- [ ] Flash -> fail to work after using once
+- [ ] Not automatically clear highlights
+- [ ] Set up lua_ls with modules detection (if not, use lazy)
+- [ ] Search problem (how to exit/clear search)
 
 ### To Implement
 
@@ -16,7 +21,12 @@
 - [ ] Save all buffers (<Enter>S)
 - [ ] (Neovide) Transparent title bar (if possible)
 - [ ] (Neovide) Change the background color
+- [ ] Make polyglot a mature module
+- [ ] Format all files in a directory recursively
 
+### To implement (but not important)
+
+- [ ] Pressing multiple <leaders> will consider only one time
 
 ### Foundamental
 
