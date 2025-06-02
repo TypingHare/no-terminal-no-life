@@ -5,7 +5,7 @@ local filtered_runtime_paths = vim.tbl_filter(function(path)
 end, runtime_paths)
 
 require('polyglot').add_lang {
-  name = 'lua',
+  name = 'Lua',
   patterns = { '*.lua' },
   lsp = {
     tool = 'lua-language-server',

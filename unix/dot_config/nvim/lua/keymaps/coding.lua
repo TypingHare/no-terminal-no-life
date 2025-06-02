@@ -10,8 +10,9 @@ km.n {
   action = 'o<ESC>',
 }
 
--- Rename an idenifier
+-- Rename the idenifier where the cursor is
 km.n {
   key = '<leader>cr',
   action = km.lua 'vim.lsp.buf.rename()',
+  desc = 'Rename Identifier',
 }

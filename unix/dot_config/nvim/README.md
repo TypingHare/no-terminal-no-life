@@ -13,6 +13,7 @@
 - [ ] Not automatically clear highlights
 - [ ] Set up lua_ls with modules detection (if not, use lazy)
 - [ ] Search problem (how to exit/clear search)
+- [ ] Neot-tree width (Change the width on resize)
 
 ### To Implement
 

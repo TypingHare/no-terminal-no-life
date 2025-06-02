@@ -94,11 +94,6 @@ end
 ---
 --- @param langs Polyglot.LangConfig[]
 M.setup_mason_tool_install = function(langs)
-  local tools = M.collect_tools(langs)
-  vim.schedule(function()
-    vim.notify(vim.inspect(tools), vim.log.levels.INFO)
-  end)
-
   require('mason-tool-installer').setup {
     ensure_installed = M.collect_tools(langs),
     auto_update = true,
@@ -170,7 +165,7 @@ M.setup_auto_save = function(langs)
     vim.api.nvim_create_autocmd('BufWritePre', {
       pattern = lang.patterns,
       callback = function()
-        vim.lsp.buf.format { async = false }
+        vim.lsp.buf.format { async = true }
       end,
     })
   end
@@ -192,7 +187,8 @@ M.setup_langs = function()
   vim.schedule(function()
     vim.notify(
       'Applied languages: ' .. table.concat(lang_names, ', '),
-      vim.log.levels.INFO
+      vim.log.levels.INFO,
+      { title = 'Polyglot Languages' }
     )
   end)
 end
