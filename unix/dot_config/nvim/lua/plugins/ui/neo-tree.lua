@@ -21,6 +21,7 @@ return {
         },
       },
       filesystem = {
+        group_empty_dirs = true,
         always_show = {
           '.gitignored',
           '.gitkeep',
