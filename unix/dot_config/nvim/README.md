@@ -13,7 +13,8 @@
 - [ ] Not automatically clear highlights
 - [ ] Set up lua_ls with modules detection (if not, use lazy)
 - [ ] Search problem (how to exit/clear search)
-- [ ] Neot-tree width (Change the width on resize)
+- [ ] Neo-tree width (Change the width on resize)
+- [ ] Empty buffer problem (Close it when it is created?)
 
 ### To Implement
 
@@ -24,6 +25,8 @@
 - [ ] (Neovide) Change the background color
 - [ ] Make polyglot a mature module
 - [ ] Format all files in a directory recursively
+- [ ] Refresh Neo-tree when lazygit is closed
+- [ ] Disable markdown auto preview (set keybindings to toggle it)
 
 ### To implement (but not important)
 
