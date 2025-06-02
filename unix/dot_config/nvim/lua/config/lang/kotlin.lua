@@ -1,14 +1,21 @@
 require('polyglot').add_lang {
   name = 'Kotlin',
   file_extensions = { '*.kt', '*.kts' },
-  lsp = { tool = 'kotlin-language-server' },
-  linter = {
-    tool = 'ktlint',
-    source = require('null-ls').builtins.diagnostics.ktlint,
+  lsp = {
+    tool = 'kotlin-language-server',
+    setup = {
+      root_dir = require('lspconfig.util').root_pattern(
+        'build.gradle.kts',
+        'settings.gradle.kts',
+        'pom.xml'
+      ),
+      on_attach = function(client, _)
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+    },
   },
   formatter = {
     tool = 'ktlint',
     source = require('null-ls').builtins.formatting.ktlint,
   },
-  auto_format_on_save = false,
 }
