@@ -49,6 +49,4 @@ function put() {
 alias downloads="pushd ~/Downloads && ll"
 
 # Neovide
-function neo() {
-  neovide --grid=128x40 "${1:-.}"
-}
+alias neo='neovide --grid=128x40'
