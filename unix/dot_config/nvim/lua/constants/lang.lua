@@ -8,5 +8,6 @@ return {
     'python',
     'javascript',
     'typescript',
+    'bash',
   },
 }

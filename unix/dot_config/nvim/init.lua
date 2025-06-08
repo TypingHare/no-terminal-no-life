@@ -7,18 +7,9 @@ require 'config.lazy'
 require 'config.late'
 require 'config.enter'
 
----@diagnostic disable-next-line: missing-fields
--- require('nvim-treesitter.configs').setup {
---   ensure_installed = { 'kotlin' },
---   highlight = {
---     enable = true,
---     additional_vim_regex_highlighting = false,
---   },
--- }
-
-vim.lsp.buf.format {
-  filter = function(client)
-    return client.name == 'null-ls'
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { '.zshrc', '.bashrc', '.profile', '.bash_profile' },
+  callback = function()
+    vim.bo.filetype = 'sh'
   end,
-  bufnr = vim.api.nvim_get_current_buf(),
-}
+})
