@@ -22,9 +22,10 @@ return {
       },
       filesystem = {
         group_empty_dirs = true,
-        always_show = {
-          '.gitignored',
-          '.gitkeep',
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          always_show = { '.gitignore', '.gitkeep' },
         },
       },
       default_component_configs = {

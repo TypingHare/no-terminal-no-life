@@ -25,7 +25,7 @@ return {
 
   -- Initial window size
   initial_cols = 120,
-  initial_rows = 36,
+  initial_rows = 30,
   enable_tab_bar = true,
   hide_tab_bar_if_only_one_tab = true,
 

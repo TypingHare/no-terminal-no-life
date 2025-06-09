@@ -29,7 +29,7 @@ alias fig="files . | grep"
 
 # A shortcut for the combination of `cd` and `ll`
 function to() {
-  builtin cd "$@" && ll
+  cd "$@" && ll
 }
 
 # A helper function for displaying the help information of an application,
@@ -47,6 +47,9 @@ function help() {
 
 # Use nvim instead of vim
 alias vim="nvim"
+
+# I cannot spell zellij right
+alias zj="zellij"
 
 # List all commands sorted
 alias commands="compgen -c | sort | uniq"
