@@ -22,3 +22,17 @@ km.n {
   action = km.lua 'vim.lsp.buf.format()',
   desc = 'Format File',
 }
+
+-- Enable copilot.
+km.n {
+  key = '<leader>cce',
+  action = ':Copilot enable<CR>',
+  desc = 'Enable Copilot',
+}
+
+-- Disable copilot.
+km.n {
+  key = '<leader>ccd',
+  action = ':Copilot disable<CR>',
+  desc = 'Disable Copilot',
+}

@@ -9,7 +9,7 @@ km.n {
 km.n {
   key = '<leader>qf',
   action = ':qa!<CR>',
-  desc = 'Save All & Quit',
+  desc = 'Quit',
 }
 
 -- Unset q: (show command history)

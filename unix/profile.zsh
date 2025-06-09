@@ -13,7 +13,7 @@ alias ll="l -l"
 alias la="l -lA"
 alias tree="lsd --tree --group-directories-first"
 
-# Grep a specific file in the current directory
+# Grep specific files in the current directory
 alias lg="ll | grep"
 
 # Grep commands in the history list
@@ -29,7 +29,7 @@ alias fig="files . | grep"
 
 # A shortcut for the combination of `cd` and `ll`
 function to() {
-  cd "$@" && ll
+  z "$@" && ll
 }
 
 # A helper function for displaying the help information of an application,
@@ -57,6 +57,7 @@ alias commands="compgen -c | sort | uniq"
 # A fancy alias for exiting the session without pain
 alias ':q'="exit"
 
+# Collect all files in a directory and output it to `all.txt`
 function collect_files() {
   find "$1" -type f -name '*' -print0 | while IFS= read -r -d '' file; do
     echo "\n==> $file" >>all.txt

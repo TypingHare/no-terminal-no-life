@@ -11,3 +11,10 @@ km.n {
   action = ':= vim.lsp.buf.definition()<CR>',
   desc = 'Go to definition',
 }
+
+-- Run the file
+-- km.n {
+--   key = '<leader>rf',
+--   action = '',
+--   desc = 'Run',
+-- }

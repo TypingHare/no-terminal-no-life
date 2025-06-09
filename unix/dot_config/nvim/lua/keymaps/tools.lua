@@ -33,20 +33,8 @@ km.n {
 }
 
 -- Show the notification history
-vim.keymap.set('n', '<leader>h', function()
-  require('noice').cmd 'history'
-end)
-
--- Enable copilot.
 km.n {
-  key = '<leader>mce',
-  action = ':Copilot enable<CR>',
-  desc = 'Enable Copilot',
-}
-
--- Disable copilot.
-km.n {
-  key = '<leader>mcd',
-  action = ':Copilot disable<CR>',
-  desc = 'Disable Copilot',
+  key = '<leader>h',
+  action = ':Noice history<CR>',
+  desc = 'Show Notification History',
 }
