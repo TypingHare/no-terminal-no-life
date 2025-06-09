@@ -30,4 +30,5 @@ require('polyglot').add_lang {
     tool = 'stylua',
     source = require('null-ls').builtins.formatting.stylua,
   },
+  format_on_save = true
 }

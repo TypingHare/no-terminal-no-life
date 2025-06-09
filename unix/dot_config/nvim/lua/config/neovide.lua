@@ -1,4 +1,5 @@
 -- This configuration module is for Neovide.
+-- See: https://neovide.dev/configuration.html
 
 if not vim.g.neovide then
   return false
@@ -7,9 +8,9 @@ end
 -- Use true color (16 million colors).
 vim.opt.termguicolors = true
 
--- Set up the Gui Font.
+-- Set up the Gui Font (font family and font size)
 -- Download from: www.nerdfonts.com/font-downloads
-vim.o.guifont = 'JetBrainsMonoNL Nerd Font:h13'
+vim.o.guifont = 'JetBrainsMonoNL Nerd Font:h15'
 
 -- Set up the transparency.
 vim.g.neovide_opacity = 0.8

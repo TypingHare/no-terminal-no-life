@@ -152,22 +152,22 @@ M.setup_formatters_and_linters = function(langs)
   }
 end
 
+M.group = vim.api.nvim_create_augroup('AutoSaveFormatting', { clear = true })
+
 --- Sets up auto save.
 ---
 --- @param langs Polyglot.LangConfig[]
 M.setup_auto_save = function(langs)
   for _, lang in ipairs(langs) do
-    local format_on_save = lang.format_on_save or true
-    if not format_on_save then
-      return
+    if lang.format_on_save then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = M.group,
+        pattern = lang.patterns,
+        callback = function(args)
+          vim.lsp.buf.format { async = false, bufnr = args.buf }
+        end,
+      })
     end
-
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      pattern = lang.patterns,
-      callback = function()
-        vim.lsp.buf.format { async = false }
-      end,
-    })
   end
 end
 
@@ -183,14 +183,6 @@ M.setup_langs = function()
   for _, lang in ipairs(applied_langs) do
     table.insert(lang_names, '"' .. lang.name .. '"')
   end
-
-  vim.schedule(function()
-    vim.notify(
-      'Applied languages: ' .. table.concat(lang_names, ', '),
-      vim.log.levels.INFO,
-      { title = 'Polyglot Languages' }
-    )
-  end)
 end
 
 require 'polyglot.fs'

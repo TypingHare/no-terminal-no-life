@@ -3,7 +3,7 @@
 # Install oh-my-zsh
 # See https://ohmyz.sh/#install
 export RUNZSH=no
-cd ~
+cd ~ || exit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Set up plugins
@@ -14,11 +14,14 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plug
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 # Update .zshrc
-echo 'export ZSH="$HOME/.oh-my-zsh"' > ~/.zshrc
-echo 'plugins=(' >> ~/.zshrc
-echo '    git' >> ~/.zshrc
-echo '    zsh-autosuggestions' >> ~/.zshrc
-echo '    zsh-syntax-highlighting' >> ~/.zshrc
-echo ')' >> ~/.zshrc
-echo '' >> ~/.zshrc
-echo 'source $ZSH/oh-my-zsh.sh' >> ~/.zshrc
+cat <<EOF >~/.zshrc
+export ZSH="\$HOME/.oh-my-zsh"
+
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source \$ZSH/oh-my-zsh.sh
+EOF

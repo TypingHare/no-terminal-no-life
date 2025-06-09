@@ -16,4 +16,5 @@ require('polyglot').add_lang {
     },
   },
   linter = { tool = 'markdownlint' },
+  format_on_save = true,
 }

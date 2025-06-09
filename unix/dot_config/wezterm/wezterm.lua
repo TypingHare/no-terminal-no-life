@@ -1,0 +1,1 @@
+/Users/james/git/ntnl/macos/.wezterm.lua

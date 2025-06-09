@@ -1,6 +1,6 @@
 require('polyglot').add_lang {
   name = 'JSON',
-  atterns = { '*.json' },
+  patterns = { '*.json' },
   lsp = { tool = 'json-lsp' },
   formatter = {
     tool = 'prettier',
@@ -11,4 +11,5 @@ require('polyglot').add_lang {
       },
     },
   },
+  format_on_save = true,
 }

@@ -53,3 +53,11 @@ alias commands="compgen -c | sort | uniq"
 
 # A fancy alias for exiting the session without pain
 alias ':q'="exit"
+
+function collect_files() {
+  find "$1" -type f -name '*' -print0 | while IFS= read -r -d '' file; do
+    echo "\n==> $file" >>all.txt
+    cat "$file" >>all.txt
+    echo "" >>all.txt
+  done
+}

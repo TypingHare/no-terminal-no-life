@@ -1,15 +1,15 @@
--- Save and quit the current window
-km.n {
-  key = '<leader>q',
-  action = ':wq<CR>',
-  desc = 'Save and Quit',
-}
-
 -- Save all and quit
 km.n {
-  key = '<leader>Q',
-  action = ':wqa!<CR>',
-  desc = 'Save all and Quit',
+  key = '<leader>qa',
+  action = ':wqa<CR>',
+  desc = 'Save All & Quit',
+}
+
+-- Forcibly quit Neovim without saving
+km.n {
+  key = '<leader>qf',
+  action = ':qa!<CR>',
+  desc = 'Save All & Quit',
 }
 
 -- Unset q: (show command history)

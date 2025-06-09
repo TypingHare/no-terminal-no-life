@@ -1,11 +1,14 @@
 return {
   'rcarriga/nvim-notify',
+  lazy = false,
   config = function()
+    local notify = require("notify")
     ---@diagnostic disable-next-line: missing-fields
-    require('notify').setup {
+    notify.setup {
       stages = 'slide',
       timeout = 2000,
     }
-    vim.notify = require 'notify'
+
+    vim.notify = notify
   end,
 }

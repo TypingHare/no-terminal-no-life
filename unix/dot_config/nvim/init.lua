@@ -8,7 +8,7 @@ require 'config.late'
 require 'config.enter'
 
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '.zshrc', '.bashrc', '.profile', '.bash_profile' },
+  pattern = { '*.zsh', '.zshrc', '.bashrc', '.profile', '.bash_profile' },
   callback = function()
     vim.bo.filetype = 'sh'
   end,

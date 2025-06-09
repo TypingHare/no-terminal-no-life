@@ -6,4 +6,5 @@ require('polyglot').add_lang {
   lsp = { tool = 'bash-language-server' },
   formatter = { tool = 'shfmt' },
   linter = { tool = 'shellcheck' },
+  format_on_save = true,
 }

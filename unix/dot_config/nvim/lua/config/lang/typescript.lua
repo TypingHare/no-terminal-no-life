@@ -16,4 +16,5 @@ require('polyglot').add_lang {
       },
     },
   },
+  format_on_save = true,
 }

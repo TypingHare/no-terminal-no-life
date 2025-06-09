@@ -1,6 +1,6 @@
 require('polyglot').add_lang {
   name = 'Kotlin',
-  file_extensions = { '*.kt', '*.kts' },
+  patterns = { '*.kt', '*.kts' },
   lsp = {
     tool = 'kotlin-language-server',
     setup = {
@@ -18,4 +18,5 @@ require('polyglot').add_lang {
     tool = 'ktlint',
     source = require('null-ls').builtins.formatting.ktlint,
   },
+  format_on_save = true,
 }

@@ -8,4 +8,5 @@ require('polyglot').add_lang {
       filetypes = { '*' },
     },
   },
+  format_on_save = true,
 }
