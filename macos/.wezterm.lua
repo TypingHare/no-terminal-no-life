@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 return {
   -- Color scheme, see: https://wezterm.org/colorschemes/index.html
-  color_scheme = 'Adventure',
+  color_scheme = 'Dark Pastel (Gogh)',
 
   -- To check all the fonts WezTerm uses, run `wezterm ls-font`
   -- Use `wezterm ls-font --text "Test"` for more detail info
@@ -13,7 +13,7 @@ return {
   },
 
   -- The font size
-  font_size = 15.0,
+  font_size = 14.0,
 
   -- The line height (the vertical space between lines of text)
   line_height = 1.2,

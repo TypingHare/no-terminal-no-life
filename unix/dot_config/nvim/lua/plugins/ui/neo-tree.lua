@@ -23,7 +23,7 @@ return {
       filesystem = {
         group_empty_dirs = true,
         filtered_items = {
-          hide_dotfiles = false,
+          hide_dotfiles = true,
           hide_gitignored = true,
           always_show = { '.gitignore', '.gitkeep' },
         },

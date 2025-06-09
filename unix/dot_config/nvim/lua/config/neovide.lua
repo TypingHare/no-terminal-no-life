@@ -10,7 +10,7 @@ vim.opt.termguicolors = true
 
 -- Set up the Gui Font (font family and font size)
 -- Download from: www.nerdfonts.com/font-downloads
-vim.o.guifont = 'JetBrainsMonoNL Nerd Font:h15'
+vim.o.guifont = 'JetBrainsMonoNL Nerd Font:h14'
 
 -- Set up the transparency.
 vim.g.neovide_opacity = 0.8
