@@ -1,27 +1,21 @@
 # Neovim
 
-## TODO
-
 ### To Fix
 
 - [ ] When the bufferline is closed, opening a file using telescope doesn't load the thing.
-- [ ] Neotree disappears when hovering Neo-tree
-- [ ] Bufferline Enter problem
+- [ ] Bufferline Enter problem (In some buffers, Enter doesn't work)
 - [ ] <Space>w doesn't show on which-key
 - [ ] Line numbers don't work sometimes
-- [ ] Flash -> fail to work after using once
-- [ ] Not automatically clear highlights
-- [ ] Set up lua_ls with modules detection (if not, use lazy)
+- [ ] Flash -> fail to work after using once -> fall back to the normal one
 - [ ] Search problem (how to exit/clear search)
 - [ ] Neo-tree width (Change the width on resize)
 - [ ] Empty buffer problem (Close it when it is created?)
 
 ### To Implement
 
+- [ ]
 - [ ] Message stack
-- [ ] Figure out how noice and nvim-notify work
 - [ ] Save all buffers (<Enter>S)
-- [ ] (Neovide) Transparent title bar (if possible)
 - [ ] (Neovide) Change the background color
 - [ ] Make polyglot a mature module
 - [ ] Format all files in a directory recursively

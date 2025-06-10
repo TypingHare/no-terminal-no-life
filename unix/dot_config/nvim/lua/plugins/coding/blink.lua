@@ -1,4 +1,7 @@
--- https://cmp.saghen.dev/installation
+-- Blink Completion is a completion plugin with support for LSPs, cmdline,
+-- signature help, and snippets.
+--
+-- GitHub page: https://cmp.saghen.dev/installation
 return {
   'saghen/blink.cmp',
   dependencies = { 'rafamadriz/friendly-snippets' },
@@ -16,7 +19,7 @@ return {
     completion = { documentation = { auto_show = false } },
     sources = {
       -- lsp, path, snippets, buffer
-      default = { 'lsp' },
+      default = { 'lsp', 'path', 'snippets' },
     },
     fuzzy = { implementation = 'prefer_rust_with_warning' },
   },

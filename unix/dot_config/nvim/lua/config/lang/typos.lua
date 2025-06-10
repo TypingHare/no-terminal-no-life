@@ -1,6 +1,11 @@
+-- Typos is a source-code-aware spell checker. It detects typos in code and
+-- docs, with low false-positive rate. Implemented with Rust, it is also fast
+-- and scalable.
+--
+-- GitHub page: https://github.com/crate-ci/typos
+
 require('polyglot').add_lang {
   name = 'typos',
-  patterns = { '*' },
   lsp = {
     tool = 'typos-lsp',
     setup = {
@@ -8,5 +13,5 @@ require('polyglot').add_lang {
       filetypes = { '*' },
     },
   },
-  format_on_save = true,
+  format_on_save = false,
 }

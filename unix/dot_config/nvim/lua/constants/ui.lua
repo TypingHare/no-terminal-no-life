@@ -10,7 +10,7 @@ return {
   -- Background highlight
   HL_BACKGROUND = { bg = 'NONE' },
 
-  -- The veritical bar character
+  -- The vertical bar character
   -- Used in `indent-blankline` and `virt-column`
   VERTICAL_BAR = '▏',
 

@@ -6,10 +6,3 @@ require 'config.early'
 require 'config.lazy'
 require 'config.late'
 require 'config.enter'
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '*.zsh', '.zshrc', '.bashrc', '.profile', '.bash_profile' },
-  callback = function()
-    vim.bo.filetype = 'sh'
-  end,
-})

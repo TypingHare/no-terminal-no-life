@@ -1,8 +1,9 @@
 local M = {}
 
 --- @class Polyglot.LangConfig
---- @field name string The name of the language.
---- @field patterns string[] The patterns associated with the language.
+--- @field name string The name (ID) of the language.
+--- @field filetypes string[]
+--- @field treesitter Polyglot.Treesitter The treesitter configuration.
 --- @field lsp Polyglot.LspConfig The LSP configuration.
 --- @field linter Polyglot.LinterConfig? The Linter configuration.
 --- @field formatter Polyglot.FormatterConfig? The formatter configuration.
@@ -10,16 +11,18 @@ local M = {}
 
 --- @alias Polyglot.Tool string
 
+--- @class Polyglot.Treesitter
+--- @field tool Polyglot.Tool
+
 --- @class Polyglot.LspConfig
 --- @field tool Polyglot.Tool
 --- @field setup? table
 
 --- @class Polyglot.LinterConfig
 --- @field tool Polyglot.Tool
---- @field source any
+
 --- @class Polyglot.FormatterConfig
 --- @field tool Polyglot.Tool
---- @field source any
 
 --- @type Polyglot.LangConfig[]
 M.langs = {}
@@ -108,7 +111,7 @@ end
 --- @return string|nil
 local function get_lsp_name(package_name)
   local package_to_lspconfig =
-    require('mason-lspconfig').get_mappings()['package_to_lspconfig']
+      require('mason-lspconfig').get_mappings()['package_to_lspconfig']
   return package_to_lspconfig[package_name] or nil
 end
 
@@ -130,45 +133,32 @@ M.setup_lsp = function(langs)
   end
 end
 
---- Sets up formatter and linters.
+--- Sets up conform.
 ---
 --- @param langs Polyglot.LangConfig[]
-M.setup_formatters_and_linters = function(langs)
-  local sources = {}
+M.setup_conform = function(langs)
+  local formatters_by_ft = {}
   for _, lang in ipairs(langs) do
-    local formatter = lang.formatter
-    if formatter ~= nil then
-      table.insert(sources, formatter.source)
-    end
-
-    local linter = lang.linter
-    if linter ~= nil then
-      table.insert(sources, linter.source)
+    local filetypes = lang.filetypes
+    if filetypes and lang.formatter and lang.formatter.tool then
+      for _, filetype in ipairs(filetypes) do
+        formatters_by_ft[filetype] = { lang.formatter.tool }
+      end
     end
   end
 
-  require('null-ls').setup {
-    sources = sources,
-  }
+  require('conform').formatters_by_ft = formatters_by_ft
 end
 
-M.group = vim.api.nvim_create_augroup('AutoSaveFormatting', { clear = true })
-
 --- Sets up auto save.
----
---- @param langs Polyglot.LangConfig[]
-M.setup_auto_save = function(langs)
-  for _, lang in ipairs(langs) do
-    if lang.format_on_save then
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = M.group,
-        pattern = lang.patterns,
-        callback = function(args)
-          vim.lsp.buf.format { async = false, bufnr = args.buf }
-        end,
-      })
-    end
-  end
+M.setup_auto_save = function()
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    callback = function(args)
+      if vim.bo.modified then
+        vim.lsp.buf.format { async = false, bufnr = args.buf }
+      end
+    end,
+  })
 end
 
 --- Sets up the applied languages.
@@ -176,8 +166,8 @@ M.setup_langs = function()
   local applied_langs = M.get_applied_langs()
   M.setup_mason_tool_install(applied_langs)
   M.setup_lsp(applied_langs)
-  M.setup_formatters_and_linters(applied_langs)
-  M.setup_auto_save(applied_langs)
+  M.setup_conform(applied_langs)
+  M.setup_auto_save()
 
   local lang_names = {}
   for _, lang in ipairs(applied_langs) do

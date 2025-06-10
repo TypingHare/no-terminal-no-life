@@ -1,15 +1,9 @@
 return {
   'stevearc/conform.nvim',
   opts = {
-    formatters_by_ft = {
-      -- -- TOML formatter
-      -- -- cargo install taplo-cli --locked
-      -- toml = { 'taplo' },
-      -- json = { 'prettier' },
-      -- javascript = { 'prettier' },
-      -- typescript = { 'prettier' },
-      -- Python formatter (black)
-      -- python = { 'ruff_format' },
+    format_on_save = {
+      lsp_fallback = true,
+      timeout_ms = 200,
     },
-  },
+  }
 }

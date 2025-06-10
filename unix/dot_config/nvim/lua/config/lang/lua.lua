@@ -1,12 +1,12 @@
 local runtime_paths = vim.api.nvim_get_runtime_file('', true)
 local filtered_runtime_paths = vim.tbl_filter(function(path)
   return path ~= vim.fn.stdpath 'config'
-    and path ~= ((vim.fn.stdpath 'config') .. '/lua/modules')
+      and path ~= ((vim.fn.stdpath 'config') .. '/lua/modules')
 end, runtime_paths)
 
 require('polyglot').add_lang {
   name = 'Lua',
-  patterns = { '*.lua' },
+  filetypes = { "lua" },
   lsp = {
     tool = 'lua-language-server',
     setup = {
@@ -14,9 +14,6 @@ require('polyglot').add_lang {
         Lua = {
           runtime = {
             version = 'LuaJIT',
-          },
-          diagnostics = {
-            globals = { 'vim' },
           },
           workspace = {
             library = filtered_runtime_paths,
@@ -26,9 +23,6 @@ require('polyglot').add_lang {
       },
     },
   },
-  formatter = {
-    tool = 'stylua',
-    source = require('null-ls').builtins.formatting.stylua,
-  },
+  formatter = { tool = 'stylua' },
   format_on_save = true
 }

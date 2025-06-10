@@ -17,10 +17,18 @@ km.n {
   desc = 'Rename Identifier',
 }
 
+-- Format file
 km.n {
   key = '<leader>cf',
   action = km.lua 'vim.lsp.buf.format()',
   desc = 'Format File',
+}
+
+-- Show diagnostics under the cursor
+km.n {
+  key = '<leader>cd',
+  action = vim.diagnostic.open_float,
+  desc = 'Show Diagnostics',
 }
 
 -- Enable copilot.

@@ -12,9 +12,7 @@ km.n {
   desc = 'Go to definition',
 }
 
--- Run the file
--- km.n {
---   key = '<leader>rf',
---   action = '',
---   desc = 'Run',
--- }
+km.n {
+  key = '<Esc>',
+  action = '<Esc>:nohlsearch<CR>',
+}

@@ -1,20 +1,10 @@
 require('polyglot').add_lang {
-  name = 'typescript',
-  patterns = { '*.js', '*.jsx', '*.ts', '*.tsx' },
+  name = 'TypeScript',
+  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
   lsp = { tool = 'typescript-language-server' },
-  linter = {
-    tool = 'eslint-lsp',
-  },
+  linter = { tool = 'eslint-lsp' },
   formatter = {
     tool = 'prettier',
-    source = require('null-ls').builtins.formatting.prettier.with {
-      filetypes = {
-        'javascript',
-        'typescript',
-        'typescriptreact',
-        'javascriptreact',
-      },
-    },
   },
   format_on_save = true,
 }

@@ -1,8 +1,9 @@
 require('polyglot').add_lang {
-  name = 'python',
-  patterns = { '*.py' },
+  name = 'Python',
+  filetypes = { 'python' },
   lsp = { tool = 'pyright' },
   linter = { tool = 'ruff' },
+  formatter = { tool = 'ruff' },
   format_on_save = true,
 }
 
