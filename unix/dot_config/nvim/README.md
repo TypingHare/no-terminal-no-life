@@ -8,19 +8,16 @@
 - [ ] Line numbers don't work sometimes
 - [ ] Flash -> fail to work after using once -> fall back to the normal one
 - [ ] Search problem (how to exit/clear search)
-- [ ] Neo-tree width (Change the width on resize)
+- [ ] Neo-tree width (Change the real width on resize)
 - [ ] Empty buffer problem (Close it when it is created?)
 
 ### To Implement
 
-- [ ]
-- [ ] Message stack
+- [ ] Message stack (center)
 - [ ] Save all buffers (<Enter>S)
 - [ ] (Neovide) Change the background color
 - [ ] Make polyglot a mature module
 - [ ] Format all files in a directory recursively (Neo-tree?)
-- [ ] Refresh Neo-tree when lazygit is close
-- [ ] Disable markdown auto preview (set keybindings to toggle it)
 
 ### To implement (but not important)
 

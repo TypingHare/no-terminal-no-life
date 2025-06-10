@@ -155,7 +155,8 @@ M.setup_auto_save = function()
   vim.api.nvim_create_autocmd('BufWritePre', {
     callback = function(args)
       if vim.bo.modified then
-        vim.lsp.buf.format { async = false, bufnr = args.buf }
+        require('conform').format()
+        --vim.lsp.buf.format { async = false, bufnr = args.buf }
       end
     end,
   })
