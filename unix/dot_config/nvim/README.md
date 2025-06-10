@@ -18,8 +18,8 @@
 - [ ] Save all buffers (<Enter>S)
 - [ ] (Neovide) Change the background color
 - [ ] Make polyglot a mature module
-- [ ] Format all files in a directory recursively
-- [ ] Refresh Neo-tree when lazygit is closed
+- [ ] Format all files in a directory recursively (Neo-tree?)
+- [ ] Refresh Neo-tree when lazygit is close
 - [ ] Disable markdown auto preview (set keybindings to toggle it)
 
 ### To implement (but not important)
