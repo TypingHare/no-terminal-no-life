@@ -19,7 +19,7 @@ return {
     completion = { documentation = { auto_show = false } },
     sources = {
       -- lsp, path, snippets, buffer
-      default = { 'lsp', 'path', 'snippets' },
+      default = { 'lsp', 'path' },
     },
     fuzzy = { implementation = 'prefer_rust_with_warning' },
   },

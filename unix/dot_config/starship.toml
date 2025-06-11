@@ -1,24 +1,21 @@
-[gcloud]
-disabled = true
+# Starship configuration file
+# Configuration page: https://starship.rs/config/
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
 
-[character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[✗](bold red)"
+character.success_symbol = "[➜](bold green)"
+character.error_symbol = "[➜](bold red)"
 
-[package]
-format = '[📦 $version](208 bold) '
+gradle.disabled = true
 
-[java]
-disabled = true
-
-[kotlin]
-format = "[${symbol} ]($style)"
-
-[gradle]
-disabled = true
-
-[nodejs]
-format = "[${symbol} ]($style)"
-
-[rust]
-format = "[${symbol} ]($style)"
+# [package]
+# format = '[📦 $version](208 bold) '
+#
+# [kotlin]
+# format = "[${symbol} ]($style)"
+#
+# [nodejs]
+# format = "[${symbol} ]($style)"
+#
+# [rust]
+# format = "[${symbol} ]($style)"
