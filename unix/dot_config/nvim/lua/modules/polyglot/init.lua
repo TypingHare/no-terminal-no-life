@@ -111,8 +111,28 @@ end
 --- @return string|nil
 local function get_lsp_name(package_name)
   local package_to_lspconfig =
-      require('mason-lspconfig').get_mappings()['package_to_lspconfig']
+    require('mason-lspconfig').get_mappings()['package_to_lspconfig']
   return package_to_lspconfig[package_name] or nil
+end
+
+--- Sets up treesitter.
+---
+--- @param langs Polyglot.LangConfig[]
+M.setup_treesitter = function(langs)
+  local tools = {}
+  for _, lang in ipairs(langs) do
+    if lang.treesitter then
+      table.insert(tools, lang.treesitter.tool)
+    end
+  end
+
+  local treesitter = require 'nvim-treesitter.configs'
+  ---@diagnostic disable-next-line: missing-fields
+  treesitter.setup {
+    ensure_installed = tools,
+    highlight = { enable = true },
+    auto_install = true,
+  }
 end
 
 --- Sets up LSP.
@@ -153,10 +173,9 @@ end
 --- Sets up auto save.
 M.setup_auto_save = function()
   vim.api.nvim_create_autocmd('BufWritePre', {
-    callback = function(args)
+    callback = function()
       if vim.bo.modified then
         require('conform').format()
-        --vim.lsp.buf.format { async = false, bufnr = args.buf }
       end
     end,
   })
@@ -165,6 +184,7 @@ end
 --- Sets up the applied languages.
 M.setup_langs = function()
   local applied_langs = M.get_applied_langs()
+  M.setup_treesitter(applied_langs)
   M.setup_mason_tool_install(applied_langs)
   M.setup_lsp(applied_langs)
   M.setup_conform(applied_langs)
