@@ -24,12 +24,7 @@ M.resize_neo_tree = function(width)
     vim.api.nvim_win_set_width(winid, width)
   end
 
-  -- TODO: Update the Neo-tree configuration to reflect the new width
-  -- require('neo-tree.sources.filesystem.commands')
-  --     .set_width(
-  --       require('neo-tree.sources.manager').get_state('filesystem'),
-  --       width
-  --     )
+  require('neo-tree').config.window.width = width
 end
 
 --- Refreshes Neo-tree.

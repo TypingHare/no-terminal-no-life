@@ -3,8 +3,6 @@ require('polyglot').add_lang {
   filetypes = { 'svelte' },
   treesitter = { tool = 'svelte' },
   lsp = { tool = 'svelte-language-server' },
-  formatter = {
-    tool = 'prettier',
-  },
+  formatter = { tool = 'prettier' },
   format_on_save = true,
 }
