@@ -1,22 +1,11 @@
 # Starship configuration file
 # Configuration page: https://starship.rs/config/
 "$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = false
 
-character.success_symbol = "[➜](bold green)"
-character.error_symbol = "[➜](bold red)"
+character.success_symbol = "[ ➜](bold green)"
+character.error_symbol = "[ ➜](bold red)"
 
 gradle.disabled = true
-java.disabled =true 
-
-# [package]
-# format = '[📦 $version](208 bold) '
-#
-# [kotlin]
-# format = "[${symbol} ]($style)"
-#
-# [nodejs]
-# format = "[${symbol} ]($style)"
-#
-# [rust]
-# format = "[${symbol} ]($style)"
+java.disabled = true 
