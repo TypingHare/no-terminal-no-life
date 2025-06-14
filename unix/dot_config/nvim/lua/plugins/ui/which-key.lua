@@ -17,13 +17,15 @@ return {
     }
 
     which_key.add {
-      { '<leader>e',  group = 'Editor' },
-      { '<leader>f',  group = 'Find' },
-      { '<leader>m',  group = 'Neovim Modules' },
-      { '<leader>g',  group = 'Git' },
-      { '<leader>c',  group = 'Coding' },
-      { '<leader>t',  group = 'Terminal' },
-      { '<leader>q',  group = 'Quit' },
+      { '<leader>e', group = 'Editor' },
+      { '<leader>f', group = 'Find' },
+      { '<leader>r', group = 'Run' },
+      { '<leader>b', group = 'Buffer' },
+      { '<leader>m', group = 'Neovim Modules' },
+      { '<leader>g', group = 'Git' },
+      { '<leader>c', group = 'Coding' },
+      { '<leader>t', group = 'Terminal' },
+      { '<leader>q', group = 'Quit' },
       { '<leader>cc', group = 'Copilot' },
     }
   end,

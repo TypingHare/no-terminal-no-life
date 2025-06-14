@@ -2,40 +2,33 @@
 km.n {
   key = '<leader>ff',
   action = ':Telescope find_files<CR>',
-  desc = 'Find Files',
+  desc = '(f)ind files',
 }
 
 -- Find old files
 km.n {
   key = '<leader>fo',
   action = ':Telescope oldfiles<CR>',
-  desc = 'Find Files',
-}
-
--- Since fining old files in very common, we add one more keymap for it
-km.n {
-  key = '<leader><Enter>',
-  action = ':Telescope oldfiles<CR>',
-  desc = 'Find Files',
+  desc = 'find (o)ld files',
 }
 
 -- Live grep
 km.n {
   key = '<leader>fg',
   action = ':Telescope live_grep<CR>',
-  desc = 'Live Grep',
+  desc = 'live (g)rep',
 }
 
 -- Find buffers
 km.n {
   key = '<leader>fb',
   action = ':Telescope buffers<CR>',
-  desc = 'Find Buffers',
+  desc = 'find (b)uffers',
 }
 
 -- Find help
 km.n {
   key = '<leader>fh',
   action = ':Telescope help_tags<CR>',
-  desc = 'Help Tags',
+  desc = '(h)elp tags',
 }
