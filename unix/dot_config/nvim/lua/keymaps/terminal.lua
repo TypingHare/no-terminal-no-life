@@ -5,10 +5,14 @@ km.n {
   desc = 'Open Terminal',
 }
 
--- In terminal, `<Esc>` can
 km.t {
   key = '<Esc>',
-  action = [[<C-\><C-n>]],
+  action = function()
+    local ft = vim.bo.filetype
+    if ft ~= 'lazygit' then
+      vim.cmd 'stopinsert'
+    end
+  end,
 }
 
 local Terminal = require('toggleterm.terminal').Terminal

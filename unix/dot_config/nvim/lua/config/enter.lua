@@ -1,17 +1,31 @@
--- Show relative line numbers.
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'WinEnter' }, {
+-- Show relative line numbers
+vim.api.nvim_create_autocmd(
+  { 'BufEnter', 'BufWinEnter', 'WinEnter', 'TermOpen', 'BufNewFile' },
+  {
+    pattern = '*',
+    callback = function(args)
+      vim.schedule(function()
+        local ft = vim.bo[args.buf].filetype
+        local bt = vim.bo[args.buf].buftype
+        if (not vim.bo.buflisted) or ft == 'neo-tree' or bt == 'terminal' then
+          vim.wo.statuscolumn = ''
+          vim.wo.number = false
+          vim.wo.relativenumber = false
+        else
+          vim.wo.number = true
+          vim.wo.relativenumber = true
+          vim.wo.statuscolumn = [[%s%=%{v:relnum?v:relnum:v:lnum}   ]]
+          vim.wo.signcolumn = 'yes'
+        end
+      end)
+    end,
+  }
+)
+
+vim.api.nvim_create_autocmd('TermOpen', {
   pattern = '*',
   callback = function()
-    local ft = vim.bo.filetype
-    if vim.bo.buflisted or ft == 'neo-tree' then
-      vim.wo.number = false
-      vim.wo.relativenumber = false
-    else
-      vim.wo.number = true
-      vim.wo.relativenumber = true
-      vim.wo.statuscolumn = [[%s%=%{v:relnum?v:relnum:v:lnum}   ]]
-      vim.wo.signcolumn = 'yes'
-    end
+    vim.cmd 'startinsert'
   end,
 })
 

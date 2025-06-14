@@ -14,11 +14,8 @@ return {
   config = function()
     vim.api.nvim_create_autocmd('TermClose', {
       pattern = '*',
-      callback = function(args)
-        local buf_ft = vim.bo[args.buf].filetype
-        if buf_ft == 'lazygit' then
-          require('utils.ui').refresh_neo_tree()
-        end
+      callback = function()
+        require('utils.ui').refresh_neo_tree()
       end,
     })
   end,

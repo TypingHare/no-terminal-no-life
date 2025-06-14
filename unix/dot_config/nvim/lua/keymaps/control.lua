@@ -1,7 +1,7 @@
 -- Save all and quit
 km.n {
   key = '<leader>qa',
-  action = ':wqa<CR>',
+  action = ':wa<CR>:qa<CR>',
   desc = 'Save All & Quit',
 }
 
