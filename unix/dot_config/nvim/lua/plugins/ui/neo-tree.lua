@@ -26,6 +26,7 @@ return {
           hide_dotfiles = true,
           hide_gitignored = true,
           always_show = { '.gitignore', '.gitkeep' },
+          never_show = { '__pycache__' },
         },
       },
       default_component_configs = {

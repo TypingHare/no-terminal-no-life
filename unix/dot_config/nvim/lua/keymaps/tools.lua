@@ -38,3 +38,10 @@ km.n {
   action = ':Noice history<CR>',
   desc = 'Show Notification History',
 }
+
+-- DBUI
+km.n {
+  key = '<leader>md',
+  action = '<CMD>DBUI<CR>',
+  desc = 'Open DBUI',
+}
