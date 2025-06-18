@@ -27,3 +27,9 @@ vim.api.nvim_set_hl(0, 'LineNr', ui.c.HL_LINE_NUMBER)
 
 -- Change the highlight of the cursor line number.
 vim.api.nvim_set_hl(0, 'CursorLineNr', ui.c.HL_CURSOR_LINE_NUMBER)
+
+-- For nvim-ufo
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true

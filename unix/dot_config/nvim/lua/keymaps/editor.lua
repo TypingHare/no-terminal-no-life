@@ -5,13 +5,6 @@ km.n {
   desc = 'Focus Neo-tree',
 }
 
--- Go to definition of the hovered identifier
-km.n {
-  key = 'gd',
-  action = ':= vim.lsp.buf.definition()<CR>',
-  desc = 'Go to definition',
-}
-
 km.n {
   key = '<Esc>',
   action = '<Esc>:nohlsearch<CR>',

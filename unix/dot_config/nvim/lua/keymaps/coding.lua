@@ -31,6 +31,25 @@ km.n {
   desc = 'Show Diagnostics',
 }
 
+-- Go to definition under the cursor
+km.n {
+  key = 'gd',
+  action = require('telescope.builtin').lsp_definitions,
+  desc = 'Go to definition',
+}
+
+km.n {
+  key = 'grr',
+  action = require('telescope.builtin').lsp_references,
+  desc = 'Go to references',
+}
+
+km.n {
+  key = 'gri',
+  action = require('telescope.builtin').lsp_references,
+  desc = 'Go to Implementations',
+}
+
 -- Enable copilot.
 km.n {
   key = '<leader>cce',

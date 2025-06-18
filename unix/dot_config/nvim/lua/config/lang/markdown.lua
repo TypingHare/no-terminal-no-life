@@ -9,7 +9,6 @@ require('polyglot').add_lang {
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = '*markdown*',
-  once = true,
   callback = function(args)
     local buf = args.buf
     vim.schedule(function()
