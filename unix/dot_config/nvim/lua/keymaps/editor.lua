@@ -17,3 +17,15 @@ km.n {
   end,
   desc = 'Toggle Relative Line Numbers',
 }
+
+km.n {
+  key = 'zr',
+  action = require('ufo').openAllFolds,
+  desc = 'Open All Folds',
+}
+
+km.n {
+  key = 'zm',
+  action = require('ufo').closeAllFolds,
+  desc = 'Close All Folds',
+}
