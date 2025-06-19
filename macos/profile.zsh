@@ -57,4 +57,4 @@ function collect() {
 }
 
 # Neovim
-alias vim="nvim --listen /tmp/nvim"
+alias viml="nvim --listen /tmp/nvim"

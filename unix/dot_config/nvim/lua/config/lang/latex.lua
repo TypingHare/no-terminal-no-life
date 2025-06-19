@@ -9,16 +9,38 @@ require('polyglot').add_lang {
         texlab = {
           build = {
             executable = 'latexmk',
-            args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+            args = {
+              '-pdf',
+              '-interaction=nonstopmode',
+              '-synctex=1',
+              --'-output-directory=build',
+              '%f',
+            },
             onSave = true,
+            forwardSearchAfter = true,
           },
           -- forwardSearch = {
-          --   executable = 'open',
-          --   args = { '-a', 'Skim', '%p' },
+          --   executable = '/Applications/Skim.app/Contents/SharedSupport/displayline',
+          --   args = {
+          --     '-r',
+          --     '%line',
+          --     '%pdfPath',
+          --     '%texPath',
+          --   },
           -- },
           forwardSearch = {
-            executable = '/Applications/Skim.app/Contents/SharedSupport/displayline',
-            args = { '%l', '%p', '%f' },
+            executable = 'open',
+            args = {
+              '-a',
+              'Skim',
+              '%pdfPath',
+              -- '--args',
+              -- '-r',
+              -- '-g',
+              -- '%line',
+              -- '%texPath',
+            },
+            onSave = true,
           },
         },
       },
@@ -36,30 +58,5 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.spell = true
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'tex',
-  callback = function()
-    km.n {
-      key = '<leader>rf',
-      action = function()
-        local params = {
-          command = 'texlab.forwardSearch',
-          arguments = {
-            {
-              tex = vim.api.nvim_buf_get_name(0),
-            },
-          },
-        }
-        for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do
-          if client.name == 'texlab' then
-            client:request('workspace/executeCommand', params, nil, 0)
-          end
-        end
-      end,
-      desc = 'Texlab Forward Search',
-    }
   end,
 })
