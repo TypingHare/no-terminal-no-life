@@ -5,42 +5,18 @@ require('polyglot').add_lang {
   lsp = {
     tool = 'texlab',
     setup = {
+      on_attach = function() end,
       settings = {
         texlab = {
           build = {
-            executable = 'latexmk',
-            args = {
-              '-pdf',
-              '-interaction=nonstopmode',
-              '-synctex=1',
-              --'-output-directory=build',
-              '%f',
-            },
-            onSave = true,
-            forwardSearchAfter = true,
+            executable = '',
+            args = {},
+            onSave = false,
+            forwardSearchAfter = false,
           },
-          -- forwardSearch = {
-          --   executable = '/Applications/Skim.app/Contents/SharedSupport/displayline',
-          --   args = {
-          --     '-r',
-          --     '%line',
-          --     '%pdfPath',
-          --     '%texPath',
-          --   },
-          -- },
           forwardSearch = {
-            executable = 'open',
-            args = {
-              '-a',
-              'Skim',
-              '%pdfPath',
-              -- '--args',
-              -- '-r',
-              -- '-g',
-              -- '%line',
-              -- '%texPath',
-            },
-            onSave = true,
+            executable = '',
+            args = {},
           },
         },
       },
@@ -58,5 +34,10 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.spell = true
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
+
+    vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+    vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
+    vim.keymap.set('n', '^', 'g^', { noremap = true, silent = true })
+    vim.keymap.set('n', '$', 'g$', { noremap = true, silent = true })
   end,
 })
