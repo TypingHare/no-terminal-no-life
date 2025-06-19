@@ -55,3 +55,6 @@ alias neo='neovide --grid=128x40'
 function collect() {
   collect_files "$1" | pbcopy
 }
+
+# Neovim
+alias vim="nvim --listen /tmp/nvim"

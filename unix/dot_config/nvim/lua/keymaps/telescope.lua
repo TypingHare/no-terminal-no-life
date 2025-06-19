@@ -8,7 +8,9 @@ km.n {
 -- Find old files
 km.n {
   key = '<leader>fo',
-  action = ':Telescope oldfiles<CR>',
+  action = function()
+    require('telescope.builtin').oldfiles { cwd_only = true }
+  end,
   desc = 'find (o)ld files',
 }
 
@@ -23,7 +25,7 @@ km.n {
 km.n {
   key = '<leader>fb',
   action = ':Telescope buffers<CR>',
-  desc = 'find (b)uffers',
+  desc = 'find buffers',
 }
 
 -- Find help
@@ -31,4 +33,26 @@ km.n {
   key = '<leader>fh',
   action = ':Telescope help_tags<CR>',
   desc = '(h)elp tags',
+}
+
+local telescope = require 'telescope.builtin'
+local function search_files_with_same_extension()
+  local ext = vim.fn.expand '%:e'
+  if ext == '' then
+    vim.notify(
+      'No file extension found for current buffer.',
+      vim.log.levels.ERROR
+    )
+    return
+  end
+  telescope.find_files {
+    find_command = { 'fd', '--type', 'f', '--extension', ext },
+    prompt_title = 'Files with extension: ' .. ext,
+  }
+end
+
+km.n {
+  key = '<leader>ft',
+  action = search_files_with_same_extension,
+  desc = 'Files with Same Extension',
 }
