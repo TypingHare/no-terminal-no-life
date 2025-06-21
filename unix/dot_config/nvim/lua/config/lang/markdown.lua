@@ -36,3 +36,15 @@ require('virt-column').update {
     filetypes = { 'markdown' },
   },
 }
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.cmd 'SoftWrapMode'
+
+    vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+    vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
+    vim.keymap.set('n', '^', 'g^', { noremap = true, silent = true })
+    vim.keymap.set('n', '$', 'g$', { noremap = true, silent = true })
+  end,
+})

@@ -18,7 +18,9 @@ vim.api.nvim_create_autocmd(
         else
           vim.wo.number = true
           vim.wo.relativenumber = true
-          vim.wo.statuscolumn = [[%s%=%{v:relnum?v:relnum:v:lnum}   ]]
+          -- vim.wo.statuscolumn = [[%s%=%{v:relnum?v:relnum:v:lnum}   ]]
+          vim.wo.statuscolumn =
+            [[%s%=%{v:virtnum == 0 ? (v:relnum ? v:relnum : v:lnum) : ''}   ]]
           vim.wo.signcolumn = 'yes'
         end
       end)
