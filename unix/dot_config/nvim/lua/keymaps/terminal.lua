@@ -1,10 +1,12 @@
--- Open terminal
+-- Open a terminal buffer
 km.n {
   key = '<leader>tt',
   action = ':terminal<CR>',
   desc = 'Open Terminal',
 }
 
+-- If the terminal buffer is not lazygit, then <Esc> can bring the user back to
+-- the normal mode
 km.t {
   key = '<Esc>',
   action = function()
@@ -17,7 +19,7 @@ km.t {
 
 local Terminal = require('toggleterm.terminal').Terminal
 
--- Function to get the project root
+--- Determines the root directory of the current project.
 local function get_project_root()
   local root = vim.fn.finddir('.git/..', '.;')
   if root == '' then
@@ -26,11 +28,10 @@ local function get_project_root()
   return root
 end
 
--- Function to create and open terminal with venv
+--- Function to create and open terminal with venv
 local function open_float_terminal_with_venv()
   local root = get_project_root()
-  local activate_path = root .. '/.venv/bin/activate'
-
+  local env_file_path = root .. '/env.sh'
   local term = Terminal:new {
     direction = 'float',
     cwd = root,
@@ -42,8 +43,8 @@ local function open_float_terminal_with_venv()
   term:spawn()
 
   -- Send setup commands
-  if vim.fn.filereadable(activate_path) == 1 then
-    term:send('source ' .. activate_path, true)
+  if vim.fn.filereadable(env_file_path) == 1 then
+    term:send('source ' .. env_file_path, true)
   end
 
   -- Clear the terminal screen
