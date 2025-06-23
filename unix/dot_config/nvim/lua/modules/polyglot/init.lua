@@ -167,7 +167,11 @@ M.setup_conform = function(langs)
     end
   end
 
-  require('conform').formatters_by_ft = formatters_by_ft
+  vim.tbl_deep_extend(
+    'force',
+    require('conform').formatters_by_ft,
+    formatters_by_ft
+  )
 end
 
 --- Sets up auto save.

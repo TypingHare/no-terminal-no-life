@@ -2,6 +2,6 @@ require('polyglot').add_lang {
   name = 'TOML',
   filetypes = { 'toml' },
   lsp = { tool = 'taplo' },
-  formatter = { tool = 'prettier' },
+  formatter = { tool = 'taplo' },
   format_on_save = true,
 }

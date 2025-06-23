@@ -3,7 +3,6 @@ require('polyglot').add_lang {
   filetypes = { 'python' },
   lsp = { tool = 'pyright' },
   linter = { tool = 'ruff' },
-  formatter = { tool = 'ruff' },
   format_on_save = true,
 }
 
@@ -47,4 +46,14 @@ km.n {
   key = '<leader>rf',
   action = run_python_file,
   desc = 'Run',
+}
+
+require('conform').setup {
+  formatters_by_ft = {
+    python = {
+      'ruff_fix',
+      'ruff_format',
+      'ruff_organize_imports',
+    },
+  },
 }

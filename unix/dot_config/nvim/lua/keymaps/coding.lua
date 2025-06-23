@@ -20,7 +20,7 @@ km.n {
 -- Format file
 km.n {
   key = '<leader>cf',
-  action = km.lua 'vim.lsp.buf.format()',
+  action = km.lua 'require(\'conform\').format()',
   desc = 'Format File',
 }
 
