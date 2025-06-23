@@ -88,6 +88,13 @@ return {
             end,
             desc = 'Copy Relative Path',
           },
+          ['O'] = {
+            function(state)
+              local path = state.tree:get_node():get_id()
+              vim.fn.jobstart { 'open', path }
+            end,
+            desc = 'Open with OS',
+          },
         },
       },
     }

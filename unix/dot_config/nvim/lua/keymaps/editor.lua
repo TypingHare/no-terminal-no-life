@@ -29,3 +29,20 @@ km.n {
   action = require('ufo').closeAllFolds,
   desc = 'Close All Folds',
 }
+
+local function open_current_file()
+  local filepath = vim.api.nvim_buf_get_name(0)
+  if filepath == '' then
+    print 'No file to open'
+    return
+  end
+
+  -- Run the open command asynchronously so Neovim doesn't freeze
+  vim.fn.jobstart { 'open', filepath }
+end
+
+km.n {
+  key = '<leader>eo',
+  action = open_current_file,
+  desc = 'Open with OS',
+}
