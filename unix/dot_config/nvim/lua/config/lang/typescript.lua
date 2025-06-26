@@ -6,7 +6,6 @@ require('polyglot').add_lang {
     'javascriptreact',
     'typescriptreact',
   },
-  treesitter = { 'javascript', 'typescript' },
   lsp = { tool = 'typescript-language-server' },
   linter = { tool = 'eslint-lsp' },
   formatter = {

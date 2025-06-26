@@ -6,6 +6,7 @@ return {
     'neo-tree',
     'notify',
     'help',
+    'dbui',
   },
   BACKGROUND_HIGHLIGHT_GROUPS = {
     'Normal',

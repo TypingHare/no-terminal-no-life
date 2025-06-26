@@ -31,11 +31,11 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Disable the vertical column for markdown files.
-require('virt-column').update {
-  exclude = {
-    filetypes = { 'markdown' },
-  },
-}
+-- require('virt-column').update {
+--   exclude = {
+--     filetypes = { 'markdown' },
+--   },
+-- }
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',

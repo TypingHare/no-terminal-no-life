@@ -65,3 +65,9 @@ vim.o.shell = '/bin/zsh'
 
 -- Speed up startup time by caching Lua modules. (Since Neovim 0.9)
 vim.loader.enable()
+
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.statuscolumn =
+  [[%s%=%{v:virtnum == 0 ? (v:relnum ? v:relnum : v:lnum) : ''}   ]]
+vim.o.signcolumn = 'yes'

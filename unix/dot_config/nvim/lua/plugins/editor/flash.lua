@@ -1,6 +1,7 @@
 return {
   'folke/flash.nvim',
   event = 'VeryLazy',
+  enabled = false,
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require('flash').setup {

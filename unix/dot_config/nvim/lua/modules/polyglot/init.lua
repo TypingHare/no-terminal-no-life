@@ -167,9 +167,10 @@ M.setup_conform = function(langs)
     end
   end
 
-  vim.tbl_deep_extend(
+  local conform = require 'conform'
+  conform.formatters_by_ft = vim.tbl_deep_extend(
     'force',
-    require('conform').formatters_by_ft,
+    conform.formatters_by_ft,
     formatters_by_ft
   )
 end
