@@ -61,7 +61,6 @@ return {
           ['<C-x>'] = false,
           ['<bs>'] = false,
           ['<cr>'] = false,
-          ['<esc>'] = false,
           ['>'] = false,
           ['[g'] = false,
           [']g'] = false,

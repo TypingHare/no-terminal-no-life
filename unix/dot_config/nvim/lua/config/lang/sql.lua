@@ -6,3 +6,13 @@ require('polyglot').add_lang {
   formatter = { tool = 'sqruff' },
   format_on_save = true,
 }
+
+require('conform').setup {
+  formatters = {
+    sqruff = {
+      command = 'sqruff',
+      args = { 'fix', '-' },
+      stdin = true,
+    },
+  },
+}
