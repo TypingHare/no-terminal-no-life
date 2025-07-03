@@ -11,14 +11,11 @@ return {
   end,
   config = function()
     require('neo-tree').setup {
-      handlers = {
-        {
-          event = 'neo_tree_buffer_enter',
-          handler = function()
-            vim.opt_local.statuscolumn = ''
-            vim.opt_local.signcolumn = 'no'
-          end,
-        },
+      sources = {
+        'filesystem',
+        'buffers',
+        'git_status',
+        'document_symbols',
       },
       filesystem = {
         group_empty_dirs = true,
@@ -52,6 +49,7 @@ return {
         ---@type table<string, boolean | string | any>
         mappings = {
           ['#'] = false,
+          ['f'] = false,
           ['<space>'] = false,
           ['.'] = false,
           ['<'] = false,

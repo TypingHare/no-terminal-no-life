@@ -90,3 +90,11 @@ vim.api.nvim_set_hl(0, 'CursorLineNr', ui.c.HL_CURSOR_LINE_NUMBER)
 --     end
 --   end,
 -- })
+vim.filetype.add {
+  filename = {
+    ['.env'] = 'dosini',
+  },
+  pattern = {
+    ['.env.*'] = 'dosini',
+  },
+}
