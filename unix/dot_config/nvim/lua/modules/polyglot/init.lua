@@ -79,7 +79,9 @@ M.collect_tools = function(langs)
   local tools = {}
 
   for _, lang in ipairs(langs) do
-    table.insert(tools, lang.lsp.tool)
+    if lang.lsp ~= nil then
+      table.insert(tools, lang.lsp.tool)
+    end
 
     if lang.linter ~= nil then
       table.insert(tools, lang.linter.tool)
@@ -141,14 +143,16 @@ end
 M.setup_lsp = function(langs)
   local lspconfig = require 'lspconfig'
   for _, lang in ipairs(langs) do
-    local lsp_name = get_lsp_name(lang.lsp.tool)
-    if lsp_name ~= nil then
-      lspconfig[lsp_name].setup(lang.lsp.setup or {})
-    else
-      vim.notify(
-        'LSP for ' .. lang.name .. ' not found: ' .. lang.lsp.tool,
-        vim.log.levels.WARN
-      )
+    if lang.lsp ~= nil then
+      local lsp_name = get_lsp_name(lang.lsp.tool)
+      if lsp_name ~= nil then
+        lspconfig[lsp_name].setup(lang.lsp.setup or {})
+      else
+        vim.notify(
+          'LSP for ' .. lang.name .. ' not found: ' .. lang.lsp.tool,
+          vim.log.levels.WARN
+        )
+      end
     end
   end
 end
@@ -168,11 +172,8 @@ M.setup_conform = function(langs)
   end
 
   local conform = require 'conform'
-  conform.formatters_by_ft = vim.tbl_deep_extend(
-    'force',
-    conform.formatters_by_ft,
-    formatters_by_ft
-  )
+  conform.formatters_by_ft =
+    vim.tbl_deep_extend('force', conform.formatters_by_ft, formatters_by_ft)
 end
 
 --- Sets up auto save.
