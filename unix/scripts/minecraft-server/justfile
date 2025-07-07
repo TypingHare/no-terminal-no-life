@@ -1,0 +1,81 @@
+# =============================================================================
+# Justfile for Managing Minecraft Server Saves
+# Copyright (c) 2025 James Chen
+# =============================================================================
+# This Justfile automates the process of:
+# - Downloading Minecraft server jars
+# - Creating new game save directories
+# - Launching specific game saves
+# - Listing available server versions
+
+# -----------------------------------------------------------------------------
+# Downloads a Minecraft server .jar file.
+#
+# This command downloads the .jar file from the provided URL, which can be found
+# on the official website. The file will be downloaded to the `servers`
+# directory, with the version as the filename. For example, if the given version
+# is 1.21.7, the downloaded file will be:
+#
+#     servers/1.21.7.jar
+#
+# Arguments:
+#   version - The version number or identifier of the server
+#   url     - The download URL of the server .jar file
+# -----------------------------------------------------------------------------
+download version url:
+  @echo "Downloading Minecraft server version: {{version}}"
+  @mkdir -p servers
+  @wget -O servers/{{version}}.jar {{url}}
+  @echo "Downloaded server to servers/{{version}}.jar"
+
+# -----------------------------------------------------------------------------
+# Lists all downloaded Minecraft server versions.
+#
+# This command lists all available minecraft server jar files in the `servers`
+# directory.
+# -----------------------------------------------------------------------------
+list:
+  @echo "Available Minecraft server versions:"
+  @find servers -maxdepth 1 -type f -printf "%f\n"
+
+# -----------------------------------------------------------------------------
+# Creates a new game save (world).
+#
+# This command creates a game save directory (or world directory) and copies the
+# server file corresponding to the given version to the directory. Then, it
+# launches the game using Java. The first launching must fail, because we need
+# to set the `eula` to `true` in `eula.txt`.
+#
+# Arguments:
+#   name    - The name of the new game save
+#   version - The Minecraft server version to use
+# -----------------------------------------------------------------------------
+create name version:
+  @echo "Creating game save '{{name}}' using server version {{version}}"
+  @mkdir -p {{name}}
+  @cp servers/{{version}}.jar {{name}}/server.jar
+  @echo "Copied server.jar to {{name}}/"
+  @echo "Initializing the game save for the first time to generate files..."
+  @cd {{name}} && java -Xmx1024M -Xms1024M -jar server.jar nogui > /dev/null 2>&1
+  @echo "Writing eula.txt..."
+  @echo "eula=true" > {{name}}/eula.txt
+  @echo "Game save '{{name}}' created successfully."
+
+# -------------------------------------------
+# Launches a specific game save.
+#
+# This command creates a server instance by launching a specific game save using
+# Java.
+#
+# Arguments:
+#   name - The name of the game save to launch
+# -------------------------------------------
+launch name:
+  @if [ -f "{{name}}/server.jar" ]; then \
+    echo "Launching game save '{{name}}'..."; \
+    cd {{name}} && java -Xmx1024M -Xms1024M -jar server.jar nogui; \
+  else \
+    echo "Error: Game save '{{name}}' does not exist."; \
+    exit 1; \
+  fi
+
