@@ -48,6 +48,10 @@ function help() {
 # Use nvim instead of vim
 alias vim="nvim"
 
+# Setup zoxide
+eval "$(zoxide init zsh)"
+alias cd="z"
+
 # I cannot spell zellij right
 alias zj="zellij"
 
