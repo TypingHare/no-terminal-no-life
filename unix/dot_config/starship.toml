@@ -8,4 +8,4 @@ character.success_symbol = "[ ➜](bold green)"
 character.error_symbol = "[ ➜](bold red)"
 
 gradle.disabled = true
-java.disabled = true 
+aws.disabled = true

@@ -15,7 +15,7 @@ function finder() {
   fi
 }
 
-# Copy file path (absolute path)
+# Copy the absolute path to a file to the clipboard
 function pick() {
   if [ -z "$1" ]; then
     # No argument passed, copy current working directory
@@ -45,15 +45,14 @@ function put() {
   fi
 }
 
-# Open ~/Downloads
-alias downloads="pushd ~/Downloads && ll"
-
-# Neovide
+# Open Neovide
 alias neo='neovide --grid=128x40'
 
 # Collect files
 function collect() {
-  collect_files "$1" | pbcopy
+  collect_files "$1"
+  cat 'all.txt' | pbcopy
+  rm 'all.txt'
 }
 
 # Neovim

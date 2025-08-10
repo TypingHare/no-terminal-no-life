@@ -58,8 +58,8 @@ cat <<EOF >~/.zshrc
 source "$HOME/git/ntnl/unix/profile.zsh"
 EOF
 
-# Install tools: fastfetch, htop, lsd, zoxide, fzf
-brew install fastfetch htop lsd zoxide fzf
+# Install tools: fastfetch, htop, lsd, zoxide, fzf, lazygit
+brew install fastfetch htop lsd zoxide fzf lazygit
 
 # Install runtime environment: Node.js
 brew install node
