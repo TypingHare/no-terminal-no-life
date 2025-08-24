@@ -8,10 +8,10 @@ require('polyglot').add_lang {
   name = 'typos',
   lsp = {
     tool = 'typos-lsp',
-    setup = {
-      cmd = { 'typos-lsp', '--config', 'typos.toml' },
-      filetypes = { '*' },
-    },
+    -- setup = {
+    --   cmd = { 'typos-lsp', '--config', 'typos.toml' },
+    --   filetypes = { '*' },
+    -- },
   },
   format_on_save = false,
 }
