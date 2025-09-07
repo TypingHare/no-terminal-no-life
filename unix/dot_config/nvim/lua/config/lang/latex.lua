@@ -47,5 +47,11 @@ vim.api.nvim_create_autocmd('FileType', {
 
     -- Disable the spell check, use typos instead
     vim.opt_local.spell = false
+
+    vim.schedule(function()
+      if vim.bo.filetype == 'tex' then
+        vim.opt_local.wrap = true
+      end
+    end)
   end,
 })
