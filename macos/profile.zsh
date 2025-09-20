@@ -57,3 +57,6 @@ function collect() {
 
 # Neovim
 alias viml="nvim --listen /tmp/nvim"
+
+# Print homedir
+alias home="cd ~ && lsd -l -I '[A-Z]*'"
