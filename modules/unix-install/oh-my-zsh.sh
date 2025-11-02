@@ -20,8 +20,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$ZSH/custom"
 mkdir -p "$ZSH_CUSTOM/plugins"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+  "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+  "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 # Update the Zsh configuration file
 cat <<EOF >~/.zshrc

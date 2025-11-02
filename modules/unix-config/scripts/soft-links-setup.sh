@@ -3,14 +3,14 @@
 # The source directory containing the dot-config files
 UNIX_DOT_CONFIG_DIR="$NTNL/modules/unix-config/dot-config"
 
-# The target directory for the symbolic links
-CONFIG_DIR="$HOME/.config"
-
 # Check if the source directory exists
 [ -d "$UNIX_DOT_CONFIG_DIR" ] || {
   echo "Source directory not found: $UNIX_DOT_CONFIG_DIR"
   exit 1
 }
+
+# The target directory for the symbolic links
+CONFIG_DIR="$HOME/.config"
 
 # Ensure the target directory exists
 mkdir -p "$CONFIG_DIR"
