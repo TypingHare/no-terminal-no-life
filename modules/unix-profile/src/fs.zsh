@@ -8,6 +8,11 @@ fi
 alias ll="l -l"
 alias la="l -lA"
 
+# Set up zoxide
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
 # List all files recursively
 function lr() {
   find "${1:-.}" -type f
@@ -22,7 +27,7 @@ alias lrg="lr | grep"
 # A shortcut for the combination of `cd` and `ll`
 function to() {
   if command -v z >/dev/null 2>&1; then
-    z "$1" && ll
+    z "$@" && ll
   else
     cd "$@" && ll
   fi
