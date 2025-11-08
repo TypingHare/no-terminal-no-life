@@ -28,5 +28,7 @@ function to() {
   fi
 }
 
+alias home="cd $HOME && ll"
+
 # List all commands sorted
 alias commands="compgen -c | sort | uniq"

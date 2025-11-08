@@ -10,7 +10,7 @@ build:
 	@echo "Building combined Zsh profile..."
 	@find $(SRC_DIRPATH) -type f -name '*.zsh' -exec cat {} + \
 		> $(TARGET_FILEPATH)
-	@echo "Build complete: $(TARGET_FILEPATH)"
+	@echo "Build completed: $(TARGET_FILEPATH)"
 
 clean:
 	rm -rf $(TARGET_DIRPATH)
