@@ -25,3 +25,6 @@ plugins=(
 
 source \$ZSH/oh-my-zsh.sh
 EOF
+
+# Clear files
+rm ~/.shell.pre-oh-my-zsh

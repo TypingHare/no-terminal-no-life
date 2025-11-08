@@ -5,19 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install basic tools
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends
-RUN apt-get install -y build-essential
-RUN apt-get install -y zstd
-RUN apt-get install -y procps
-RUN apt-get install -y sudo
-RUN apt-get install -y gcc
-RUN apt-get install -y cmake
-RUN apt-get install -y zsh
-RUN apt-get install -y curl
-RUN apt-get install -y wget
-RUN apt-get install -y vim
-RUN apt-get install -y git
-RUN apt-get install -y procps
+
+# To keep the image small, we will clean up the apt cache after installing packages.
 RUN rm -rf /var/lib/apt/lists/*
 
 # Install lsd
@@ -46,10 +35,6 @@ RUN cd ~/git/neovim && git switch release-0.11 && make CMAKE_BUILD_TYPE=Release 
 # Install Starship
 RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
 RUN echo 'eval "$(starship init zsh)"' >> ~/.zshrc
-
-# Set up SSH keys
-RUN mkdir -p ~/.ssh
-RUN cd ~/.ssh && ssh-keygen -t ed25519 -C "docker-debian"
 
 # Set default shell
 CMD ["/bin/zsh"]
