@@ -6,9 +6,44 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   event = 'VeryLazy',
+  init = function()
+    vim.api.nvim_create_autocmd('VimEnter', {
+      callback = function(data)
+        if vim.fn.isdirectory(data.file) == 1 then
+          vim.cmd.cd(data.file) -- set cwd to the folder you passed
+          vim.cmd.enew() -- create a normal buffer window as a target
+          require('neo-tree.command').execute {
+            source = 'filesystem',
+            dir = data.file,
+            position = 'left',
+            toggle = false,
+            reveal = false,
+          }
+        end
+      end,
+    })
+  end,
   opts = {
+    event_handlers = {
+      {
+        event = 'neo_tree_buffer_enter',
+        handler = function()
+          vim.cmd [[
+          setlocal nonumber norelativenumber
+          setlocal signcolumn=no
+          setlocal statuscolumn=
+        ]]
+        end,
+      },
+    },
+    sources = {
+      'filesystem',
+      'buffers',
+      'git_status',
+      'document_symbols',
+    },
     filesystem = {
-      hijack_netrw_behavior = 'open_default',
+      group_empty_dirs = true,
       filtered_items = {
         hide_dotfiles = true,
         hide_gitignored = true,

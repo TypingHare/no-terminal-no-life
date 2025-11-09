@@ -1,6 +1,7 @@
+-- This script automatically checks if lazy.nvim is installed and installs it
+-- if not exists.
 local lazy_path = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-
-if not (vim.uv or vim.loop).fs_stat(lazy_path) then
+if not vim.uv.fs_stat(lazy_path) then
   local lazy_repo = 'https://github.com/folke/lazy.nvim.git'
   vim.fn.system {
     'git',
@@ -12,17 +13,17 @@ if not (vim.uv or vim.loop).fs_stat(lazy_path) then
   }
 end
 
+-- Prepends the Lazy path to the Neovim runtime path
 vim.opt.rtp:prepend(lazy_path)
 
+-- Set up Lazy
 require('lazy').setup {
+  -- Submodules of HareVim: UI, Tool, Editor, Theme, Lang
   spec = {
-    { import = 'plugins' },
     { import = 'plugins.ui' },
-    { import = 'plugins.themes' },
+    { import = 'plugins.tool' },
     { import = 'plugins.editor' },
+    { import = 'plugins.theme' },
+    { import = 'plugins.lang' },
   },
-  install = {
-    colorscheme = { 'habamax' },
-  },
-  checker = { enabled = true },
 }
