@@ -96,4 +96,5 @@ RUN cargo install zoxide;
 
 # Install oh-my-zsh (a delightful, open source, community-driven framework for
 # managing your Zsh configuration)
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/\
+  master/tools/install.sh)"
