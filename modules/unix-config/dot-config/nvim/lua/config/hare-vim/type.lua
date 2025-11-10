@@ -16,6 +16,3 @@
 ---@class ConfigHub
 ---@field ui ConfigHubUI
 ---@field lsp ConfigHubLSP
-
----@type ConfigHub
-local defaults = {}

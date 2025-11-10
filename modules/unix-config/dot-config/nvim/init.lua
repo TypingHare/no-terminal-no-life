@@ -1,6 +1,3 @@
--- https://neovim.io/doc/user/vim_diff.html#nvim-features
--- https://github.com/TypingHare/no-terminal-no-life/tree/main/unix/dot_config/nvim
-
 -- Local leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -32,7 +29,6 @@ vim.opt.cursorline = true
 vim.opt.fillchars:append { eob = ' ' }
 
 require 'config.lazy'
-require 'config.neoconf'
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function(args)
@@ -45,7 +41,6 @@ vim.diagnostic.config {
   virtual_text = true,
   update_in_insert = true,
 }
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.statuscolumn =
@@ -76,3 +71,5 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.cmd.colorscheme 'catppuccin'
 
 vim.keymap.set('n', '<leader>n', ':Neotree<CR>')
+
+vim.keymap.set('n', '<Esc>', '<Esc>:nohlsearch<CR>')
