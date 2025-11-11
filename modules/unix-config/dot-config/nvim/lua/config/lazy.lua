@@ -18,12 +18,12 @@ vim.opt.rtp:prepend(lazy_path)
 
 -- Set up Lazy
 require('lazy').setup {
-  -- Submodules of HareVim: UI, Tool, Editor, Theme, Lang
   spec = {
     { import = 'plugins.ui' },
     { import = 'plugins.tool' },
     { import = 'plugins.editor' },
     { import = 'plugins.theme' },
     { import = 'plugins.lang' },
+    { dir = '~/hare-config.nvim', name = 'hare.nvim' },
   },
 }

@@ -1,14 +1,8 @@
 {
+  "$schema": "./schema/hare_vim.json",
   "HareVim": {
     "ui": {
-      "theme": "dark",
-      "border": "rounded",
-      "number": true,
-      "relativenumber": true
-    },
-    "lsp": {
-      "format_on_save": true,
-      "diagnostics_virtual_text": true
+      "disable_netrw": true
     }
   }
 }
