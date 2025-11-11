@@ -1,6 +1,5 @@
 {
-  "$schema": "./schema/hare_vim.json",
-  "HareVim": {
+  "HareConfig": {
     "ui": {
       "disable_netrw": true
     }

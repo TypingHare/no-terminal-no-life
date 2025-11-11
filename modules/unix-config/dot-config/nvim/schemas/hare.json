@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HareVim Configuration Schema",
+  "type": "object",
+  "properties": {
+    "HareConfig": {
+      "properties": {
+        "ui": {
+          "type": "object",
+          "properties": {
+            "disable_netrw": {
+              "type": "boolean",
+              "description": "Disable Neovim Netrw"
+            }
+          }
+        }
+      }
+    }
+  }
+}
