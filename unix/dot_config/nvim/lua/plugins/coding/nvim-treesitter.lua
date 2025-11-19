@@ -12,6 +12,12 @@ return {
       indent = {
         enable = true,
       },
+      ensure_installed = {
+        'graphql',
+        'javascript',
+        'typescript',
+        'tsx',
+      },
     }
   end,
 }

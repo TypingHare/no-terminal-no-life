@@ -5,3 +5,11 @@ require 'config.neovide'
 require 'config.early'
 require 'config.lazy'
 require 'config.late'
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'conf',
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true -- prevents breaking in the middle of words
+  end,
+})

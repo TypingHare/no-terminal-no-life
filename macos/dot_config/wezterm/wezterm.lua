@@ -19,7 +19,7 @@ return {
   line_height = 1.2,
 
   -- Window
-  window_background_opacity = 0.80,
+  window_background_opacity = 0.85,
   macos_window_background_blur = 20,
   window_decorations = 'RESIZE',
 
