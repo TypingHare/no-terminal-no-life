@@ -9,7 +9,6 @@ return {
       ['<Down>'] = { 'select_next', 'fallback' },
       ['<CR>'] = { 'accept', 'fallback' },
     },
-    -- completion = { documentation = { auto_show = false } },
     sources = {
       default = { 'lsp', 'path', 'lazydev' },
       providers = {

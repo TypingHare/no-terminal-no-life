@@ -1,24 +1,5 @@
--- Local leader
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-vim.g.clipboard = {
-  name = 'macOS host clipboard',
-  copy = {
-    ['+'] = 'curl -s -X POST http://host.docker.internal:8377/ -d @-',
-    ['*'] = 'curl -s -X POST http://host.docker.internal:8377/ -d @-',
-  },
-  paste = {
-    ['+'] = 'curl -s http://host.docker.internal:8377/',
-    ['*'] = 'curl -s http://host.docker.internal:8377/',
-  },
-  cache_enabled = 0,
-}
-
-vim.opt.clipboard = 'unnamedplus'
-
+require 'config.early'
 require 'config.lazy'
-require('hare-config').setup()
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function(args)
@@ -29,11 +10,8 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 -- Set the diagnostic settings.
 vim.diagnostic.config {
   virtual_text = true,
-  -- update_in_insert = true,
+  update_in_insert = true,
 }
-
-vim.opt.statuscolumn =
-  [[%s%=%{v:virtnum == 0 ? (v:relnum ? v:relnum : v:lnum) : ''}   ]]
 
 vim.api.nvim_create_autocmd('BufEnter', {
   pattern = '*',
@@ -49,8 +27,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
       if ft == 'neo-tree' or bt == 'terminal' then
         vim.wo.number = false
         vim.wo.relativenumber = false
-        vim.wo.statuscolumn = ''
-        vim.wo.signcolumn = 'no'
       end
     end)
   end,
@@ -76,7 +52,7 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<S+Tab>',
+  '<S-Tab>',
   ':BufferLineCyclePrev<CR>',
   { desc = 'Previous Buffer', silent = true }
 )

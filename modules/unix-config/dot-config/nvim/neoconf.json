@@ -2,6 +2,9 @@
   "HareConfig": {
     "ui": {
       "disable_netrw": true
+    },
+    "clipboard": {
+      "host": "http://host.docker.internal:8377/"
     }
   }
 }

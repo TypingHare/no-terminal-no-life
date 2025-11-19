@@ -1,7 +1,7 @@
--- A super powerful autopair plugin for Neovim that supports multiple
--- characters.
+-- This plugin automatically inserts matching pairs of characters while you type
+-- in insert mode.
 --
--- Homepage: https://github.com/windwp/nvim-autopairs
+-- [https://github.com/windwp/nvim-autopairs]
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
