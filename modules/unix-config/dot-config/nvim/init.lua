@@ -42,22 +42,3 @@ vim.keymap.set(
   '<Esc>:nohlsearch<CR>',
   { desc = 'Exit Current Mode', silent = true }
 )
-
-vim.keymap.set(
-  'n',
-  '<Tab>',
-  ':BufferLineCycleNext<CR>',
-  { desc = 'Next Buffer', silent = true }
-)
-
-vim.keymap.set(
-  'n',
-  '<S-Tab>',
-  ':BufferLineCyclePrev<CR>',
-  { desc = 'Previous Buffer', silent = true }
-)
-
-vim.keymap.set('n', '<leader>bo', function()
-  vim.cmd 'wa'
-  vim.cmd 'BufferLineCloseOthers'
-end, { desc = 'Close Other Buffers' })

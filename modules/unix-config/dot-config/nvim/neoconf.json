@@ -1,7 +1,8 @@
 {
   "HareConfig": {
     "ui": {
-      "disable_netrw": true
+      "disable_netrw": true,
+      "color_scheme": "catppuccin"
     },
     "clipboard": {
       "host": "http://host.docker.internal:8377/"

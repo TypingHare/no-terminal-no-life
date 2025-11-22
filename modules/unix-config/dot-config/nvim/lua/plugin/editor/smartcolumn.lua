@@ -1,6 +1,7 @@
 -- This plugin shows a colorcolumn only when it’s needed, instead of having it always on.
 --
--- []
+-- [https://github.com/m4xshen/smartcolumn.nvim]
 return {
-  'https://github.com/m4xshen/smartcolumn.nvim',
+  'm4xshen/smartcolumn.nvim',
+  config = true,
 }
