@@ -10,8 +10,8 @@ return {
     vim.api.nvim_create_autocmd('VimEnter', {
       callback = function(data)
         if vim.fn.isdirectory(data.file) == 1 then
-          vim.cmd.cd(data.file) -- set cwd to the folder you passed
-          vim.cmd.enew() -- create a normal buffer window as a target
+          vim.cmd.cd(data.file)
+          vim.cmd.enew()
           require('neo-tree.command').execute {
             source = 'filesystem',
             dir = data.file,
@@ -24,18 +24,6 @@ return {
     })
   end,
   opts = {
-    event_handlers = {
-      {
-        event = 'neo_tree_buffer_enter',
-        handler = function()
-          vim.cmd [[
-          setlocal nonumber norelativenumber
-          setlocal signcolumn=no
-          setlocal statuscolumn=
-        ]]
-        end,
-      },
-    },
     sources = {
       'filesystem',
       'buffers',

@@ -14,8 +14,8 @@ return {
     config = function()
       require('markview').setup {
         preview = {
-          ignore_buftypes = {}, -- <—— THIS is the key bit
-          filetypes = { 'markdown', 'md', 'rmd', 'quarto' },
+          ignore_buftypes = {},
+          filetypes = { 'markdown', 'md' },
         },
       }
 

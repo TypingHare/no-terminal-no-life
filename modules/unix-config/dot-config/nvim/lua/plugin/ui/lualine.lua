@@ -25,7 +25,6 @@ return {
         disabled_filetypes = {
           statusline = {
             'dashboard',
-            --'neo-tree',
           },
         },
       },
