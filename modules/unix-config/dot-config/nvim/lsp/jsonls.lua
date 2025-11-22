@@ -5,11 +5,12 @@ return {
   settings = {
     json = {
       schemas = {
-        -- require('schemastore').json.schemas(),
+        require('schemastore').json.schemas(),
         {
-          description = 'Hare Configuration',
+          description = 'hare-config schema',
           fileMatch = { 'neoconf.json' },
-          url = 'file://' .. vim.fn.expand '~/.config/nvim/schemas/hare.json',
+          url = 'file://'
+            .. vim.fn.expand '~/.config/nvim/schemas/hare-config.schema.json',
         },
       },
       validate = { enable = true },

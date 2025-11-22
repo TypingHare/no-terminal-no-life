@@ -45,7 +45,7 @@ vim.keymap.set('n', '<leader>bd', function()
   vim.cmd('bdelete! ' .. buf)
 end, { desc = 'Close Buffer', silent = true })
 
---------------------------------- Bufferline -----------------------------------
+--------------------------------- Find Files -----------------------------------
 
 vim.keymap.set(
   'n',
@@ -81,3 +81,37 @@ vim.keymap.set(
   ':Telescope live_grep<CR>',
   { desc = 'Live Grep', silent = true }
 )
+
+---------------------------------- Terminal ------------------------------------
+
+-- Open a terminal buffer
+vim.keymap.set(
+  'n',
+  '<leader>tt',
+  ':terminal<CR>',
+  { desc = 'Open Terminal', silent = true }
+)
+
+-- If the terminal buffer is not lazygit, then <Esc> can bring the user back to
+-- the normal mode
+vim.keymap.set('t', '<Esc>', function()
+  local ft = vim.bo.filetype
+  if ft ~= 'lazygit' then
+    vim.cmd 'stopinsert'
+  end
+end, { silent = true })
+
+-- Open toggle terminal (direction = float)
+vim.keymap.set('n', '<leader>tf', function()
+  local Terminal = require('toggleterm.terminal').Terminal
+  local term = Terminal:new {
+    direction = 'float',
+    cwd = vim.fn.getcwd(),
+    hidden = true,
+    start_in_insert = true,
+    close_on_exit = true,
+  }
+
+  term:spawn()
+  term:toggle()
+end, { desc = 'Open Terminal (float)', silent = true })

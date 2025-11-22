@@ -2,7 +2,7 @@
   "HareConfig": {
     "appearance": {
       "netrw": {
-        "enabled": "false"
+        "enabled": false
       },
       "color_scheme": {
         "light_scheme": "catppuccin",

@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
+vim.api.nvim_create_autocmd({ 'WinEnter', 'TermOpen', 'BufEnter' }, {
   callback = function(args)
     local buf = args.buf
     local ft = vim.bo[buf].filetype
@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
 
     local excluded = {
       ['neo-tree'] = true,
+      ['terminal'] = true,
     }
 
     local is_editable = bt == ''
@@ -20,7 +21,9 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
       vim.wo.statuscolumn =
         [[%s%=%{v:virtnum == 0 ? (v:relnum ? v:relnum : v:lnum) : ''}   ]]
     else
-      vim.wo.statuscolumn = ''
+      -- Non-empty string to override default behavior
+      -- This draws only signs (if any) and no numbers
+      vim.wo.statuscolumn = '%s'
     end
   end,
 })
