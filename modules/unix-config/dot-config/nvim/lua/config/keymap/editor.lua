@@ -1,3 +1,14 @@
+----------------------------------- Basic --------------------------------------
+
+-- Clear research
+vim.keymap.set(
+  'n',
+  '<Esc>',
+  '<Esc>:nohlsearch<CR>',
+  { desc = 'Exit Current Mode', silent = true }
+)
+
+-- Move the cursor to the next line (insert mode)
 vim.keymap.set(
   'i',
   '<S-Enter>',
@@ -5,6 +16,7 @@ vim.keymap.set(
   { desc = 'Move to Next Line', silent = true }
 )
 
+-- Move the cursor to the next line (normal mode)
 vim.keymap.set(
   'n',
   '<S-Enter>',

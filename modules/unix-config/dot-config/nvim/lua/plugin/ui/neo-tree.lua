@@ -7,21 +7,12 @@ return {
   },
   event = 'VeryLazy',
   init = function()
-    vim.api.nvim_create_autocmd('VimEnter', {
-      callback = function(data)
-        if vim.fn.isdirectory(data.file) == 1 then
-          vim.cmd.cd(data.file)
-          vim.cmd.enew()
-          require('neo-tree.command').execute {
-            source = 'filesystem',
-            dir = data.file,
-            position = 'left',
-            toggle = false,
-            reveal = false,
-          }
-        end
-      end,
-    })
+    vim.keymap.set(
+      'n',
+      '<leader>n',
+      ':Neotree<CR>',
+      { desc = 'Open Neotree', silent = true }
+    )
   end,
   opts = {
     sources = {

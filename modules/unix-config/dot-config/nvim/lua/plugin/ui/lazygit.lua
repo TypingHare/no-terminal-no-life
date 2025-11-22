@@ -22,5 +22,12 @@ return {
         )
       end,
     })
+
+    vim.keymap.set(
+      'n',
+      '<leader>gl',
+      ':LazyGit<CR>',
+      { desc = 'Open Lazygit', silent = true }
+    )
   end,
 }
