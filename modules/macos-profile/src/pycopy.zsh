@@ -11,7 +11,7 @@ function pick() {
 compdef _files pick
 
 # Move file from path in clipboard to current directory.
-function put() {
+function drop() {
   src_path="$(pbpaste)"
   dest_dir="."
   operation="mv"

@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # The source directory containing the dot-config files
-UNIX_DOT_CONFIG_DIR="$NTNL/modules/unix-config/dot-config"
+UNIX_DOT_CONFIG_DIR="$NTNL_HOME/modules/unix-config/dot-files"
 
 # Check if the source directory exists
 [ -d "$UNIX_DOT_CONFIG_DIR" ] || {
