@@ -1,5 +1,5 @@
 {
-  "HareConfig": {
+  "HareConf": {
     "appearance": {
       "netrw": {
         "enabled": false
@@ -10,7 +10,7 @@
       }
     },
     "clipboard": {
-      "host": "http://host.docker.internal:8377/"
+      "enabled": false
     }
   }
 }

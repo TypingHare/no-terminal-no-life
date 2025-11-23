@@ -10,7 +10,8 @@ return {
           description = 'hare-config schema',
           fileMatch = { 'neoconf.json' },
           url = 'file://'
-            .. vim.fn.expand '~/.config/nvim/schemas/hare-config.schema.json',
+            .. require('lazy.core.config').plugins['hare-conf'].dir
+            .. '/schemas/hare-conf.schema.json',
         },
       },
       validate = { enable = true },

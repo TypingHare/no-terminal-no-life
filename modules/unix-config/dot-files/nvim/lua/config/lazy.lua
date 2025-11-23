@@ -19,11 +19,10 @@ vim.opt.rtp:prepend(lazy_path)
 -- Set up Lazy
 require('lazy').setup {
   spec = {
-    { import = 'plugin.ui' },
     { import = 'plugin.tool' },
+    { import = 'plugin.appearance' },
     { import = 'plugin.editor' },
     { import = 'plugin.theme' },
     { import = 'plugin.lang' },
-    { dir = '~/hare-config.nvim', name = 'hare.nvim' },
   },
 }
