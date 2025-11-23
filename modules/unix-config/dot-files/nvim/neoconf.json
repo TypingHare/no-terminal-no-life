@@ -1,14 +1,16 @@
 {
-  "HareVim": {
-    "ui": {
-      "theme": "dark",
-      "border": "rounded",
-      "number": true,
-      "relativenumber": true
+  "HareConfig": {
+    "appearance": {
+      "netrw": {
+        "enabled": false
+      },
+      "color_scheme": {
+        "light_scheme": "catppuccin",
+        "dark_scheme": "catppuccin"
+      }
     },
-    "lsp": {
-      "format_on_save": true,
-      "diagnostics_virtual_text": true
+    "clipboard": {
+      "host": "http://host.docker.internal:8377/"
     }
   }
 }

@@ -1,13 +1,7 @@
 return {
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
-  root_markers = {
-    '.luarc.json',
-    '.luarc.jsonc',
-    '.git',
-    'stylua.toml',
-    '.stylua.toml',
-  },
+  root_markers = { '.git', 'stylua.toml' },
   settings = {
     Lua = {
       runtime = { version = 'LuaJIT' },
