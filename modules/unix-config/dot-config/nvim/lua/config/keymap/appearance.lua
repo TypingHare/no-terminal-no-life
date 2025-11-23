@@ -56,7 +56,7 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<leader>ff',
+  '<leader>fb',
   ':Telescope buffers<CR>',
   { desc = 'Find Buffers', silent = true }
 )
