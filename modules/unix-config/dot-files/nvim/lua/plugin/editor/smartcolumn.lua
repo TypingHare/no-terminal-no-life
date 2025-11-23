@@ -3,20 +3,28 @@
 --
 -- [https://github.com/m4xshen/smartcolumn.nvim]
 
-local hare_conf = require 'hare-conf'
-local color_column = hare_conf.config.editor.general.color_column
-
 return {
   'm4xshen/smartcolumn.nvim',
   config = true,
   opts = {
     custom_colorcolumn = function()
       local ft = vim.bo.filetype
-      -- if vim.tbl_contains(color_column.disabled_filetypes, ft) then
-      --   return '8096'
-      -- end
-      --
-      return '80'
+      local bt = vim.bo.buftype
+      local hare_conf = require 'hare-conf'
+      local exclude_buftypes = hare_conf.config.system.buffer.exclude_types
+      local exclude_filetypes = hare_conf.config.system.file.exclude_types
+      local editor_lang_conf = hare_conf.fn.editor.get_editor_config(ft)
+
+      if
+        vim.tbl_contains(exclude_filetypes, ft)
+        or vim.tbl_contains(exclude_buftypes, bt)
+      then
+        return '4096'
+      elseif editor_lang_conf.color_column.enabled then
+        return tostring(editor_lang_conf.color_column.width)
+      else
+        return '80'
+      end
     end,
   },
 }
