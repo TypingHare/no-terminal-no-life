@@ -14,21 +14,29 @@ rm -rf ~/.oh-my-zsh
 # Set up environment variables so that Oh My Zsh does not run Zsh immediately
 # after the installation
 export RUNZSH=no
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL \
+  https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Set up plugins
 ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$ZSH/custom"
 mkdir -p "$ZSH_CUSTOM/plugins"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git \
-  "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
   "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+git clone https://github.com/marlonrichert/zsh-autocomplete.git \
+  "$ZSH_CUSTOM/plugins/zsh-autocomplete"
 
-# Update the Zsh configuration file
+# Override the Zsh configuration file
+rm ~/.zshrc
 cat <<EOF >~/.zshrc
-export ZSH="\$HOME/.oh-my-zsh"
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
-source \$ZSH/oh-my-zsh.sh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6e6e6e'
+export ZSH="$HOME/.oh-my-zsh"
+plugins=(zsh-syntax-highlighting zsh-autocomplete)
+source $ZSH/oh-my-zsh.sh
+
+# zsh-autocomplete configuration
+zstyle ':autocomplete:*' min-input 4
+
+# Initialize zsh completion system
+autoload -Uz compinit && compinit
+
 EOF
