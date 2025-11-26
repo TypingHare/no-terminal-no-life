@@ -13,7 +13,7 @@ return {
       local hare_conf = require 'hare-conf'
       local exclude_buftypes = hare_conf.config.system.buffer.exclude_types
       local exclude_filetypes = hare_conf.config.system.file.exclude_types
-      local editor_lang_conf = hare_conf.fn.editor.get_editor_config(ft)
+      local editor_lang_conf = hare_conf.fn.editor.get_lang_config(ft)
 
       if
         vim.tbl_contains(exclude_filetypes, ft)

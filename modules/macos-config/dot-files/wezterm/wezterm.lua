@@ -18,7 +18,7 @@ return {
   -- To check all the fonts WezTerm uses, run `wezterm ls-font`
   -- For more information, run `wezterm ls-font --text "Test"`
   font = require('wezterm').font_with_fallback {
-    'JetBrainsMonoNL Nerd Font',
+    'JetBrainsMonoNL Nerd Font Mono',
     'FiraCode Nerd Font',
     'SF Mono',
   },

@@ -1,7 +1,6 @@
 return {
-  diagnostics = {
-    enabled = false,
-  },
+  cmd = { 'texlab' },
+  diagnostics = { enabled = false },
   build = {
     executable = '',
     args = {},

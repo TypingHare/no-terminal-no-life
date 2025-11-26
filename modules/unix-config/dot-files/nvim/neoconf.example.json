@@ -1,16 +1,10 @@
 {
   "HareConf": {
     "appearance": {
-      "netrw": {
-        "enabled": false
-      },
       "color_scheme": {
         "light_scheme": "bamboo",
         "dark_scheme": "bamboo"
       }
-    },
-    "clipboard": {
-      "enabled": false
-    }
+    } 
   }
 }

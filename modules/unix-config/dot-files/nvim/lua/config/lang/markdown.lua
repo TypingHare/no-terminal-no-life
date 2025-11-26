@@ -1,22 +1,24 @@
+require('hare-conf').fn.editor.set_lang_config('markdown', {
+  treesitter = { name = 'markdown' },
+  lsp = { name = 'marksman' },
+  linter = { name = 'markdownlint' },
+  formatter = { name = 'prettier' },
+  color_column = { enabled = false },
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = '*markdown*',
   callback = function(args)
-    local buf = args.buf
     vim.schedule(function()
       vim.cmd 'Markview Disable'
     end)
 
+    local buf = args.buf
     vim.keymap.set(
       'n',
       '<leader>em',
       '<cmd>Markview Toggle<CR>',
       { buffer = buf, desc = 'Toggle MarkView' }
-    )
-    vim.keymap.set(
-      'n',
-      '<leader>ep',
-      '<cmd>MarkdownPreviewToggle<CR>',
-      { buffer = buf, desc = 'Toggle Markdown Preview' }
     )
   end,
 })
