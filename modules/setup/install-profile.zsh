@@ -1,6 +1,8 @@
+#! /usr/bin/env zsh
+
 echo "Setting up no-terminal-no-life (NTNL) profiles..."
 echo "# NTNL" >> "$HOME/.zshrc"
-echo "export \$NTNL_HOME=\$HOME/.ntnl" >> "$HOME/.zshrc"
+echo "export NTNL_HOME=\$HOME/.ntnl" >> "$HOME/.zshrc"
 
 # Build and append unix profile
 printf '%s\n' ${(l:80::-:)}
