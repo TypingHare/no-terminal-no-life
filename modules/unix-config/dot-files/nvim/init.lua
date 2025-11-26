@@ -1,6 +1,4 @@
-require 'config.early'
-require 'config.lazy'
-require 'config.late'
+require 'hare'
 
 -- Set the diagnostic settings.
 vim.diagnostic.config {
