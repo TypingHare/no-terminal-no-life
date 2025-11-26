@@ -1,16 +1,32 @@
-# Open the Finder.app.
-function finder() {
-  target="${1:-.}"
+# Open a directory or reveal a file in Finder.app.
+finder() {
+  local target
 
-  if [ -d "$target" ]; then
+  # Default to current directory if no argument
+  target=${1:-.}
+
+  if [[ -d $target ]]; then
+    # Directory: open it in Finder
     open "$target"
-  elif [ -f "$target" ]; then
-    open "$(dirname "$target")"
+  elif [[ -f $target ]]; then
+    # File: reveal it in Finder
+    open -R "$target"
   else
-    echo "'$target' is neither a directory nor a file"
+    printf "finder: no such file or directory: %s\n" "$target" >&2
     return 1
   fi
 }
 
 # Print the home directory contents excluding capitalized items.
-alias home="cd ~ && lsd -l -I '[A-Z]*'"
+home() {
+  # Always go to $HOME
+  builtin cd ~ || return 1
+
+  if command -v lsd >/dev/null 2>&1; then
+    # Exclude capitalized entries, like Desktop, Documents, etc.
+    lsd -l -I '[A-Z]*'
+  else
+    # Fallback: regular ls (without filtering, since ls lacks -I)
+    ls -l
+  fi
+}
