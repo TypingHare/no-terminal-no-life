@@ -6,3 +6,9 @@ for _, file in ipairs(vim.fn.readdir(keymap_dir)) do
     require(module)
   end
 end
+
+-- Set the diagnostic settings.
+vim.diagnostic.config {
+  virtual_text = true,
+  update_in_insert = true,
+}
