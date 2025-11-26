@@ -8,7 +8,7 @@ export CLOUD_DIR_NAME="cloud"
 export CLOUD_DIR="$ICLOUD_DIR/$CLOUD_DIR_NAME"
 
 # Alias for quickly navigating to the cloud storage directory.
-alias cloud="cd \"$CLOUD_DIR\""
+alias cloud='cd \"$CLOUD_DIR\"'
 
 # Ensures CLOUD_DIR exists (optional: create automatically)
 ensure_cloud_dir() {
