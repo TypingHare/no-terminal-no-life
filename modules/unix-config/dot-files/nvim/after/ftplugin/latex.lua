@@ -1,4 +1,4 @@
-require('hare-conf').fn.editor.set_lang_config('tex', {
+require('hare-conf').fn.editor.set_lang_config({ 'tex' }, {
   treesitter = { name = 'latex' },
   lsp = { name = 'texlab' },
   linter = { enabled = false },

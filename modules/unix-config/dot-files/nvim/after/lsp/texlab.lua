@@ -1,5 +1,6 @@
 return {
   cmd = { 'texlab' },
+  filetypes = { 'tex' },
   diagnostics = { enabled = false },
   build = {
     executable = '',

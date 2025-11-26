@@ -1,5 +1,5 @@
 return {
-  name = 'hare-conf',
-  dir = '~/hare-conf.nvim',
+  'typinghare/hare-conf.nvim',
+  opts = {},
   config = true,
 }

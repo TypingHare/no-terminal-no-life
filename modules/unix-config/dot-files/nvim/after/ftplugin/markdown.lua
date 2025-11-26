@@ -1,4 +1,4 @@
-require('hare-conf').fn.editor.set_lang_config('markdown', {
+require('hare-conf').fn.editor.set_lang_config({ 'markdown' }, {
   treesitter = { name = 'markdown' },
   lsp = { name = 'marksman' },
   linter = { name = 'markdownlint' },
