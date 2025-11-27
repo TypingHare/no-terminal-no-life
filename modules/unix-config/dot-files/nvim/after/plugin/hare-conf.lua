@@ -97,7 +97,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'markdown' }, {
 })
 
 -- Python
-require('hare-conf').fn.editor.set_lang_config({ 'json' }, {
+require('hare-conf').fn.editor.set_lang_config({ 'python' }, {
   treesitter = { name = 'python' },
   lsp = { name = 'pyright' },
   formatter = { enabled = false },
@@ -222,8 +222,9 @@ for _, tool_name in ipairs(tool_names) do
       vim.notify('Mason: package not found: ' .. tool_name, vim.log.levels.WARN)
     else
       if not pkg2:is_installed() then
-        vim.notify('Mason: Installing: ' .. tool_name .. '(' .. mason_name .. 
-        ')')
+        vim.notify(
+          'Mason: Installing: ' .. tool_name .. '(' .. mason_name .. ')'
+        )
         pkg2:install()
       end
     end
