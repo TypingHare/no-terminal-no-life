@@ -1,5 +1,7 @@
 return {
   'typinghare/hare-conf.nvim',
-  opts = {},
-  config = true,
+  config = function()
+    require('hare-conf').setup()
+    require('hare-conf').apply()
+  end,
 }
