@@ -235,3 +235,10 @@ for _, tool_name in ipairs(tool_names) do
     end
   end
 end
+
+-- Enable LSPs
+for _, lang_config in pairs(lang_configs) do
+  if lang_config.lsp and lang_config.lsp.enabled then
+    vim.lsp.enable(lang_config.lsp.name)
+  end
+end
