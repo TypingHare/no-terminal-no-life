@@ -1,11 +1,3 @@
-require('hare-conf').fn.editor.set_lang_config({ 'markdown' }, {
-  treesitter = { name = 'markdown' },
-  lsp = { name = 'marksman' },
-  linter = { name = 'markdownlint' },
-  formatter = { name = 'prettier' },
-  color_column = { enabled = false },
-})
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = '*markdown*',
   callback = function(args)

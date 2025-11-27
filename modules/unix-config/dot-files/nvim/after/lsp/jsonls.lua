@@ -10,7 +10,7 @@ return {
           description = 'hare-config schema',
           fileMatch = { 'neoconf.json' },
           url = 'file://'
-            .. require('lazy.core.config').plugins['hare-conf'].dir
+            .. require('lazy.core.config').plugins['hare-conf.nvim'].dir
             .. '/schemas/hare-conf.schema.json',
         },
       },

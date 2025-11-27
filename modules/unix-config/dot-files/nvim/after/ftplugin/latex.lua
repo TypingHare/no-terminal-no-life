@@ -1,10 +1,3 @@
-require('hare-conf').fn.editor.set_lang_config({ 'tex' }, {
-  treesitter = { name = 'latex' },
-  lsp = { name = 'texlab' },
-  linter = { enabled = false },
-  formatter = { name = 'latexindent' },
-})
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'tex',
   callback = function()

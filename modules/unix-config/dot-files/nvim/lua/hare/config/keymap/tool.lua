@@ -37,6 +37,6 @@ vim.keymap.set(
 vim.keymap.set(
   'n',
   '<leader>h',
-  ':Noice history<CR>',
+  ':Notifications<CR>',
   { desc = 'Notification History', silent = true }
 )
