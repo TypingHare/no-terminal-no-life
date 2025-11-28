@@ -18,12 +18,11 @@ return {
       if
         vim.tbl_contains(exclude_filetypes, ft)
         or vim.tbl_contains(exclude_buftypes, bt)
+        or not editor_lang_conf.color_column.enabled
       then
         return '4096'
-      elseif editor_lang_conf.color_column.enabled then
-        return tostring(editor_lang_conf.color_column.width)
       else
-        return '80'
+        return tostring(editor_lang_conf.color_column.width or 80)
       end
     end,
   },
