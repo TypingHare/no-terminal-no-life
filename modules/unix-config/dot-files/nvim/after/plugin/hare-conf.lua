@@ -84,7 +84,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'make', 'makefile' }, {
   lsp = { name = 'mbake' },
   linter = { name = 'checkmake' },
   formatter = { name = 'mbake' },
-  tab = { expand_with_spaces = false },
+  tab = { expand_with_spaces = false, display_width = 4 },
 })
 
 -- Markdown
