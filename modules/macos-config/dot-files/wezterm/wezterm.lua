@@ -7,17 +7,29 @@
 --- Wezterm version: 20250615-121431-d6c178f9
 --------------------------------------------------------------------------------
 
+local wezterm = require 'wezterm'
+
+wezterm.on('window-config-reloaded', function(window)
+  local scheme = 'Dark Pastel (Gogh)'
+  -- local appearance = wezterm.gui.get_appearance()
+  -- if not appearance:find 'Dark' then
+  -- scheme = 'Solarized Light'
+  -- end
+
+  window:set_config_overrides { color_scheme = scheme }
+end)
+
 return {
   -- System
   automatically_reload_config = true,
 
   -- For more color schemes, see the following link:
   -- [https://wezterm.org/colorschemes/index.html]
-  color_scheme = 'Dark Pastel (Gogh)',
+  -- color_scheme = 'Dark Pastel (Gogh)',
 
   -- To check all the fonts WezTerm uses, run `wezterm ls-font`
   -- For more information, run `wezterm ls-font --text "Test"`
-  font = require('wezterm').font_with_fallback {
+  font = wezterm.font_with_fallback {
     'JetBrainsMonoNL Nerd Font Mono',
     'FiraCode Nerd Font',
     'SF Mono',
@@ -28,8 +40,8 @@ return {
   line_height = 1.2,
 
   -- Window layout and styles
-  window_background_opacity = 0.85,
-  macos_window_background_blur = 20,
+  window_background_opacity = 0.80,
+  macos_window_background_blur = 15,
   window_decorations = 'RESIZE',
   window_padding = {
     left = 0,
@@ -55,7 +67,7 @@ return {
     {
       key = 'Enter',
       mods = 'CMD',
-      action = require('wezterm').action.ToggleFullScreen,
+      action = wezterm.action.ToggleFullScreen,
     },
   },
 }
