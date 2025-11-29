@@ -1,4 +1,5 @@
 -- Leader must be set before lazy.nvim is loaded
+vim.keymap.set('', '<Space>', '<Nop>', { silent = true, noremap = true })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
