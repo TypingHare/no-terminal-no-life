@@ -41,7 +41,7 @@ return {
 
   -- Window layout and styles
   window_background_opacity = 0.80,
-  macos_window_background_blur = 15,
+  macos_window_background_blur = 20,
   window_decorations = 'RESIZE',
   window_padding = {
     left = 0,

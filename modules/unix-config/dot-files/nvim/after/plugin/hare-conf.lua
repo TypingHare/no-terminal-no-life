@@ -6,6 +6,13 @@ require('hare-conf').fn.editor.set_lang_config({ 'sh', 'zsh' }, {
   formatter = { name = 'shfmt' },
 })
 
+-- BibTex
+require('hare-conf').fn.editor.set_lang_config({ 'bib' }, {
+  treesitter = { name = 'bibtex' },
+  linter = { enabled = false },
+  color_column = { enabled = false },
+})
+
 -- Cmake
 require('hare-conf').fn.editor.set_lang_config({ 'cmake' }, {
   treesitter = { name = 'cmake' },
@@ -237,7 +244,12 @@ end
 
 -- Enable LSPs
 for _, lang_config in pairs(lang_configs) do
-  if lang_config.lsp and lang_config.lsp.enabled then
+  if
+    lang_config.lsp
+    and lang_config.lsp.enabled
+    and lang_config.lsp.name
+    and lang_config.lsp.name ~= ''
+  then
     vim.lsp.enable(lang_config.lsp.name)
   end
 end

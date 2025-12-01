@@ -12,7 +12,7 @@ vim.opt.guifont = 'JetBrainsMonoNL Nerd Font Mono:h14'
 vim.opt.linespace = 7
 
 -- Set the Neovide window opacity (0.0 to 1.0)
-vim.g.neovide_opacity = 0.2
+vim.g.neovide_opacity = 0.6
 
 -- Enable window blur effect (only on supported systems and when the opacity is
 -- less than 1.0)
