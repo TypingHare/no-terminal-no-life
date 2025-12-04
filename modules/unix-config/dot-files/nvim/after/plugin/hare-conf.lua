@@ -1,5 +1,5 @@
 -- Bash
-require('hare-conf').fn.editor.set_lang_config({ 'sh', 'zsh' }, {
+require('hare-conf').fn.set_buffer_config({ 'sh', 'zsh' }, {
   treesitter = { name = 'bash' },
   lsp = { name = 'bashls' },
   linter = { name = 'shellcheck' },
@@ -7,21 +7,21 @@ require('hare-conf').fn.editor.set_lang_config({ 'sh', 'zsh' }, {
 })
 
 -- BibTex
-require('hare-conf').fn.editor.set_lang_config({ 'bib' }, {
+require('hare-conf').fn.set_buffer_config({ 'bib' }, {
   treesitter = { name = 'bibtex' },
   linter = { enabled = false },
   color_column = { enabled = false },
 })
 
 -- Cmake
-require('hare-conf').fn.editor.set_lang_config({ 'cmake' }, {
+require('hare-conf').fn.set_buffer_config({ 'cmake' }, {
   treesitter = { name = 'cmake' },
   lsp = { name = 'cmake' },
   linter = { name = 'cmakelint' },
 })
 
 -- C++
-require('hare-conf').fn.editor.set_lang_config({ 'cpp' }, {
+require('hare-conf').fn.set_buffer_config({ 'cpp' }, {
   treesitter = { name = 'cpp' },
   lsp = { name = 'clangd' },
   formatter = { name = 'clang-format' },
@@ -29,7 +29,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'cpp' }, {
 })
 
 -- CSS
-require('hare-conf').fn.editor.set_lang_config({ 'css' }, {
+require('hare-conf').fn.set_buffer_config({ 'css' }, {
   treesitter = { name = 'css' },
   lsp = { name = 'cssls' },
   formatter = { name = 'prettier' },
@@ -37,14 +37,14 @@ require('hare-conf').fn.editor.set_lang_config({ 'css' }, {
 })
 
 -- HTML
-require('hare-conf').fn.editor.set_lang_config({ 'html' }, {
+require('hare-conf').fn.set_buffer_config({ 'html' }, {
   treesitter = { name = 'html' },
   lsp = { name = 'html' },
   formatter = { name = 'prettier' },
 })
 
 -- Java
-require('hare-conf').fn.editor.set_lang_config({ 'java' }, {
+require('hare-conf').fn.set_buffer_config({ 'java' }, {
   treesitter = { name = 'java' },
   lsp = { name = 'jdtls' },
   formatter = { name = 'google-java-format' },
@@ -52,7 +52,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'java' }, {
 })
 
 -- JSON
-require('hare-conf').fn.editor.set_lang_config({ 'json' }, {
+require('hare-conf').fn.set_buffer_config({ 'json' }, {
   treesitter = { name = 'json' },
   lsp = { name = 'jsonls' },
   formatter = { name = 'prettier' },
@@ -60,7 +60,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'json' }, {
 })
 
 -- Just
-require('hare-conf').fn.editor.set_lang_config({ 'just' }, {
+require('hare-conf').fn.set_buffer_config({ 'just' }, {
   treesitter = { name = 'just' },
   lsp = { name = 'just' },
   formatter = { name = 'prettier' },
@@ -68,7 +68,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'just' }, {
 })
 
 -- LaTeX
-require('hare-conf').fn.editor.set_lang_config({ 'tex' }, {
+require('hare-conf').fn.set_buffer_config({ 'tex' }, {
   treesitter = { name = 'latex' },
   lsp = { name = 'texlab' },
   linter = { enabled = false },
@@ -78,14 +78,16 @@ require('hare-conf').fn.editor.set_lang_config({ 'tex' }, {
 })
 
 -- Lua
-require('hare-conf').fn.editor.set_lang_config({ 'lua' }, {
+require('hare-conf').fn.set_buffer_config({ 'lua' }, {
   treesitter = { name = 'lua' },
   lsp = { name = 'lua_ls' },
   formatter = { name = 'stylua' },
+  color_column = { width = 100 },
+  tab = { width = 4 },
 })
 
 -- Make
-require('hare-conf').fn.editor.set_lang_config({ 'make', 'makefile' }, {
+require('hare-conf').fn.set_buffer_config({ 'make', 'makefile' }, {
   treesitter = { name = 'make' },
   lsp = { name = 'mbake' },
   linter = { name = 'checkmake' },
@@ -94,7 +96,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'make', 'makefile' }, {
 })
 
 -- Markdown
-require('hare-conf').fn.editor.set_lang_config({ 'markdown' }, {
+require('hare-conf').fn.set_buffer_config({ 'markdown' }, {
   treesitter = { name = 'markdown' },
   lsp = { name = 'marksman' },
   linter = { name = 'markdownlint' },
@@ -103,7 +105,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'markdown' }, {
 })
 
 -- Python
-require('hare-conf').fn.editor.set_lang_config({ 'python' }, {
+require('hare-conf').fn.set_buffer_config({ 'python' }, {
   treesitter = { name = 'python' },
   lsp = { name = 'pyright' },
   formatter = { enabled = false },
@@ -112,7 +114,7 @@ require('hare-conf').fn.editor.set_lang_config({ 'python' }, {
 })
 
 -- Rust
-require('hare-conf').fn.editor.set_lang_config({ 'rust' }, {
+require('hare-conf').fn.set_buffer_config({ 'rust' }, {
   treesitter = { name = 'rust' },
   lsp = { name = 'rust-analyzer' },
   linter = { name = 'bacon' },
@@ -121,35 +123,35 @@ require('hare-conf').fn.editor.set_lang_config({ 'rust' }, {
 })
 
 -- SQL
-require('hare-conf').fn.editor.set_lang_config({ 'sql' }, {
+require('hare-conf').fn.set_buffer_config({ 'sql' }, {
   treesitter = { name = 'sql' },
   lsp = { name = 'sqls' },
   formatter = { name = 'sqruff' },
 })
 
 -- Svelte
-require('hare-conf').fn.editor.set_lang_config({ 'svelte' }, {
+require('hare-conf').fn.set_buffer_config({ 'svelte' }, {
   treesitter = { name = 'svelte' },
   lsp = { name = 'svelte' },
   formatter = { name = 'prettier' },
 })
 
 -- systemd
-require('hare-conf').fn.editor.set_lang_config({ 'systemd' }, {
+require('hare-conf').fn.set_buffer_config({ 'systemd' }, {
   lsp = { name = 'systemd_ls' },
   linter = { name = 'systemdlint' },
   tab = { width = 8 },
 })
 
 -- TOML
-require('hare-conf').fn.editor.set_lang_config({ 'toml' }, {
+require('hare-conf').fn.set_buffer_config({ 'toml' }, {
   treesitter = { name = 'toml' },
   lsp = { name = 'taplo' },
   formatter = { name = 'taplo' },
 })
 
 -- JavaScript/TypeScript/JSX/TSX
-require('hare-conf').fn.editor.set_lang_config({
+require('hare-conf').fn.set_buffer_config({
   'javascript',
   'typescript',
   'javascriptreact',
@@ -163,95 +165,96 @@ require('hare-conf').fn.editor.set_lang_config({
 })
 
 -- Typos (Spell checker)
-require('hare-conf').fn.editor.set_lang_config({ '*' }, {
+require('hare-conf').fn.set_buffer_config({ '*' }, {
   lsp = { name = 'typos_lsp' },
 })
 
 -- YAML
-require('hare-conf').fn.editor.set_lang_config({ 'yaml', 'yml' }, {
+require('hare-conf').fn.set_buffer_config({ 'yaml', 'yml' }, {
   treesitter = { name = 'yaml' },
   lsp = { name = 'yamlls' },
   linter = { name = 'yamllint' },
   formatter = { name = 'prettier' },
 })
 
--- Collect all languages configuration
----@type HareConfEditorLang[]
-local lang_configs = {}
-local hare_conf = require 'hare-conf'
-for lang_name, _ in pairs(hare_conf.config.editor.lang) do
-  local lang_config = hare_conf.fn.editor.get_lang_config(lang_name)
-  table.insert(lang_configs, lang_config)
-end
-
--- Automatically install treesitters
-local treesitter_names = {}
-for _, lang_config in pairs(lang_configs) do
-  if lang_config.treesitter then
-    table.insert(treesitter_names, lang_config.treesitter.name)
-  end
-end
-
-local treesitter = require 'nvim-treesitter.configs'
----@diagnostic disable-next-line: missing-fields
-treesitter.setup {
-  ensure_installed = treesitter_names,
-  auto_install = true,
-}
-
--- Automatically install LSPs, Debuggers, Linters, and Formatters
-local add_tool_name = function(name_list, tool_entry)
-  if tool_entry and tool_entry.enabled then
-    local tool_name = tool_entry.name
-    if not vim.tbl_contains(name_list, tool_name) then
-      table.insert(name_list, tool_entry.name)
-    end
-  end
-end
-local tool_names = {}
-for _, lang_config in pairs(lang_configs) do
-  add_tool_name(tool_names, lang_config.lsp)
-  add_tool_name(tool_names, lang_config.linter)
-  add_tool_name(tool_names, lang_config.formatter)
-end
-
-local mappings =
-  require('mason-lspconfig.mappings').get_mason_map().lspconfig_to_package
-local function resolve_mason_name(name)
-  return mappings[name] or name
-end
-
-for _, tool_name in ipairs(tool_names) do
-  local ok, pkg = pcall(require('mason-registry').get_package, tool_name)
-  if not ok then
-    local mason_name = resolve_mason_name(tool_name)
-    local ok2, pkg2 = pcall(require('mason-registry').get_package, mason_name)
-    if not ok2 then
-      vim.notify('Mason: package not found: ' .. tool_name, vim.log.levels.WARN)
-    else
-      if not pkg2:is_installed() then
-        vim.notify(
-          'Mason: Installing: ' .. tool_name .. '(' .. mason_name .. ')'
-        )
-        pkg2:install()
-      end
-    end
-  else
-    if not pkg:is_installed() then
-      vim.notify('Mason: Installing: ' .. tool_name)
-      pkg:install()
-    end
-  end
-end
-
--- Enable LSPs
-for _, lang_config in pairs(lang_configs) do
-  if
-    lang_config.lsp
-    and lang_config.lsp.enabled
-    and lang_config.lsp.name
-    and lang_config.lsp.name ~= ''
-  then
-    vim.lsp.enable(lang_config.lsp.name)
-  end
-end
+-- -- Collect all languages configuration
+-- ---@type HareConfEditorLang[]
+-- local lang_configs = {}
+-- local hare_conf = require 'hare-conf'
+-- for lang_name, _ in pairs(hare_conf.config.editor.lang) do
+--   local lang_config = hare_conf.fn.editor.get_lang_config(lang_name)
+--   table.insert(lang_configs, lang_config)
+-- end
+--
+-- -- Automatically install treesitters
+-- local treesitter_names = {}
+-- for _, lang_config in pairs(lang_configs) do
+--   if lang_config.treesitter then
+--     table.insert(treesitter_names, lang_config.treesitter.name)
+--   end
+-- end
+--
+-- local treesitter = require 'nvim-treesitter.configs'
+-- ---@diagnostic disable-next-line: missing-fields
+-- treesitter.setup {
+--   ensure_installed = treesitter_names,
+--   auto_install = true,
+-- }
+--
+-- -- Automatically install LSPs, Debuggers, Linters, and Formatters
+-- local add_tool_name = function(name_list, tool_entry)
+--   if tool_entry and tool_entry.enabled then
+--     local tool_name = tool_entry.name
+--     if not vim.tbl_contains(name_list, tool_name) then
+--       table.insert(name_list, tool_entry.name)
+--     end
+--   end
+-- end
+-- local tool_names = {}
+-- for _, lang_config in pairs(lang_configs) do
+--   add_tool_name(tool_names, lang_config.lsp)
+--   add_tool_name(tool_names, lang_config.linter)
+--   add_tool_name(tool_names, lang_config.formatter)
+-- end
+--
+-- local mappings =
+--   require('mason-lspconfig.mappings').get_mason_map().lspconfig_to_package
+-- local function resolve_mason_name(name)
+--   return mappings[name] or name
+-- end
+--
+-- for _, tool_name in ipairs(tool_names) do
+--   local ok, pkg = pcall(require('mason-registry').get_package, tool_name)
+--   if not ok then
+--     local mason_name = resolve_mason_name(tool_name)
+--     local ok2, pkg2 = pcall(require('mason-registry').get_package, mason_name)
+--     if not ok2 then
+--       vim.notify('Mason: package not found: ' .. tool_name, vim.log.levels.WARN)
+--     else
+--       if not pkg2:is_installed() then
+--         vim.notify(
+--           'Mason: Installing: ' .. tool_name .. '(' .. mason_name .. ')'
+--         )
+--         pkg2:install()
+--       end
+--     end
+--   else
+--     if not pkg:is_installed() then
+--       vim.notify('Mason: Installing: ' .. tool_name)
+--       pkg:install()
+--     end
+--   end
+-- end
+--
+-- -- Enable LSPs
+-- for _, lang_config in pairs(lang_configs) do
+--   if
+--     lang_config.lsp
+--     and lang_config.lsp.enabled
+--     and lang_config.lsp.name
+--     and lang_config.lsp.name ~= ''
+--   then
+--     vim.lsp.enable(lang_config.lsp.name)
+--   end
+-- end
+vim.lsp.enable 'lua'
