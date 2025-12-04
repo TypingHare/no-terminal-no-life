@@ -158,6 +158,8 @@ require('hare-conf').fn.editor.set_lang_config({
   lsp = { name = 'ts_ls' },
   linter = { name = 'eslint-lsp' },
   formatter = { name = 'prettier' },
+  tab = { width = 4 },
+  color_column = { width = 100 },
 })
 
 -- Typos (Spell checker)

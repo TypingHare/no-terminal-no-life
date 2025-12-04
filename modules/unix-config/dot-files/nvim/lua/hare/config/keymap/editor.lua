@@ -26,6 +26,13 @@ vim.keymap.set(
 
 ----------------------------------- Coding -------------------------------------
 
+vim.keymap.set(
+  'n',
+  '<leader>ce',
+  ':e!<CR>',
+  { desc = 'Refresh File', silent = true }
+)
+
 -- Format the current file
 vim.keymap.set(
   'n',
@@ -34,7 +41,7 @@ vim.keymap.set(
   { desc = 'Format File', silent = true }
 )
 
--- Rename the idenifier under the cursor
+-- Rename the identifier under the cursor
 vim.keymap.set(
   'n',
   '<leader>cr',

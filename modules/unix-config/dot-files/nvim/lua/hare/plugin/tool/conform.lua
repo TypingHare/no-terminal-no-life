@@ -9,6 +9,9 @@ return {
       lua = { 'stylua' },
       json = { 'prettier' },
       jsonc = { 'prettier' },
+      html = { 'prettier' },
+      javascript = { 'prettier' },
+      typescript = { 'prettier' },
     },
   },
 }
