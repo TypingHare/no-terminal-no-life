@@ -1,5 +1,9 @@
 -- Use HareConf builtin functions
-local hc = require 'hare-conf'
+local ok, hc = pcall(require, 'hare-conf')
+if not ok then
+    return
+end
+
 hc.builtin.apply_config(hc.config)
 hc.builtin.enable_languages_in_config()
 hc.builtin.install_treesitters()

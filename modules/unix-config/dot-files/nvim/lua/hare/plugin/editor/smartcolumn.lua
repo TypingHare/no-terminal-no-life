@@ -4,27 +4,36 @@
 -- [https://github.com/m4xshen/smartcolumn.nvim]
 
 return {
-  'm4xshen/smartcolumn.nvim',
-  config = true,
-  opts = {
-    custom_colorcolumn = function()
-      -- local ft = vim.bo.filetype
-      -- local bt = vim.bo.buftype
-      -- local hare_conf = require 'hare-conf'
-      -- local exclude_buftypes = hare_conf.config.system.buffer.exclude_types
-      -- local exclude_filetypes = hare_conf.config.system.file.exclude_types
-      -- local editor_lang_conf = hare_conf.fn.editor.get_lang_config(ft)
-      --
-      -- if
-      --   vim.tbl_contains(exclude_filetypes, ft)
-      --   or vim.tbl_contains(exclude_buftypes, bt)
-      --   or not editor_lang_conf.color_column.enabled
-      -- then
-      --   return '4096'
-      -- else
-      --   return tostring(editor_lang_conf.color_column.width or 80)
-      -- end
-      return '100'
-    end,
-  },
+    'm4xshen/smartcolumn.nvim',
+    config = true,
+    opts = {
+        custom_colorcolumn = function()
+            local MAX_WIDTH = '4096'
+            local DEFAULT_WIDTH = 100
+
+            local ok, hc = pcall(require, 'hare-conf')
+            if not ok then
+                return tostring(DEFAULT_WIDTH)
+            end
+
+            local filetype = vim.bo.filetype
+            local exclude_filetypes = hc.config.system.filetype.exclude
+            if vim.tbl_contains(exclude_filetypes, filetype) then
+                return MAX_WIDTH
+            end
+
+            local buftype = vim.bo.buftype
+            local exclude_buftypes = hc.config.system.buftype.exclude
+            if vim.tbl_contains(exclude_buftypes, buftype) then
+                return MAX_WIDTH
+            end
+
+            local buffer_config = hc.fn.get_buffer_config(filetype)
+            if buffer_config.ruler.enabled then
+                return tostring(buffer_config.ruler.columns[1] or DEFAULT_WIDTH)
+            else
+                return MAX_WIDTH
+            end
+        end,
+    },
 }

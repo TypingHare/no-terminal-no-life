@@ -1,5 +1,6 @@
 return {
     'nvim-neo-tree/neo-tree.nvim',
+    commit = 'f3df514',
     dependencies = {
         'nvim-lua/plenary.nvim',
         'MunifTanjim/nui.nvim',
