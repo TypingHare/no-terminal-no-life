@@ -1,5 +1,2 @@
 # macOS system files
 .DS_Store
-
-# Neoconf
-neoconf.json

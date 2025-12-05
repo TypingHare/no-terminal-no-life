@@ -6,13 +6,7 @@ return {
     json = {
       schemas = {
         require('schemastore').json.schemas(),
-        {
-          description = 'hare-config schema',
-          fileMatch = { 'neoconf.json' },
-          url = 'file://'
-            .. require('lazy.core.config').plugins['hare-conf.nvim'].dir
-            .. '/schemas/hare-conf.schema.json',
-        },
+        require('hare-conf').fn.get_json_schema(),
       },
       validate = { enable = true },
     },

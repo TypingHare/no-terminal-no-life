@@ -25,6 +25,5 @@ require('lazy').setup {
     { import = 'hare.plugin.editor' },
     { import = 'hare.plugin.theme' },
     { import = 'hare.plugin.lang' },
-    { name="hare-conf", dir = '/Users/james/hare-conf.nvim/'}
   },
 }

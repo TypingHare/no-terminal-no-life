@@ -33,7 +33,7 @@ vim.keymap.set(
   { desc = 'Startup Time', silent = true }
 )
 
--- Show Noice hisotry
+-- Show Noice history
 vim.keymap.set(
   'n',
   '<leader>h',
