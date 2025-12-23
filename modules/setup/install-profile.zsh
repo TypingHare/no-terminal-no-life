@@ -3,8 +3,10 @@
 ZSHRC_PATH="$HOME/.zshrc"
 
 echo "Setting up no-terminal-no-life (NTNL) profiles..."
-export NTNL="$HOME/.ntnl"
-echo "\n# NTNL" >> "$HOME/.zshrc"
+export NTNL_HOME="$HOME/.ntnl"
+
+# Write to .zshrc
+echo "\n# NTNL_HOME" >> "$HOME/.zshrc"
 echo "export NTNL_HOME=\$HOME/.ntnl" >> "$HOME/.zshrc"
 
 # Build and append unix profile
@@ -23,7 +25,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     >> "$ZSHRC_PATH"
 fi
 
-# Append final newline to .zshrc
+# Append a newline to .zshrc
 echo "" >> "$ZSHRC_PATH"
 
 printf '%s\n' ${(l:80::-:)}

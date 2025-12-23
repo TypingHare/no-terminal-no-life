@@ -27,10 +27,10 @@ return {
   -- [https://wezterm.org/colorschemes/index.html]
   -- color_scheme = 'Dark Pastel (Gogh)',
 
-  -- To check all the fonts WezTerm uses, run `wezterm ls-font`
-  -- For more information, run `wezterm ls-font --text "Test"`
+  -- To check all the fonts WezTerm uses, run `wezterm ls-fonts`
+  -- For more information, run `wezterm ls-fonts --text "Test"`
   font = wezterm.font_with_fallback {
-    'JetBrainsMonoNL Nerd Font Mono',
+    --'JetBrainsMono Nerd Font Mono',
     'FiraCode Nerd Font',
     'SF Mono',
   },
@@ -40,8 +40,8 @@ return {
   line_height = 1.2,
 
   -- Window layout and styles
-  window_background_opacity = 0.80,
-  macos_window_background_blur = 20,
+  window_background_opacity = 0.85,
+  macos_window_background_blur = 30,
   window_decorations = 'RESIZE',
   window_padding = {
     left = 0,
