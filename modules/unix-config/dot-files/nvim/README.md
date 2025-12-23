@@ -1,1 +1,0 @@
-# NTNL Neovim Configuration
