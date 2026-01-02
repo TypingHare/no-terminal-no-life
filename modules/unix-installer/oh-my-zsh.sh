@@ -6,7 +6,11 @@
 # Oh My Zsh Installer Script (Unix with ZSH)
 # This script installs Oh My Zsh, an open source and community-driven framework
 # for managing Zsh configuration.
+#
+# Prerequisites: curl, Git (git)
 ################################################################################
+
+set -euo pipefail
 
 # Remove the Oh My Zsh directory if it exists
 rm -rf ~/.oh-my-zsh
@@ -35,8 +39,5 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh-autocomplete configuration
 zstyle ':autocomplete:*' min-input 4
-
-# Initialize zsh completion system
-autoload -Uz compinit && compinit
 
 EOF

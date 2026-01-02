@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-set -euo pipefail
 
 ################################################################################
 # COPYRIGHT (c) 2025 James Chen
@@ -11,6 +10,8 @@ set -euo pipefail
 #
 # Prerequisites: git, make, cmake, sudo
 ################################################################################
+
+set -euo pipefail
 
 DEST_DIR="${DEST_DIR:-$HOME/.cache/neovim}"
 LATEST_RELEASE_BRANCH="${LATEST_RELEASE_BRANCH:-release-0.11}"

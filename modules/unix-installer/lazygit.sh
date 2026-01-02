@@ -10,6 +10,8 @@
 # the system.
 ################################################################################
 
+set -euo pipefail
+
 # Get the latest version of lazygit
 LAZYGIT_VERSION=$(
   curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" |
