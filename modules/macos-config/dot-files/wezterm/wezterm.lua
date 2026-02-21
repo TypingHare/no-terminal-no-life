@@ -40,8 +40,8 @@ return {
   line_height = 1.2,
 
   -- Window layout and styles
-  window_background_opacity = 0.85,
-  macos_window_background_blur = 30,
+  window_background_opacity = 0.80,
+  macos_window_background_blur = 25,
   window_decorations = 'RESIZE',
   window_padding = {
     left = 0,
