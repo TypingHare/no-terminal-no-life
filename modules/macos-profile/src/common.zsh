@@ -17,6 +17,8 @@ finder() {
     fi
 }
 
+alias f='finder'
+
 # Print the home directory contents excluding capitalized items.
 home() {
     # Always go to $HOME
@@ -33,3 +35,7 @@ home() {
 
 # Open an application.
 alias app="open -a"
+
+# Release directory.
+export RELEASE_DIR="$HOME/release"
+alias release="cd $RELEASE_DIR"
