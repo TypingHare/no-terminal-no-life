@@ -30,8 +30,8 @@ return {
     -- To check all the fonts WezTerm uses, run `wezterm ls-fonts`
     -- For more information, run `wezterm ls-fonts --text "Test"`
     font = wezterm.font_with_fallback {
-        'psudoFont Liga Mono',
         '0xProto Nerd Font',
+        'psudoFont Liga Mono',
         'FiraCode Nerd Font',
         'JetBrainsMono Nerd Font Mono',
         'SF Mono',
