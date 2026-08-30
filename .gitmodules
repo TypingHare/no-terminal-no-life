@@ -1,3 +1,0 @@
-[submodule "modules/unix-config/dot-files/nvim"]
-	path = modules/unix-config/dot-files/nvim
-	url = https://github.com/TypingHare/hare-vim.git

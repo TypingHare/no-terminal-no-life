@@ -39,10 +39,10 @@ return {
 
     -- Text style
     font_size = 14.0,
-    line_height = 1.2,
+    line_height = 1.0,
 
     -- Window layout and styles
-    window_background_opacity = 0.80,
+    window_background_opacity = 0.82,
     macos_window_background_blur = 25,
     window_decorations = 'RESIZE',
     window_padding = {

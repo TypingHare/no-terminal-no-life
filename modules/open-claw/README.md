@@ -9,17 +9,6 @@ Download Docker from the [official website][1] and install.
 Start Docker application/service. Run the following command to install the [kasmweb/desktop][2] (Ubuntu) image.
 
 ```bash
-docker run \
-    -p 2222:22 \
-    -p 6901:6901 \
-    -e VNC_PASSWORD=123456 \
-    -e RESOLUTION=1920x1080 \
-    -v /dev/shm:/dev/shm \
-    --platform linux/arm64 \
-    --name="ubuntu-desktop" \
-    --shm-size=4g \
-    kasmweb/desktop:1.18.0
-
 docker run -it \
     -p 2222:22 \
     -p 6901:6901 \
@@ -45,6 +34,16 @@ sudo service ssh start
 sudo service ssh enable
 ```
 
+Add this to `/dockerstartup/custom_startup.sh`:
+
+```bash
+#!/bin/bash
+/usr/bin/desktop_ready
+
+mkdir -p /run/sshd
+/usr/sbin/sshd
+```
+
 ## Install OpenClaw
 
 ```bash
@@ -65,6 +64,24 @@ make -j$(nproc)
 
 ```bash
 openclaw onboard --install-daemon
+```
+
+## Start the image
+
+```bash
+docker start ubuntu-desktop
+```
+
+Access the virtual machine desktop on default browser:
+
+```bash
+open https://localhost:6901
+```
+
+## Adjust resolutions
+
+```bash
+DISPLAY=:1 xrandr --output VNC-0 --mode 1920x1200 || true
 ```
 
 [1]: https://www.docker.com/products/docker-desktop/
